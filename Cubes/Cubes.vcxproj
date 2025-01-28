@@ -14,10 +14,6 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\Cubes.h" />
-    <ClInclude Include="src\Cubes\Core.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9740FD0C-0355-25BE-CCD6-C81D38AA21EF}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
@@ -94,6 +90,9 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Cubes\Cubes.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y ..\bin\Debug-windows-x86_64\Cubes\Cubes.dll "..\bin\Debug-windows-x86_64\VoxelGame\Cubes.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -115,6 +114,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ImportLibrary>..\bin\Release-windows-x86_64\Cubes\Cubes.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y ..\bin\Release-windows-x86_64\Cubes\Cubes.dll "..\bin\Release-windows-x86_64\VoxelGame\Cubes.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
@@ -136,7 +138,16 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ImportLibrary>..\bin\Dist-windows-x86_64\Cubes\Cubes.lib</ImportLibrary>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /B /Y ..\bin\Dist-windows-x86_64\Cubes\Cubes.dll "..\bin\Dist-windows-x86_64\VoxelGame\Cubes.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Cubes.h" />
+    <ClInclude Include="src\Cubes\Application.h" />
+    <ClInclude Include="src\Cubes\Core.h" />
+    <ClInclude Include="src\Cubes\Entrypoint.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

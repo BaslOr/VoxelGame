@@ -40,7 +40,7 @@ project "Cubes"
         }
 
         postbuildcommands {
-            --"{COPYFILE} %{cfg.buildtarget.abspath} \"../bin/" .. outputdir .. "/VoxelGame/Cubes.dll\""
+            "{COPYFILE} %{cfg.buildtarget.abspath} \"../bin/" .. outputdir .. "/VoxelGame/Cubes.dll\""
         }
         
 
