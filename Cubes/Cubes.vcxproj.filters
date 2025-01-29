@@ -13,6 +13,17 @@
     <ClInclude Include="src\Cubes\Core.h">
       <Filter>Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Entrypoint.h" />
+    <ClInclude Include="src\Cubes\Entrypoint.h">
+      <Filter>Cubes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Utility\Log.h">
+      <Filter>Cubes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Cubes\Utility\Log.cpp">
+      <Filter>Cubes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Application.cpp" />
   </ItemGroup>
 </Project>

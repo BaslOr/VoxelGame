@@ -26,7 +26,7 @@ project "Cubes"
     }
 
     includedirs {
-
+        "%{prj.name}/vendor/spdlog/include"
     }
 
     filter "system:windows"
@@ -74,7 +74,8 @@ project "VoxelGame"
     }
 
     includedirs {
-        "Cubes/src"
+        "Cubes/src",
+        "Cubes/vendor/spdlog/include"
     }
 
     links "Cubes"

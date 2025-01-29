@@ -7,3 +7,5 @@
 #else
 #error Cubes only supports Windows!
 #endif // CB_PLATFORM_WINDOWS
+
+//#define _CRT_UTF8
