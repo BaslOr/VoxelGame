@@ -26,8 +26,7 @@ project "Cubes"
     }
 
     includedirs {
-        "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/vendor/GLFW/include"
+        "%{prj.name}/vendor/spdlog/include"
     }
 
     links { }
@@ -80,8 +79,7 @@ project "VoxelGame"
 
     includedirs {
         "Cubes/src",
-        "Cubes/vendor/spdlog/include",
-        "Cubes/vendor/GLFW/include"
+        "Cubes/vendor/spdlog/include"
     }
 
     links {

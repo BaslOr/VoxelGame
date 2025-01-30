@@ -37,6 +37,9 @@
     <ClInclude Include="src\Cubes\Utility\Log.h">
       <Filter>Cubes\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Utility\Window.h">
+      <Filter>Cubes\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">
@@ -46,6 +49,9 @@
       <Filter>Cubes\Events</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Utility\Log.cpp">
+      <Filter>Cubes\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Utility\Window.cpp">
       <Filter>Cubes\Utility</Filter>
     </ClCompile>
   </ItemGroup>
