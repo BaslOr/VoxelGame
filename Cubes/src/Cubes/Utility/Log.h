@@ -21,3 +21,16 @@ namespace Cubes {
 	};
 
 }
+
+//Engine Logger Makros
+#define CB_CORE_ERROR(...) ::Cubes::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define CB_CORE_WARN(...)  ::Cubes::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define CB_CORE_INFO(...)  ::Cubes::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define CB_CORE_TRACE(...) ::Cubes::Log::GetCoreLogger()->trace(__VA_ARGS__)
+
+
+//Client Log Makros
+#define CB_ERROR(...) ::Cubes::Log::GetClientLogger()->error(__VA_ARGS__)
+#define CB_WARN(...)  ::Cubes::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define CB_INFO(...)  ::Cubes::Log::GetClientLogger()->info(__VA_ARGS__)
+#define CB_TRACE(...) ::Cubes::Log::GetClientLogger()->trace(__VA_ARGS__)

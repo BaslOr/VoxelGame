@@ -26,11 +26,16 @@ project "Cubes"
     }
 
     includedirs {
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{prj.name}/vendor/GLFW/include"
     }
+
+    links { }
 
     filter "system:windows"
         cppdialect "C++17"
+        buildoptions { "/utf-8" }
+        characterset "Unicode"
         staticruntime "On"
         systemversion "latest"
 
@@ -44,17 +49,17 @@ project "Cubes"
         }
         
 
-        filter "configurations:Debug"
-            defines "CB_DEBUG"
-            symbols "On"
+    filter "configurations:Debug"
+        defines "CB_DEBUG"
+        symbols "On"
 
-        filter "configurations:Release"
-            defines "CB_RELEASE"
-            optimize "On"
+    filter "configurations:Release"
+        defines "CB_RELEASE"
+        optimize "On"
 
-        filter "configurations:Dist"
-            defines "CB_DIST"
-            optimize "On"
+    filter "configurations:Dist"
+        defines "CB_DIST"
+        optimize "On"
 
 
 
@@ -75,28 +80,33 @@ project "VoxelGame"
 
     includedirs {
         "Cubes/src",
-        "Cubes/vendor/spdlog/include"
+        "Cubes/vendor/spdlog/include",
+        "Cubes/vendor/GLFW/include"
     }
 
-    links "Cubes"
+    links {
+        "Cubes"
+    }
 
     filter "system:windows"
         cppdialect  "C++17"
         staticruntime "On"
         systemversion "latest"
+        buildoptions { "/utf-8" }
+        characterset "Unicode"
 
         defines {
             "CB_PLATFORM_WINDOWS"
         }
 
-        filter "configurations:Debug"
-            defines "CB_DEBUG"
-            symbols "On"
+    filter "configurations:Debug"
+        defines "CB_DEBUG"
+        symbols "On"
 
-        filter "configurations:Release"
-            defines "CB_RELEASE"
-            optimize "On"
+    filter "configurations:Release"
+        defines "CB_RELEASE"
+        optimize "On"
 
-        filter "configurations:Dist"
-            defines "CB_DIST"
-            optimize "On"
+    filter "configurations:Dist"
+        defines "CB_DIST"
+        optimize "On"

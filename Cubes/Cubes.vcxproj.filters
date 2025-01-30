@@ -4,6 +4,12 @@
     <Filter Include="Cubes">
       <UniqueIdentifier>{9740FD0C-0355-25BE-CCD6-C81D38AA21EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cubes\Events">
+      <UniqueIdentifier>{9B7CDF89-87DF-6E2E-3065-A7E41CA73AB1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cubes\Utility">
+      <UniqueIdentifier>{DAA50F91-4666-8BC7-0FA1-D4447B20D0A3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Cubes.h" />
@@ -16,14 +22,31 @@
     <ClInclude Include="src\Cubes\Entrypoint.h">
       <Filter>Cubes</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Events\ApplicationEvent.h">
+      <Filter>Cubes\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Events\Event.h">
+      <Filter>Cubes\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Events\KeyEvent.h">
+      <Filter>Cubes\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Events\MouseEvent.h">
+      <Filter>Cubes\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Utility\Log.h">
-      <Filter>Cubes</Filter>
+      <Filter>Cubes\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Cubes\Utility\Log.cpp">
+    <ClCompile Include="src\Cubes\Application.cpp">
       <Filter>Cubes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Application.cpp" />
+    <ClCompile Include="src\Cubes\Events\ApplicationEvent.cpp">
+      <Filter>Cubes\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Utility\Log.cpp">
+      <Filter>Cubes\Utility</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
