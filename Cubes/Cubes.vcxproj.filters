@@ -40,6 +40,9 @@
     <ClInclude Include="src\Cubes\Utility\Window.h">
       <Filter>Cubes\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Utility\cbpch.h">
+      <Filter>Cubes\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">
@@ -52,6 +55,9 @@
       <Filter>Cubes\Utility</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Utility\Window.cpp">
+      <Filter>Cubes\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Utility\cbpch.cpp">
       <Filter>Cubes\Utility</Filter>
     </ClCompile>
   </ItemGroup>

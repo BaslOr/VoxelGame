@@ -1,0 +1,46 @@
+﻿  Application.cpp
+  ApplicationEvent.cpp
+  Log.cpp
+C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(19,49): warning C4251: 'Cubes::Log::_coreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
+  (compiling source file 'src/Cubes/Utility/Log.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
+  see declaration of 'std::shared_ptr<spdlog::logger>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(20,49): warning C4251: 'Cubes::Log::_clientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
+  (compiling source file 'src/Cubes/Utility/Log.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
+  see declaration of 'std::shared_ptr<spdlog::logger>'
+  
+  Window.cpp
+  Generating Code...
+     Creating library ..\bin\Dist-windows-x86_64\Cubes\Cubes.lib and object ..\bin\Dist-windows-x86_64\Cubes\Cubes.exp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4217: symbol 'free' defined in 'libucrt.lib(free.obj)' is imported by 'GLFW.lib(init.obj)' in function 'defaultDeallocate'
+LINK : warning LNK4217: symbol 'free' defined in 'libucrt.lib(free.obj)' is imported by 'GLFW.lib(null_init.obj)' in function '_glfwConnectNull'
+LINK : warning LNK4217: symbol 'malloc' defined in 'libucrt.lib(malloc.obj)' is imported by 'GLFW.lib(init.obj)' in function 'defaultAllocate'
+LINK : warning LNK4217: symbol 'realloc' defined in 'libucrt.lib(realloc.obj)' is imported by 'GLFW.lib(init.obj)' in function 'defaultReallocate'
+LINK : warning LNK4217: symbol '__stdio_common_vsprintf' defined in 'libucrt.lib(output.obj)' is imported by 'GLFW.lib(init.obj)' in function '_glfwInputError'
+LINK : warning LNK4217: symbol '__stdio_common_vsprintf' defined in 'libucrt.lib(output.obj)' is imported by 'GLFW.lib(win32_joystick.obj)' in function '_glfwInitJoysticksWin32'
+LINK : warning LNK4217: symbol 'strcspn' defined in 'libucrt.lib(strcspn.obj)' is imported by 'GLFW.lib(input.obj)' in function 'glfwUpdateGamepadMappings'
+LINK : warning LNK4217: symbol 'strncmp' defined in 'libucrt.lib(strncmp.obj)' is imported by 'GLFW.lib(input.obj)' in function 'parseMapping'
+LINK : warning LNK4286: symbol 'strncmp' defined in 'libucrt.lib(strncmp.obj)' is imported by 'GLFW.lib(context.obj)'
+LINK : warning LNK4286: symbol 'strncmp' defined in 'libucrt.lib(strncmp.obj)' is imported by 'GLFW.lib(egl_context.obj)'
+LINK : warning LNK4217: symbol 'strtoul' defined in 'libucrt.lib(strtox.obj)' is imported by 'GLFW.lib(input.obj)' in function 'parseMapping'
+LINK : warning LNK4217: symbol 'qsort' defined in 'libucrt.lib(qsort.obj)' is imported by 'GLFW.lib(monitor.obj)' in function 'refreshVideoModes'
+LINK : warning LNK4217: symbol 'qsort' defined in 'libucrt.lib(qsort.obj)' is imported by 'GLFW.lib(win32_joystick.obj)' in function '_glfwDetectJoystickDisconnectionWin32'
+GLFW.lib(window.obj) : error LNK2019: unresolved external symbol __imp_strncpy referenced in function glfwWindowHintString
+GLFW.lib(input.obj) : error LNK2001: unresolved external symbol __imp_strncpy
+GLFW.lib(monitor.obj) : error LNK2001: unresolved external symbol __imp_strncpy
+GLFW.lib(win32_joystick.obj) : error LNK2001: unresolved external symbol __imp_strncpy
+GLFW.lib(osmesa_context.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(vulkan.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(context.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(wgl_context.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(egl_context.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(window.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(input.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(win32_thread.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(monitor.obj) : error LNK2001: unresolved external symbol __imp__wassert
+GLFW.lib(input.obj) : error LNK2019: unresolved external symbol __imp_strspn referenced in function glfwUpdateGamepadMappings
+GLFW.lib(context.obj) : error LNK2019: unresolved external symbol __imp___stdio_common_vsscanf referenced in function sscanf
+..\bin\Dist-windows-x86_64\Cubes\Cubes.dll : fatal error LNK1120: 4 unresolved externals

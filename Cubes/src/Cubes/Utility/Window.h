@@ -1,7 +1,5 @@
 #pragma once
 #include <GLFW/glfw3.h>
-#include <string>
-#include <memory>
 
 #include "../Core.h"
 
@@ -10,11 +8,13 @@ namespace Cubes {
 	class CB_API Window
 	{
 	public:
-		Window(int width, int height, std::string title);
+		Window(uint32_t width, uint32_t height, std::string title);
 		~Window();
 
-		int GetWidth() const;
-		int GetHeight() const;
+		void OnUpdate();
+
+		uint32_t GetWidth() const;
+		uint32_t GetHeight() const;
 
 		inline GLFWwindow* GetWindow() { return _window; }
 

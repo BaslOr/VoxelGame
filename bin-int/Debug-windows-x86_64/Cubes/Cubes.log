@@ -1,3 +1,26 @@
-﻿     Creating library ..\bin\Debug-windows-x86_64\Cubes\Cubes.lib and object ..\bin\Debug-windows-x86_64\Cubes\Cubes.exp
-  Cubes.vcxproj -> C:\Dev\VoxelGame\bin\Debug-windows-x86_64\Cubes\Cubes.dll
-          1 Datei(en) kopiert.
+﻿cl : command line  warning D9025: overriding '/MTd' with '/MT'
+  Window.cpp
+libucrt.lib(exit.obj) : error LNK2005: _cexit already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(locks.obj) : error LNK2005: _lock_locales already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(locks.obj) : error LNK2005: _unlock_locales already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(onexit.obj) : error LNK2005: _crt_at_quick_exit already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(onexit.obj) : error LNK2005: _crt_atexit already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(onexit.obj) : error LNK2005: _execute_onexit_table already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(onexit.obj) : error LNK2005: _initialize_onexit_table already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(onexit.obj) : error LNK2005: _register_onexit_function already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(invalid_parameter.obj) : error LNK2005: _invalid_parameter_noinfo_noreturn already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(new_handler.obj) : error LNK2005: _callnewh already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(environment_initialization.obj) : error LNK2005: _initialize_narrow_environment already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(_file.obj) : error LNK2005: __acrt_iob_func already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(exception_filter.obj) : error LNK2005: _seh_filter_dll already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(errno.obj) : error LNK2005: _errno already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(localeconv.obj) : error LNK2005: localeconv already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(ctype.obj) : error LNK2005: __pctype_func already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(initctype.obj) : error LNK2005: ___lc_codepage_func already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(initctype.obj) : error LNK2005: ___lc_collate_cp_func already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(initctype.obj) : error LNK2005: ___lc_locale_name_func already defined in ucrtd.lib(ucrtbased.dll)
+libucrt.lib(initctype.obj) : error LNK2005: ___mb_cur_max_func already defined in ucrtd.lib(ucrtbased.dll)
+     Creating library ..\bin\Debug-windows-x86_64\Cubes\Cubes.lib and object ..\bin\Debug-windows-x86_64\Cubes\Cubes.exp
+LINK : warning LNK4098: defaultlib 'ucrtd.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+..\bin\Debug-windows-x86_64\Cubes\Cubes.dll : fatal error LNK1169: one or more multiply defined symbols found

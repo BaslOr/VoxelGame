@@ -1,9 +1,10 @@
+#include "cbpch.h"
 #include "Window.h"
 
 namespace Cubes {
 
 
-	Window::Window(int width, int height, std::string title)
+	Window::Window(uint32_t width, uint32_t height, std::string title)
 	{
 		if(_windowCount == 0)
 			glfwInit();
@@ -21,7 +22,12 @@ namespace Cubes {
 			glfwTerminate();
 	}
 
-	int Window::GetWidth() const
+	void Window::OnUpdate()
+	{
+		glfwPollEvents();
+	}
+
+	uint32_t Window::GetWidth() const
 	{
 		int width;
 		glfwGetWindowSize(_window, &width, nullptr);
@@ -29,7 +35,7 @@ namespace Cubes {
 		return width;
 	}
 
-	int Window::GetHeight() const
+	uint32_t Window::GetHeight() const
 	{
 		int height;
 		glfwGetWindowSize(_window, nullptr, &height);
