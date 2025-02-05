@@ -7,8 +7,6 @@ public:
 	VoxelGame();
 	~VoxelGame();
 
-	void run() override;
-
 private:
 
 };

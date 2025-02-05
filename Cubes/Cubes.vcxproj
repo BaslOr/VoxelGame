@@ -165,16 +165,17 @@
     <ClInclude Include="src\Cubes\Events\MouseEvent.h" />
     <ClInclude Include="src\Cubes\Utility\Log.h" />
     <ClInclude Include="src\Cubes\Utility\Window.h" />
-    <ClInclude Include="src\Cubes\Utility\cbpch.h" />
+    <ClInclude Include="src\Cubes\cbpch.h" />
+    <ClInclude Include="src\Cubes\Platform\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp" />
     <ClCompile Include="src\Cubes\Events\ApplicationEvent.cpp" />
     <ClCompile Include="src\Cubes\Utility\Log.cpp" />
-    <ClCompile Include="src\Cubes\Utility\Window.cpp" />
-    <ClCompile Include="src\Cubes\Utility\cbpch.cpp">
+    <ClCompile Include="src\Cubes\cbpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Cubes\Platform\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

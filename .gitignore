@@ -1,6 +1,10 @@
 #Visual Studio
 /.vs
 
+#Binaries
+/bin
+/bin-int
+
 # Prerequisites
 *.d
 

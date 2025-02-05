@@ -10,7 +10,8 @@ namespace Cubes {
     public:
         Application();
         virtual ~Application();
-        virtual void run();
+        
+        void run();
 
     private:
         std::unique_ptr<Window> _window;

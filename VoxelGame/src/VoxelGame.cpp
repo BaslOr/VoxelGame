@@ -9,9 +9,3 @@ VoxelGame::~VoxelGame()
 {
 
 }
-
-void VoxelGame::run()
-{
-	while (true)
-		;
-}

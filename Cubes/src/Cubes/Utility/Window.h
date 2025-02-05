@@ -2,27 +2,40 @@
 #include <GLFW/glfw3.h>
 
 #include "../Core.h"
+#include "../Events/Event.h"
 
 namespace Cubes {
+
+	struct WindowProps
+	{
+		std::string Title;
+		uint32_t Width, Height;
+
+		WindowProps() {
+			Title = "New Window";
+			Width = 1280;
+			Height = 720;
+		}
+	};
 
 	class CB_API Window
 	{
 	public:
-		Window(uint32_t width, uint32_t height, std::string title);
-		~Window();
+		using EventCallbackFn = std::function<void(Event&)>;
 
-		void OnUpdate();
+		virtual ~Window() = default;
 
-		uint32_t GetWidth() const;
-		uint32_t GetHeight() const;
+		virtual void OnUpdate() = 0;
 
-		inline GLFWwindow* GetWindow() { return _window; }
+		virtual uint32_t GetWidth() const = 0;
+		virtual uint32_t GetHeight() const = 0;
 
-	private:
-		GLFWwindow* _window;
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
+		virtual void SetVSync(bool state) = 0;
+		virtual bool IsVSync() = 0;
+		
 
-		inline static uint32_t _windowCount = 0;
-
+		static Window* Create(const WindowProps& props = WindowProps());
 	};
 
 }

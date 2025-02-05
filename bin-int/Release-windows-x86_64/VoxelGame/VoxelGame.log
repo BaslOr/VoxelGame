@@ -1,17 +1,1 @@
-﻿  VoxelGame.cpp
-C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(18,49): warning C4251: 'Cubes::Log::_coreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
-  (compiling source file 'src/VoxelGame.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
-  see declaration of 'std::shared_ptr<spdlog::logger>'
-  
-C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(19,49): warning C4251: 'Cubes::Log::_clientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
-  (compiling source file 'src/VoxelGame.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
-  see declaration of 'std::shared_ptr<spdlog::logger>'
-  
-C:\Dev\VoxelGame\Cubes\src\Cubes\Application.h(16,33): warning C4251: 'Cubes::Application::_window': class 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>' needs to have dll-interface to be used by clients of class 'Cubes::Application'
-  (compiling source file 'src/VoxelGame.cpp')
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(3172,7):
-  see declaration of 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>'
-  
-  VoxelGame.vcxproj -> C:\Dev\VoxelGame\bin\Release-windows-x86_64\VoxelGame\VoxelGame.exe
+﻿  VoxelGame.vcxproj -> C:\Dev\VoxelGame\bin\Release-windows-x86_64\VoxelGame\VoxelGame.exe

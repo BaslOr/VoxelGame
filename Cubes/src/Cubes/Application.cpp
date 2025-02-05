@@ -7,7 +7,7 @@ namespace Cubes{
 	Application::Application()
 	{
 		Cubes::Log::init();
-		_window = std::make_unique<Window>(1280, 720, "Bin am kochen");
+		_window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
