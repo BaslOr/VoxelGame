@@ -4,8 +4,9 @@
 namespace Cubes {
 
     LayerStack::LayerStack()
-        : _layerInsert(_layerStack.begin())
-    { }
+    {
+        _layerInsert = _layerStack.begin();
+    }
 
 
 
@@ -19,7 +20,6 @@ namespace Cubes {
     void LayerStack::PushLayer(Layer* layer)
     {
         _layerStack.emplace(_layerInsert, layer);
-        ++_layerInsert;
     }
 
     void LayerStack::PushOverlay(Layer* overlay)
@@ -32,7 +32,7 @@ namespace Cubes {
         auto it = std::find(_layerStack.begin(), _layerStack.end(), layer);
         if (it != _layerStack.end()) {
             _layerStack.erase(it);
-            --_layerInsert;
+            _layerInsert--;
         }
     }
 
