@@ -3,6 +3,7 @@
 #include "Utility/Log.h"
 #include "Utility/Window.h"
 #include "Events/ApplicationEvent.h"
+#include "LayerStack.h"
 
 
 namespace Cubes {
@@ -15,13 +16,18 @@ namespace Cubes {
         void run();
 
         void OnEvent(Event& e);
+
+        void PushLayer(Layer* layer);
+        void PushOverlay(Layer* overlay);
+
     private:
         
         bool OnWindowClose(WindowCloseEvent& e);
 
         std::unique_ptr<Window> _window;
+        LayerStack _layerStack;
 
-        bool _isRunning;
+        bool _isRunning = true;
 
     };
 

@@ -140,12 +140,12 @@
     <ClInclude Include="src\VoxelGame.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\VoxelGame.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Cubes\Cubes.vcxproj">
       <Project>{9740FD0C-0355-25BE-CCD6-C81D38AA21EF}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\VoxelGame.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

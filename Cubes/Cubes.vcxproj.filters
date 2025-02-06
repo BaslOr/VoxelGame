@@ -7,6 +7,9 @@
     <Filter Include="Cubes\Events">
       <UniqueIdentifier>{9B7CDF89-87DF-6E2E-3065-A7E41CA73AB1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cubes\Platform">
+      <UniqueIdentifier>{CB16CF9B-B7E4-C2A1-A078-33C88CE59E06}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Cubes\Utility">
       <UniqueIdentifier>{DAA50F91-4666-8BC7-0FA1-D4447B20D0A3}</UniqueIdentifier>
     </Filter>
@@ -34,6 +37,15 @@
     <ClInclude Include="src\Cubes\Events\MouseEvent.h">
       <Filter>Cubes\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Layer.h">
+      <Filter>Cubes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\LayerStack.h">
+      <Filter>Cubes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Platform\WindowsWindow.h">
+      <Filter>Cubes\Platform</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Utility\Log.h">
       <Filter>Cubes\Utility</Filter>
     </ClInclude>
@@ -41,9 +53,8 @@
       <Filter>Cubes\Utility</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\cbpch.h">
-      <Filter>Cubes\Utility</Filter>
+      <Filter>Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Platform\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">
@@ -52,12 +63,20 @@
     <ClCompile Include="src\Cubes\Events\ApplicationEvent.cpp">
       <Filter>Cubes\Events</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cubes\Layer.cpp">
+      <Filter>Cubes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\LayerStack.cpp">
+      <Filter>Cubes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Platform\WindowsWindow.cpp">
+      <Filter>Cubes\Platform</Filter>
+    </ClCompile>
     <ClCompile Include="src\Cubes\Utility\Log.cpp">
       <Filter>Cubes\Utility</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\cbpch.cpp">
-      <Filter>Cubes\Utility</Filter>
+      <Filter>Cubes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Platform\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>

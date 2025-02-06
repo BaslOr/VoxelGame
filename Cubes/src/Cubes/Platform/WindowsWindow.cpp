@@ -5,7 +5,6 @@
 #include "../Events/KeyEvent.h"
 #include "../Events/MouseEvent.h"
 
-#include <GLFW/glfw3.h>
 
 namespace Cubes {
 
@@ -119,7 +118,7 @@ namespace Cubes {
     void WindowsWindow::OnUpdate()
     {
         glfwPollEvents();
-        glClearColor(.23f, .1f, .5f, 1.f);
+        glClearColor(.23f, .3, .5f, 1.f);
         glfwSwapBuffers(_window);
         glClear(GL_COLOR_BUFFER_BIT);
     }

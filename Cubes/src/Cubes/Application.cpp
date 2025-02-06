@@ -27,12 +27,26 @@ namespace Cubes{
 		
 	}
 
+	void Application::PushLayer(Layer* layer)
+	{
+		_layerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* overlay)
+	{
+		_layerStack.PushOverlay(overlay);
+	}
+
 
 	void Application::run()
 	{
-		_isRunning = true;
 		while (_isRunning) {
+			//Update
 			_window->OnUpdate();
+
+			for (Layer* layer : _layerStack)
+				layer->OnUpdate();
+
 		}
 	}
 
