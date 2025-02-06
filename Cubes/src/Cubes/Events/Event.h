@@ -55,7 +55,7 @@ namespace Cubes {
 		{
 			if (_event.GetEventType() == T::GetStaticType())
 			{
-				_event._Handled = func(*(T*)&_event);
+				_event._handled = func(*(T*)&_event);
 				return true;
 			}
 			return false;

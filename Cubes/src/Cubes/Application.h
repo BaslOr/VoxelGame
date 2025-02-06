@@ -2,6 +2,7 @@
 #include "Core.h"
 #include "Utility/Log.h"
 #include "Utility/Window.h"
+#include "Events/ApplicationEvent.h"
 
 
 namespace Cubes {
@@ -13,10 +14,15 @@ namespace Cubes {
         
         void run();
 
+        void OnEvent(Event& e);
     private:
+        
+        bool OnWindowClose(WindowCloseEvent& e);
+
         std::unique_ptr<Window> _window;
 
         bool _isRunning;
+
     };
 
 	//To be defined in Client

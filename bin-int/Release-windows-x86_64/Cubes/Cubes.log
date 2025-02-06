@@ -14,6 +14,18 @@ C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(19,49): warning C4251: 'Cubes::Lo
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
   see declaration of 'std::shared_ptr<spdlog::logger>'
   
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\WindowsWindow.cpp(102,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/Platform/WindowsWindow.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\WindowsWindow.cpp(102,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/Platform/WindowsWindow.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\WindowsWindow.cpp(109,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/Platform/WindowsWindow.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\WindowsWindow.cpp(109,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/Platform/WindowsWindow.cpp')
+  
      Creating library ..\bin\Release-windows-x86_64\Cubes\Cubes.lib and object ..\bin\Release-windows-x86_64\Cubes\Cubes.exp
   Cubes.vcxproj -> C:\Dev\VoxelGame\bin\Release-windows-x86_64\Cubes\Cubes.dll
           1 Datei(en) kopiert.
