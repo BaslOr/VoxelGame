@@ -7,8 +7,14 @@
     <Filter Include="Cubes\Events">
       <UniqueIdentifier>{9B7CDF89-87DF-6E2E-3065-A7E41CA73AB1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cubes\ImGUI">
+      <UniqueIdentifier>{C1868F80-2D3C-0876-B630-024D22E5FE79}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Cubes\Platform">
       <UniqueIdentifier>{CB16CF9B-B7E4-C2A1-A078-33C88CE59E06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cubes\Platform\OpenGL">
+      <UniqueIdentifier>{9FCDCA3F-0B3A-863A-D42D-1E984059A8A2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Cubes\Platform\Windows">
       <UniqueIdentifier>{055C4091-F155-69E3-DAC2-FFF3C65BCF4F}</UniqueIdentifier>
@@ -40,11 +46,17 @@
     <ClInclude Include="src\Cubes\Events\MouseEvent.h">
       <Filter>Cubes\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h">
+      <Filter>Cubes\ImGUI</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Layer.h">
       <Filter>Cubes</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\LayerStack.h">
       <Filter>Cubes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.h">
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h">
       <Filter>Cubes\Platform\Windows</Filter>
@@ -66,11 +78,17 @@
     <ClCompile Include="src\Cubes\Events\ApplicationEvent.cpp">
       <Filter>Cubes\Events</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cubes\ImGUI\ImGUILayer.cpp">
+      <Filter>Cubes\ImGUI</Filter>
+    </ClCompile>
     <ClCompile Include="src\Cubes\Layer.cpp">
       <Filter>Cubes</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\LayerStack.cpp">
       <Filter>Cubes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.cpp">
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp">
       <Filter>Cubes\Platform\Windows</Filter>

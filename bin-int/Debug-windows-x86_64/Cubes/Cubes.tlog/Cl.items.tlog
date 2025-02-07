@@ -1,7 +1,9 @@
 C:\Dev\VoxelGame\Cubes\src\Cubes\Application.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\Application.obj
 C:\Dev\VoxelGame\Cubes\src\Cubes\Events\ApplicationEvent.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\ApplicationEvent.obj
+C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\ImGUILayer.obj
 C:\Dev\VoxelGame\Cubes\src\Cubes\Layer.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\Layer.obj
 C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\LayerStack.obj
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\ImGUIOpenGLRenderer.obj
 C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\Windows\WindowsWindow.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\WindowsWindow.obj
 C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\Log.obj
 C:\Dev\VoxelGame\Cubes\src\Cubes\cbpch.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\cbpch.obj

@@ -8,6 +8,8 @@
 
 namespace Cubes {
 
+  
+
     class CB_API Application {
     public:
         Application();
@@ -20,8 +22,11 @@ namespace Cubes {
         void PushLayer(Layer* layer);
         void PushOverlay(Layer* overlay);
 
+        inline static Application& Get() { return *_instance; }
+        inline Window& GetWindow() { return *_window; }
+
     private:
-        
+
         bool OnWindowClose(WindowCloseEvent& e);
 
         std::unique_ptr<Window> _window;
@@ -29,6 +34,7 @@ namespace Cubes {
 
         bool _isRunning = true;
 
+        static Application* _instance;
     };
 
 	//To be defined in Client

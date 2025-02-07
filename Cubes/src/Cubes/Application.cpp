@@ -6,8 +6,14 @@ namespace Cubes{
 
 #define BIND_EVENT_FUNC(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::_instance = nullptr;
+
 	Application::Application()
 	{
+		if (_instance != nullptr)
+			CB_CORE_ERROR("Application already exists");
+		_instance = this;
+
 		Cubes::Log::init();
 		_window = std::unique_ptr<Window>(Window::Create());
 		_window->SetEventCallback(BIND_EVENT_FUNC(OnEvent));
@@ -34,11 +40,13 @@ namespace Cubes{
 	void Application::PushLayer(Layer* layer)
 	{
 		_layerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		_layerStack.PushOverlay(overlay);
+		overlay->OnAttach();
 	}
 
 

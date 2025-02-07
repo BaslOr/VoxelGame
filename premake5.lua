@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Cubes/vendor/GLFW/include"
 IncludeDir["glad"] = "Cubes/vendor/glad/include"
+IncludeDir["ImGUI"] = "Cubes/vendor/ImGUI"
 
 include "Cubes/vendor/GLFW"
 include "Cubes/vendor/glad"
+include "Cubes/vendor/ImGUI"
 
 project "Cubes"
     location "Cubes"
@@ -38,12 +40,14 @@ project "Cubes"
     includedirs {
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
+        "%{IncludeDir.ImGUI}",
         "%{IncludeDir.glad}"
     }
 
     links {
         "GLFW",
         "glad",
+        "ImGUI",
         "opengl32.lib"
     }
 
@@ -59,6 +63,7 @@ project "Cubes"
         defines {
             "CB_PLATFORM_WINDOWS",
             "CB_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands {
@@ -97,6 +102,7 @@ project "VoxelGame"
     includedirs {
         "Cubes/src",
         "Cubes/vendor/spdlog/include",
+        "%{IncludeDir.ImGUI}",
         "Cubes/vendor/GLFW/include"
     }
 
