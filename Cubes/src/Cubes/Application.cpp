@@ -24,7 +24,11 @@ namespace Cubes{
 
 		CB_CORE_INFO("{0}", e.ToString());
 
-		
+		for (auto it = _layerStack.end(); it != _layerStack.end();) {
+			(*--it)->OnEvent(e);
+			if (e.IsHandled())
+				break;
+		}
 	}
 
 	void Application::PushLayer(Layer* layer)

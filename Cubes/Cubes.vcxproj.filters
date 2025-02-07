@@ -10,6 +10,9 @@
     <Filter Include="Cubes\Platform">
       <UniqueIdentifier>{CB16CF9B-B7E4-C2A1-A078-33C88CE59E06}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cubes\Platform\Windows">
+      <UniqueIdentifier>{055C4091-F155-69E3-DAC2-FFF3C65BCF4F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Cubes\Utility">
       <UniqueIdentifier>{DAA50F91-4666-8BC7-0FA1-D4447B20D0A3}</UniqueIdentifier>
     </Filter>
@@ -43,8 +46,8 @@
     <ClInclude Include="src\Cubes\LayerStack.h">
       <Filter>Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Platform\WindowsWindow.h">
-      <Filter>Cubes\Platform</Filter>
+    <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h">
+      <Filter>Cubes\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Utility\Log.h">
       <Filter>Cubes\Utility</Filter>
@@ -69,8 +72,8 @@
     <ClCompile Include="src\Cubes\LayerStack.cpp">
       <Filter>Cubes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Platform\WindowsWindow.cpp">
-      <Filter>Cubes\Platform</Filter>
+    <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Cubes\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Utility\Log.cpp">
       <Filter>Cubes\Utility</Filter>

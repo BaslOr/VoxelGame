@@ -37,6 +37,8 @@ namespace Cubes {
 
 		inline bool IsInCategory(EventCategory category) { return GetCategoryFlags() & category; }
 
+		inline bool IsHandled() { return _handled; }
+
 	protected:
 		bool _handled = false;
 	};
