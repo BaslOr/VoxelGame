@@ -10,3 +10,4 @@
 
 #define BIT(x) 1 >> x
 
+#define CB_BIND_EVENT_FUNC(fn) std::bind(&fn, this, std::placeholders::_1)

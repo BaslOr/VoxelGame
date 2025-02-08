@@ -14,11 +14,6 @@ C:\Dev\VoxelGame\Cubes\src\Cubes\Layer.h(18,15): warning C4251: 'Cubes::Layer::_
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
   see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
   
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
-  (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
-  C:\Dev\VoxelGame\Cubes\vendor\GLFW\include\GLFW\glfw3.h(123,1):
-  see previous definition of 'APIENTRY'
-  
 C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(18,49): warning C4251: 'Cubes::Log::_coreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
   (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
@@ -52,10 +47,16 @@ C:\Dev\VoxelGame\Cubes\src\Cubes\Application.h(32,33): warning C4251: 'Cubes::Ap
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(3172,7):
   see declaration of 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>'
   
-C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp(64,80): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp(75,80): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
   (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
   
-C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp(64,51): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp(75,51): warning C4244: 'argument': conversion from 'uint32_t' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp(127,52): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp(127,37): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
   (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
   
   Cubes.vcxproj -> C:\Dev\VoxelGame\bin\Debug-windows-x86_64\Cubes\Cubes.dll

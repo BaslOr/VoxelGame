@@ -89,7 +89,7 @@ namespace Cubes {
                 }
                 case GLFW_RELEASE:
                 {
-                    MouseButtonPressedEvent e(button);
+                    MouseButtonReleasedEvent e(button);
                     data.EventCallback(e);
                     break;
                 }

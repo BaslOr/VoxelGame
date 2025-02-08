@@ -4,8 +4,6 @@
 
 namespace Cubes{
 
-#define BIND_EVENT_FUNC(x) std::bind(&Application::x, this, std::placeholders::_1)
-
 	Application* Application::_instance = nullptr;
 
 	Application::Application()
@@ -16,7 +14,7 @@ namespace Cubes{
 
 		Cubes::Log::init();
 		_window = std::unique_ptr<Window>(Window::Create());
-		_window->SetEventCallback(BIND_EVENT_FUNC(OnEvent));
+		_window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
 	}
 
 	Application::~Application()
@@ -26,11 +24,11 @@ namespace Cubes{
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNC(OnWindowClose));
+		dispatcher.Dispatch<WindowCloseEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowClose));
 
 		CB_CORE_INFO("{0}", e.ToString());
 
-		for (auto it = _layerStack.end(); it != _layerStack.end();) {
+		for (auto it = _layerStack.end(); it != _layerStack.begin();) {
 			(*--it)->OnEvent(e);
 			if (e.IsHandled())
 				break;

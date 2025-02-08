@@ -1,13 +1,13 @@
 #include "cbpch.h"
 #include <imgui.h>
 #include "ImGUILayer.h"
-#include <GLFW/glfw3.h>
 #include "../Application.h"
 
+//Temporary
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Cubes {
-
-
 
 	ImGUILayer::ImGUILayer()
 		: Layer("ImGUILayer")
@@ -26,6 +26,8 @@ namespace Cubes {
 		ImGuiIO& io = ImGui::GetIO();
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
+
+		io.FontGlobalScale = 1.5f;
 
 		// TEMPORARY: should eventually use CUBES key codes
 		io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB;
@@ -55,6 +57,15 @@ namespace Cubes {
 
 	void ImGUILayer::OnEvent(Event& e)
 	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<MouseButtonPressedEvent>(CB_BIND_EVENT_FUNC(ImGUILayer::OnMouseButtonPressedEvent));
+		dispatcher.Dispatch<MouseButtonReleasedEvent>(CB_BIND_EVENT_FUNC(ImGUILayer::OnMouseButtonReleasedEvent));
+		dispatcher.Dispatch<MouseMovedEvent>(CB_BIND_EVENT_FUNC(ImGUILayer::OnMouseMovedEvent));
+		dispatcher.Dispatch<MouseScrolledEvent>(CB_BIND_EVENT_FUNC(ImGUILayer::OnMouseScrollEvent));
+		dispatcher.Dispatch<WindowResizeEvent>(CB_BIND_EVENT_FUNC(ImGUILayer::OnWindowResizeEvent));
+		//dispatcher.Dispatch<KeyTypedEvent>(CB_BIND_EVENT_FUNC(ImGUILayer::OnKeyTypedEvent));
+		dispatcher.Dispatch<KeyReleasedEvent>(CB_BIND_EVENT_FUNC(ImGUILayer::OnKeyReleasedEvent));
+		dispatcher.Dispatch<KeyPressedEvent>(CB_BIND_EVENT_FUNC(ImGUILayer::OnKeyPressedEvent));
 	}
 
 	void ImGUILayer::OnUpdate()
@@ -75,6 +86,80 @@ namespace Cubes {
 
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	}
+
+	bool ImGUILayer::OnMouseButtonPressedEvent(MouseButtonPressedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[e.GetMouseButton()] = true;
+
+		return false;
+	}
+
+	bool ImGUILayer::OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseDown[e.GetMouseButton()] = false;
+
+		return false;
+	}
+
+	bool ImGUILayer::OnMouseMovedEvent(MouseMovedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MousePos = ImVec2(e.GetX(), e.GetY());
+
+		return false;
+	}
+
+	bool ImGUILayer::OnMouseScrollEvent(MouseScrolledEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.MouseWheelH += e.GetXOffset();
+		io.MouseWheel += e.GetYOffset();
+
+		return false;
+	}
+
+	bool ImGUILayer::OnWindowResizeEvent(WindowResizeEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.DisplaySize = ImVec2(e.GetWidth(), e.GetHeight());
+		io.DisplayFramebufferScale = ImVec2(1.f, 1.f);
+		glViewport(0, 0, e.GetWidth(), e.GetHeight());
+
+		return false;
+	}
+
+	bool ImGUILayer::OnKeyTypedEvent(KeyTypedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		int keycode = e.GetKeyCode();
+		if (keycode > 0 && keycode < 0x10000)
+			io.AddInputCharacter(static_cast<unsigned short>(keycode));
+
+		return false;
+	}
+
+	bool ImGUILayer::OnKeyPressedEvent(KeyPressedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[e.GetKeyCode()] = true; //TODO: Use Cubes Key Code
+
+		io.KeyCtrl = io.KeysDown[GLFW_KEY_LEFT_CONTROL] || io.KeysDown[GLFW_KEY_RIGHT_CONTROL];
+		io.KeyShift = io.KeysDown[GLFW_KEY_LEFT_SHIFT] || io.KeysDown[GLFW_KEY_RIGHT_SHIFT];
+		io.KeyAlt = io.KeysDown[GLFW_KEY_LEFT_ALT] || io.KeysDown[GLFW_KEY_RIGHT_ALT];
+		io.KeySuper = io.KeysDown[GLFW_KEY_LEFT_SUPER] || io.KeysDown[GLFW_KEY_RIGHT_SUPER];
+
+		return false;
+	}
+
+	bool ImGUILayer::OnKeyReleasedEvent(KeyReleasedEvent& e)
+	{
+		ImGuiIO& io = ImGui::GetIO();
+		io.KeysDown[e.GetKeyCode()] = false;
+
+		return false;
 	}
 
 }

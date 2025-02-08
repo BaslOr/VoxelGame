@@ -34,6 +34,21 @@ namespace Cubes {
 		int _RepeatCode;
 	};
 
+	class CB_API KeyTypedEvent : public KeyEvent
+	{
+	public:
+		KeyTypedEvent(int keycode)
+			: KeyEvent(keycode) {}
+		
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyPressedEvent: " << _KeyCode;
+			return ss.str();
+		}
+		EVENT_CLASS_TYPE(KeyPressed)
+	};
+
 	class CB_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
@@ -45,7 +60,7 @@ namespace Cubes {
 			ss << "KeyReleasedEvent: " << _KeyCode;
 			return ss.str();
 		}
-		EVENT_CLASS_TYPE(KeyReleased)
+		EVENT_CLASS_TYPE(KeyTyped)
 	};
 
 }
