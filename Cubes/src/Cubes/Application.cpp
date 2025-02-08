@@ -26,8 +26,6 @@ namespace Cubes{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowClose));
 
-		CB_CORE_INFO("{0}", e.ToString());
-
 		for (auto it = _layerStack.end(); it != _layerStack.begin();) {
 			(*--it)->OnEvent(e);
 			if (e.IsHandled())
@@ -56,6 +54,8 @@ namespace Cubes{
 
 			for (Layer* layer : _layerStack)
 				layer->OnUpdate();
+
+			CB_CORE_TRACE(Input::IsKeyDown(GLFW_KEY_N));
 
 		}
 	}

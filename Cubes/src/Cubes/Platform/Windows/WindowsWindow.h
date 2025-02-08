@@ -17,6 +17,8 @@ namespace Cubes {
 		inline uint32_t GetWidth() const override { return _data.Width; }
 		inline uint32_t GetHeight() const override { return _data.Height; }
 
+		inline void* GetNative() const override { return _window; }
+
 		inline void SetEventCallback(const EventCallbackFn& callback) override { _data.EventCallback = callback; }
 
 		void SetVSync(bool enabled) override;

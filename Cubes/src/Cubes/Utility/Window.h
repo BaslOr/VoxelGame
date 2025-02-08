@@ -30,6 +30,8 @@ namespace Cubes {
 		virtual uint32_t GetWidth() const = 0;
 		virtual uint32_t GetHeight() const = 0;
 
+		virtual void* GetNative() const = 0;
+
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool state) = 0;
 		virtual bool IsVSync() = 0;

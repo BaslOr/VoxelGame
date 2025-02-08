@@ -5,6 +5,7 @@
 #include "Cubes/Utility/Log.h"
 #include "Cubes/ImGUI/ImGUILayer.h"
 #include "Cubes/Events/Event.h"
+#include "Cubes/Input.h"
 
 //----------Entry Point-------------------------
 #include "Cubes/Entrypoint.h"

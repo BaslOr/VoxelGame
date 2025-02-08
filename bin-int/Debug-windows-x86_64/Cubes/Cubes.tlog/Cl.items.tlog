@@ -7,3 +7,4 @@ C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.cpp;C:\Dev\
 C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\Windows\WindowsWindow.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\WindowsWindow.obj
 C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\Log.obj
 C:\Dev\VoxelGame\Cubes\src\Cubes\cbpch.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\cbpch.obj
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\Windows\WindowsInput.cpp;C:\Dev\VoxelGame\bin-int\Debug-windows-x86_64\Cubes\WindowsInput.obj

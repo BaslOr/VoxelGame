@@ -1,4 +1,43 @@
-﻿  ImGUILayer.cpp
+﻿  Application.cpp
+C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(18,49): warning C4251: 'Cubes::Log::_coreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
+  (compiling source file '/src/Cubes/Application.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
+  see declaration of 'std::shared_ptr<spdlog::logger>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(19,49): warning C4251: 'Cubes::Log::_clientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
+  (compiling source file '/src/Cubes/Application.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
+  see declaration of 'std::shared_ptr<spdlog::logger>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Layer.h(18,15): warning C4251: 'Cubes::Layer::_debugName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Cubes::Layer'
+  (compiling source file '/src/Cubes/Application.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+  see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(22,23): warning C4251: 'Cubes::LayerStack::_layerStack': class 'std::vector<Cubes::Layer *,std::allocator<Cubes::Layer *>>' needs to have dll-interface to be used by clients of class 'Cubes::LayerStack'
+  (compiling source file '/src/Cubes/Application.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(436,7):
+  see declaration of 'std::vector<Cubes::Layer *,std::allocator<Cubes::Layer *>>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251: 'Cubes::LayerStack::_layerInsert': class 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>' needs to have dll-interface to be used by clients of class 'Cubes::LayerStack'
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:         with
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:         [
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:             _Ty=Cubes::Layer *
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:         ]
+  (compiling source file '/src/Cubes/Application.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(251,7):
+  see declaration of 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=Cubes::Layer *
+          ]
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Application.h(33,33): warning C4251: 'Cubes::Application::_window': class 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>' needs to have dll-interface to be used by clients of class 'Cubes::Application'
+  (compiling source file '/src/Cubes/Application.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(3172,7):
+  see declaration of 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>'
+  
+  ImGUILayer.cpp
 C:\Dev\VoxelGame\Cubes\vendor\ImGUI\imgui.h(74,1): warning C4005: 'IMGUI_VERSION': macro redefinition
   (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
   C:\Dev\VoxelGame\Cubes\vendor\ImGUI\imgui.h(25,1):
@@ -42,7 +81,7 @@ C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:         ]
               _Ty=Cubes::Layer *
           ]
   
-C:\Dev\VoxelGame\Cubes\src\Cubes\Application.h(32,33): warning C4251: 'Cubes::Application::_window': class 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>' needs to have dll-interface to be used by clients of class 'Cubes::Application'
+C:\Dev\VoxelGame\Cubes\src\Cubes\Application.h(33,33): warning C4251: 'Cubes::Application::_window': class 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>' needs to have dll-interface to be used by clients of class 'Cubes::Application'
   (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(3172,7):
   see declaration of 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>'
@@ -59,5 +98,82 @@ C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp(127,52): warning C4244: 'a
 C:\Dev\VoxelGame\Cubes\src\Cubes\ImGUI\ImGUILayer.cpp(127,37): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
   (compiling source file '/src/Cubes/ImGUI/ImGUILayer.cpp')
   
+  WindowsWindow.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsWindow.cpp')
+  C:\Dev\VoxelGame\Cubes\vendor\glad\include\glad\glad.h(32,1):
+  see previous definition of 'APIENTRY'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(18,49): warning C4251: 'Cubes::Log::_coreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsWindow.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
+  see declaration of 'std::shared_ptr<spdlog::logger>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(19,49): warning C4251: 'Cubes::Log::_clientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsWindow.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
+  see declaration of 'std::shared_ptr<spdlog::logger>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\Windows\WindowsWindow.cpp(102,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsWindow.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\Windows\WindowsWindow.cpp(102,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsWindow.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\Windows\WindowsWindow.cpp(109,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsWindow.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\Windows\WindowsWindow.cpp(109,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsWindow.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\Windows\WindowsWindow.cpp(122,28): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsWindow.cpp')
+  
+  WindowsInput.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsInput.cpp')
+  C:\Dev\VoxelGame\Cubes\vendor\GLFW\include\GLFW\glfw3.h(123,1):
+  see previous definition of 'APIENTRY'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(18,49): warning C4251: 'Cubes::Log::_coreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsInput.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
+  see declaration of 'std::shared_ptr<spdlog::logger>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(19,49): warning C4251: 'Cubes::Log::_clientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cubes::Log'
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsInput.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
+  see declaration of 'std::shared_ptr<spdlog::logger>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Layer.h(18,15): warning C4251: 'Cubes::Layer::_debugName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Cubes::Layer'
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsInput.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+  see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(22,23): warning C4251: 'Cubes::LayerStack::_layerStack': class 'std::vector<Cubes::Layer *,std::allocator<Cubes::Layer *>>' needs to have dll-interface to be used by clients of class 'Cubes::LayerStack'
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsInput.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(436,7):
+  see declaration of 'std::vector<Cubes::Layer *,std::allocator<Cubes::Layer *>>'
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251: 'Cubes::LayerStack::_layerInsert': class 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>' needs to have dll-interface to be used by clients of class 'Cubes::LayerStack'
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:         with
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:         [
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:             _Ty=Cubes::Layer *
+C:\Dev\VoxelGame\Cubes\src\Cubes\LayerStack.h(23,33): warning C4251:         ]
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsInput.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(251,7):
+  see declaration of 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
+          with
+          [
+              _Ty=Cubes::Layer *
+          ]
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Application.h(33,33): warning C4251: 'Cubes::Application::_window': class 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>' needs to have dll-interface to be used by clients of class 'Cubes::Application'
+  (compiling source file '/src/Cubes/Platform/Windows/WindowsInput.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(3172,7):
+  see declaration of 'std::unique_ptr<Cubes::Window,std::default_delete<Cubes::Window>>'
+  
+  Generating Code...
+     Creating library ..\bin\Debug-windows-x86_64\Cubes\Cubes.lib and object ..\bin\Debug-windows-x86_64\Cubes\Cubes.exp
   Cubes.vcxproj -> C:\Dev\VoxelGame\bin\Debug-windows-x86_64\Cubes\Cubes.dll
           1 Datei(en) kopiert.
