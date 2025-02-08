@@ -165,8 +165,10 @@
     <ClInclude Include="src\Cubes\Events\MouseEvent.h" />
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h" />
     <ClInclude Include="src\Cubes\Input.h" />
+    <ClInclude Include="src\Cubes\KeyCodes.h" />
     <ClInclude Include="src\Cubes\Layer.h" />
     <ClInclude Include="src\Cubes\LayerStack.h" />
+    <ClInclude Include="src\Cubes\MouseButtonCodes.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Cubes\Utility\Log.h" />

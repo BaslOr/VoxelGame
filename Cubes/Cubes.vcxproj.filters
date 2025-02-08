@@ -72,6 +72,8 @@
     </ClInclude>
     <ClInclude Include="src\Cubes\Input.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Cubes\KeyCodes.h" />
+    <ClInclude Include="src\Cubes\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">
