@@ -1,6 +1,7 @@
 #pragma once
 #include <GLFW/glfw3.h>
 #include "../../Utility/Window.h"
+#include "../../Platform/OpenGL/OpenGLRenderContext.h"
 
 namespace Cubes {
 
@@ -30,6 +31,7 @@ namespace Cubes {
 		void setupOpenGL();
 
 		GLFWwindow* _window;
+		RenderContext* _context;
 
 		struct WindowData
 		{

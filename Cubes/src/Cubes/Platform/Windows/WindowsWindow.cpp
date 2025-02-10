@@ -10,7 +10,7 @@
 namespace Cubes {
 
     static void GLFWErrorCallback(int error, const char* description) {
-
+        CB_CORE_ERROR("GLFW error has occured: {0}", error);
     }
 
     Window* Window::Create(const WindowProps& props)
@@ -27,9 +27,12 @@ namespace Cubes {
 
         initGLFW();
         _window = glfwCreateWindow(_data.Width, _data.Height, _data.Title.c_str(), NULL, NULL);
-        setupOpenGL();
+        _context = new OpenGLRenderContext(_window);
         glfwSetWindowUserPointer(_window, &_data);
         SetVSync(true);
+
+
+
 
         //Set GLFW Callbacks
         glfwSetWindowSizeCallback(_window, [](GLFWwindow* window, int width, int height) {
@@ -120,7 +123,7 @@ namespace Cubes {
     {
         glfwPollEvents();
         glClearColor(.23f, .3f, .5f, 1.f);
-        glfwSwapBuffers(_window);
+        _context->SwapBuffers();
         glClear(GL_COLOR_BUFFER_BIT);
     }
 

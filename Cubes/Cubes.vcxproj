@@ -146,6 +146,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.h" />
     <ClInclude Include="src\Cubes.h" />
     <ClInclude Include="src\Cubes\Application.h" />
     <ClInclude Include="src\Cubes\Core.h" />
@@ -163,11 +164,13 @@
     <ClInclude Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Cubes\Renderer\RenderContext.h" />
     <ClInclude Include="src\Cubes\Utility\Log.h" />
     <ClInclude Include="src\Cubes\Utility\Window.h" />
     <ClInclude Include="src\Cubes\cbpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.cpp" />
     <ClCompile Include="src\Cubes\Application.cpp" />
     <ClCompile Include="src\Cubes\Events\ApplicationEvent.cpp" />
     <ClCompile Include="src\Cubes\ImGUI\ImGUILayer.cpp" />
