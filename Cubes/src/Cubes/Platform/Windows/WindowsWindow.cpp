@@ -99,14 +99,14 @@ namespace Cubes {
         glfwSetScrollCallback(_window, [](GLFWwindow* window, double xoffset, double yoffset) {
             WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-            MouseScrolledEvent e(xoffset, yoffset);
+            MouseScrolledEvent e((float)xoffset, (float)yoffset);
             data.EventCallback(e);
         });
 
         glfwSetCursorPosCallback(_window, [](GLFWwindow* window, double xpos, double ypos) {
             WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-            MouseMovedEvent e(xpos, ypos);
+            MouseMovedEvent e((float)xpos, (float)ypos);
             data.EventCallback(e);
         });
     }
@@ -119,7 +119,7 @@ namespace Cubes {
     void WindowsWindow::OnUpdate()
     {
         glfwPollEvents();
-        glClearColor(.23f, .3, .5f, 1.f);
+        glClearColor(.23f, .3f, .5f, 1.f);
         glfwSwapBuffers(_window);
         glClear(GL_COLOR_BUFFER_BIT);
     }

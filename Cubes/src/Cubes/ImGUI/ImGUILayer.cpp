@@ -81,7 +81,7 @@ namespace Cubes {
     {
         ImGuiIO& io = ImGui::GetIO();
         Application& app = Application::Get();
-        io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+        io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
 
         ImGui_ImplOpenGL3_NewFrame();
         ImGui::NewFrame();
@@ -133,7 +133,7 @@ namespace Cubes {
     bool ImGUILayer::OnWindowResizeEvent(WindowResizeEvent& e)
     {
         ImGuiIO& io = ImGui::GetIO();
-        io.DisplaySize = ImVec2(e.GetWidth(), e.GetHeight());
+        io.DisplaySize = ImVec2((float)e.GetWidth(), (float)e.GetHeight());
         io.DisplayFramebufferScale = ImVec2(1.f, 1.f);
         glViewport(0, 0, e.GetWidth(), e.GetHeight());
 
