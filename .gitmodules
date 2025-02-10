@@ -7,3 +7,6 @@
 [submodule "Cubes/vendor/ImGUI"]
 	path = Cubes/vendor/ImGUI
 	url = https://github.com/theCherno/imgui
+[submodule "Cubes/vendor/glm"]
+	path = Cubes/vendor/glm
+	url = https://github.com/g-truc/glm.git

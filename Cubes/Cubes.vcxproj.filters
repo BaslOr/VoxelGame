@@ -49,14 +49,26 @@
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h">
       <Filter>Cubes\ImGUI</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Input.h">
+      <Filter>Cubes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\KeyCodes.h">
+      <Filter>Cubes</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Layer.h">
       <Filter>Cubes</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\LayerStack.h">
       <Filter>Cubes</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\MouseButtonCodes.h">
+      <Filter>Cubes</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.h">
       <Filter>Cubes\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h">
+      <Filter>Cubes\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h">
       <Filter>Cubes\Platform\Windows</Filter>
@@ -70,10 +82,6 @@
     <ClInclude Include="src\Cubes\cbpch.h">
       <Filter>Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Input.h" />
-    <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="src\Cubes\KeyCodes.h" />
-    <ClInclude Include="src\Cubes\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">
@@ -94,6 +102,9 @@
     <ClCompile Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.cpp">
       <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cubes\Platform\Windows\WindowsInput.cpp">
+      <Filter>Cubes\Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp">
       <Filter>Cubes\Platform\Windows</Filter>
     </ClCompile>
@@ -103,6 +114,5 @@
     <ClCompile Include="src\Cubes\cbpch.cpp">
       <Filter>Cubes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

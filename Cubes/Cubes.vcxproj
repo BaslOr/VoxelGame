@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>cbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -104,7 +104,7 @@
       <PrecompiledHeaderFile>cbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -132,7 +132,7 @@
       <PrecompiledHeaderFile>cbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -170,11 +170,11 @@
     <ClInclude Include="src\Cubes\LayerStack.h" />
     <ClInclude Include="src\Cubes\MouseButtonCodes.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.h" />
+    <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Cubes\Utility\Log.h" />
     <ClInclude Include="src\Cubes\Utility\Window.h" />
     <ClInclude Include="src\Cubes\cbpch.h" />
-    <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp" />
@@ -183,12 +183,12 @@
     <ClCompile Include="src\Cubes\Layer.cpp" />
     <ClCompile Include="src\Cubes\LayerStack.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Cubes\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Cubes\Utility\Log.cpp" />
     <ClCompile Include="src\Cubes\cbpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

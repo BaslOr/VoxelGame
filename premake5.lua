@@ -15,6 +15,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Cubes/vendor/GLFW/include"
 IncludeDir["glad"] = "Cubes/vendor/glad/include"
 IncludeDir["ImGUI"] = "Cubes/vendor/ImGUI"
+IncludeDir["glm"] = "Cubes/vendor/glm"
 
 include "Cubes/vendor/GLFW"
 include "Cubes/vendor/glad"
@@ -41,7 +42,8 @@ project "Cubes"
         "%{prj.name}/vendor/spdlog/include",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.ImGUI}",
-        "%{IncludeDir.glad}"
+        "%{IncludeDir.glad}",
+        "%{IncludeDir.glm}"
     }
 
     links {
@@ -103,7 +105,8 @@ project "VoxelGame"
         "Cubes/src",
         "Cubes/vendor/spdlog/include",
         "%{IncludeDir.ImGUI}",
-        "Cubes/vendor/GLFW/include"
+        "Cubes/vendor/GLFW/include",
+        "%{IncludeDir.glm}"
     }
 
     links {

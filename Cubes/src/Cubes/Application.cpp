@@ -55,18 +55,9 @@ namespace Cubes{
 			for (Layer* layer : _layerStack)
 				layer->OnUpdate();
 
-			if (Input::IsKeyDown(CB_KEY_W)) {
-				CB_CORE_TRACE("W was pressed");
-			}
-			if (Input::IsKeyDown(CB_KEY_S)) {
-				CB_CORE_TRACE("S was pressed");
-			}
-			if (Input::IsKeyDown(CB_KEY_A)) {
-				CB_CORE_TRACE("A was pressed");
-			}
-			if (Input::IsKeyDown(CB_KEY_D)) {
-				CB_CORE_TRACE("Da was pressed");
-			}
+			//Test glm
+			glm::mat4 test(1.f);
+
 
 		}
 	}
