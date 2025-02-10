@@ -23,8 +23,12 @@ include "Cubes/vendor/ImGUI"
 
 project "Cubes"
     location "Cubes"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
+    cppdialect "C++17"
+    staticruntime "on" 
+
+
 
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -54,9 +58,7 @@ project "Cubes"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         characterset "Unicode"
-        staticruntime "Off" 
         buildoptions {
             "/utf-8"
         }
@@ -67,30 +69,29 @@ project "Cubes"
             "CB_BUILD_DLL",
             "GLFW_INCLUDE_NONE"
         }
-
-        postbuildcommands {
-            "{COPYFILE} %{cfg.buildtarget.abspath} \"../bin/" .. outputdir .. "/VoxelGame/Cubes.dll\""
-        }
         
     filter "configurations:Debug"
         defines "CB_DEBUG"
         runtime "Debug"  
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "CB_RELEASE"
         runtime "Release" 
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "CB_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
 project "VoxelGame"
     location "VoxelGame"
     kind "ConsoleApp"
     language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
+
 
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -113,12 +114,7 @@ project "VoxelGame"
         "Cubes"
     }
 
-    libdirs {
-    }
-
     filter "system:windows"
-        cppdialect "C++17"
-        staticruntime "Off"
         systemversion "latest"
         characterset "Unicode"
         buildoptions {
@@ -132,14 +128,14 @@ project "VoxelGame"
     filter "configurations:Debug"
         defines "CB_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
 
     filter "configurations:Release"
         defines "CB_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
 
     filter "configurations:Dist"
         defines "CB_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"

@@ -9,7 +9,7 @@ C:\Dev\VoxelGame\Cubes\src\Cubes\Utility\Log.h(19,49): warning C4251: 'Cubes::Lo
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(1525,7):
   see declaration of 'std::shared_ptr<spdlog::logger>'
   
-C:\Dev\VoxelGame\Cubes\src\Cubes\Layer.h(18,15): warning C4251: 'Cubes::Layer::_debugName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Cubes::Layer'
+C:\Dev\VoxelGame\Cubes\src\Cubes\Layer.h(19,15): warning C4251: 'Cubes::Layer::_debugName': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of class 'Cubes::Layer'
   (compiling source file 'src/VoxelGame.cpp')
   C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
   see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'

@@ -12,6 +12,7 @@ namespace Cubes {
 		virtual inline void OnAttach() {}
 		virtual inline void OnDetach() {}
 		virtual inline void OnEvent(Event& e) {}
+		virtual inline void OnImGuiRender() {}
 		virtual inline void OnUpdate() {}
 
 	private:

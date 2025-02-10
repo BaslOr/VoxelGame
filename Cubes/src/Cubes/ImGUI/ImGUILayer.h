@@ -14,6 +14,7 @@ namespace Cubes {
 		~ImGUILayer();
 		
 		void OnAttach() override;
+		void OnDetach() override;
 		void OnEvent(Event& e) override;
 		void OnUpdate()  override;
 

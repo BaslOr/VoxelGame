@@ -27,6 +27,9 @@ namespace Cubes {
         io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
         io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
+        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+
+
         io.FontGlobalScale = 1.5f;
 
         // TEMPORARY: should eventually use CUBES key codes
@@ -53,6 +56,12 @@ namespace Cubes {
         io.KeyMap[ImGuiKey_Z] = CB_KEY_Z;
 
         ImGui_ImplOpenGL3_Init("#version 440");
+    }
+
+    void ImGUILayer::OnDetach()
+    {
+        ImGui_ImplOpenGL3_Shutdown();
+        ImGui::DestroyContext();
     }
 
     void ImGUILayer::OnEvent(Event& e)
