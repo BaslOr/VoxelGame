@@ -122,9 +122,7 @@ namespace Cubes {
     void WindowsWindow::OnUpdate()
     {
         glfwPollEvents();
-        glClearColor(.23f, .3f, .5f, 1.f);
         _context->SwapBuffers();
-        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     void WindowsWindow::SetVSync(bool enabled)

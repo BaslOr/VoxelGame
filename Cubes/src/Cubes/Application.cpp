@@ -1,72 +1,100 @@
 #include "cbpch.h"
 #include "Application.h"
+#include <glad/glad.h>
 
 
 namespace Cubes{
 
-	Application* Application::_instance = nullptr;
+    Application* Application::_instance = nullptr;
 
-	Application::Application()
-	{
-		if (_instance != nullptr)
-			CB_CORE_ERROR("Application already exists");
-		_instance = this;
+    Application::Application()
+    {
+        if (_instance != nullptr)
+            CB_CORE_ERROR("Application already exists");
+        _instance = this;
 
-		Cubes::Log::init();
-		_window = std::unique_ptr<Window>(Window::Create());
-		_window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
-	}
+        Cubes::Log::init();
+        _window = std::unique_ptr<Window>(Window::Create());
+        _window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
+    }
 
-	Application::~Application()
-	{
-	}
+    Application::~Application()
+    {
+    }
 
-	void Application::OnEvent(Event& e)
-	{
-		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowClose));
+    void Application::OnEvent(Event& e)
+    {
+        EventDispatcher dispatcher(e);
+        dispatcher.Dispatch<WindowCloseEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowClose));
 
-		for (auto it = _layerStack.end(); it != _layerStack.begin();) {
-			(*--it)->OnEvent(e);
-			if (e.IsHandled())
-				break;
-		}
-	}
+        for (auto it = _layerStack.end(); it != _layerStack.begin();) {
+            (*--it)->OnEvent(e);
+            if (e.IsHandled())
+                break;
+        }
+    }
 
-	void Application::PushLayer(Layer* layer)
-	{
-		_layerStack.PushLayer(layer);
-		layer->OnAttach();
-	}
+    void Application::PushLayer(Layer* layer)
+    {
+        _layerStack.PushLayer(layer);
+        layer->OnAttach();
+    }
 
-	void Application::PushOverlay(Layer* overlay)
-	{
-		_layerStack.PushOverlay(overlay);
-		overlay->OnAttach();
-	}
-
-
-	void Application::run()
-	{
-		while (_isRunning) {
-			//Update
-			_window->OnUpdate();
-
-			for (Layer* layer : _layerStack)
-				layer->OnUpdate();
-
-			//Test glm
-			glm::mat4 test(1.f);
+    void Application::PushOverlay(Layer* overlay)
+    {
+        _layerStack.PushOverlay(overlay);
+        overlay->OnAttach();
+    }
 
 
-		}
-	}
+    void Application::run()
+    {
+        while (_isRunning) {
+            //Update
+            _window->OnUpdate();
+
+            for (Layer* layer : _layerStack)
+                layer->OnUpdate();
+
+            //Render
+            glClearColor(.23f, .3f, .5f, 1.f);
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            float vertices[3 * 3] = {
+                0.f, 0.5f, 0.f,
+                0.5f, -0.5f, 0.f,
+                -0.5f, -0.5f, 0.f
+            };
+
+            uint16_t indices[3] = {
+                0, 1, 2
+            };
+
+            uint32_t VAO, VBO, IBO;
+            glGenVertexArrays(1, &VAO);
+            glBindVertexArray(VAO);
+
+            glGenBuffers(1, &VBO);
+            glBindBuffer(GL_ARRAY_BUFFER, VBO);
+            glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), &vertices, GL_STATIC_DRAW);
+            glEnableVertexAttribArray(0);
+            glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+
+            glGenBuffers(1, &IBO);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+            glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), &indices, GL_STATIC_DRAW);
+
+            glDrawArrays(GL_TRIANGLES, 0, 3);
 
 
-	bool Application::OnWindowClose(WindowCloseEvent& e)
-	{
-		_isRunning = false;
-		return true;
-	}
+        }
+    }
+
+
+    bool Application::OnWindowClose(WindowCloseEvent& e)
+    {
+        _isRunning = false;
+        return true;
+    }
 
 }
