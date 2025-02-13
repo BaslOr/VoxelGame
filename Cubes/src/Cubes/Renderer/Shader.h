@@ -11,10 +11,8 @@ namespace Cubes {
         virtual void Bind() const = 0;
         virtual void UnBind() const = 0;
 
-    static Shader* Create(std::string vertexCode, std::string fragmentCode);
+    static Shader* Create(std::string& vertexCode, std::string& fragmentCode);
 
-    protected:
-        RendererID _rendererID;
     };
 
 }

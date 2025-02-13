@@ -4,7 +4,7 @@
 
 namespace Cubes {
 
-	Shader* Shader::Create(std::string vertexCode, std::string fragmentCode)
+	Shader* Shader::Create(std::string& vertexCode, std::string& fragmentCode)
 	{
         switch (Renderer::GetRenderAPI())
         {

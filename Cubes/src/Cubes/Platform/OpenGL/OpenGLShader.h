@@ -11,6 +11,9 @@ namespace Cubes {
 
 		void Bind() const override;
 		void UnBind() const override;
+
+	private:
+		RendererID _rendererID;
 	};
 
 }
