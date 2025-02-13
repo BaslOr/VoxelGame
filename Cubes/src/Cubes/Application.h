@@ -5,7 +5,10 @@
 #include "Events/ApplicationEvent.h"
 #include "LayerStack.h"
 #include "Input.h"
+#include "Renderer/Shader.h"
+
 #include <glm/glm.hpp>
+
 
 
 namespace Cubes {
@@ -32,6 +35,8 @@ namespace Cubes {
 
         std::unique_ptr<Window> _window;
         LayerStack _layerStack;
+
+        std::unique_ptr<Shader> _shader;
 
         bool _isRunning = true;
 

@@ -84,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="src\Cubes\Renderer\RenderContext.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.h" />
+    <ClInclude Include="src\Cubes\Renderer\Shader.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\Cubes\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">
@@ -117,5 +120,8 @@
       <Filter>Cubes</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>

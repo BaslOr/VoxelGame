@@ -1,6 +1,7 @@
 #include "cbpch.h"
 #include "Application.h"
 #include <glad/glad.h>
+#include "Platform/OpenGL/OpenGLShader.h"
 
 
 namespace Cubes{
@@ -60,6 +61,7 @@ namespace Cubes{
             glClearColor(.23f, .3f, .5f, 1.f);
             glClear(GL_COLOR_BUFFER_BIT);
 
+            //Temporary: ---------------------------------------------------------------------
             float vertices[3 * 3] = {
                 0.f, 0.5f, 0.f,
                 0.5f, -0.5f, 0.f,
@@ -69,6 +71,19 @@ namespace Cubes{
             uint16_t indices[3] = {
                 0, 1, 2
             };
+
+            std::string vertexShaderSource = "#version 330 core\n"
+                "layout (location = 0) in vec3 aPos;\n"
+                "void main()\n"
+                "{\n"
+                "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+                "}\0";
+            std::string fragmentShaderSource = "#version 330 core\n"
+                "out vec4 FragColor;\n"
+                "void main()\n"
+                "{\n"
+                "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+                "}\n\0";
 
             uint32_t VAO, VBO, IBO;
             glGenVertexArrays(1, &VAO);
@@ -83,6 +98,9 @@ namespace Cubes{
             glGenBuffers(1, &IBO);
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), &indices, GL_STATIC_DRAW);
+
+            _shader.reset(Shader::Create(vertexShaderSource, fragmentShaderSource));
+            _shader->Bind();
 
             glDrawArrays(GL_TRIANGLES, 0, 3);
 
