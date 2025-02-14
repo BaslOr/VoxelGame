@@ -9,6 +9,7 @@
 
 #include <glm/glm.hpp>
 #include "Renderer/Buffer.h"
+#include "Renderer/VertexArray.h"
 
 
 
@@ -37,9 +38,10 @@ namespace Cubes {
         std::unique_ptr<Window> _window;
         LayerStack _layerStack;
 
-        std::unique_ptr<VertexBuffer> _vertexBuffer;
-        std::unique_ptr<IndexBuffer> _indexBuffer;
         std::unique_ptr<Shader> _shader;
+        std::unique_ptr<VertexArray> _vertexArray;
+        std::shared_ptr<VertexBuffer> _vertexBuffer;
+        std::shared_ptr<IndexBuffer> _indexBuffer;
 
         bool _isRunning = true;
 

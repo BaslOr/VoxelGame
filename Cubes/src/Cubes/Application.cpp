@@ -8,26 +8,6 @@ namespace Cubes {
 
     Application* Application::_instance = nullptr;
 
-    //TODO: Abstract the function out
-    static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) { 
-        switch (type)
-        {
-        case Cubes::ShaderDataType::Float:     return GL_FLOAT;
-        case Cubes::ShaderDataType::Float2:    return GL_FLOAT;
-        case Cubes::ShaderDataType::Float3:    return GL_FLOAT;
-        case Cubes::ShaderDataType::Float4:    return GL_FLOAT;
-        case Cubes::ShaderDataType::Mat3:      return GL_FLOAT;
-        case Cubes::ShaderDataType::Mat4:      return GL_FLOAT;
-        case Cubes::ShaderDataType::Int:       return GL_INT;
-        case Cubes::ShaderDataType::Int2:      return GL_INT;
-        case Cubes::ShaderDataType::Int3:      return GL_INT;
-        case Cubes::ShaderDataType::Int4:      return GL_INT;
-        case Cubes::ShaderDataType::Bool:      return GL_BOOL;
-        }
-
-        CB_CORE_ASSERT(false, "Unkown Shader Data type!");
-        return 0;
-    }
 
     Application::Application()
     {
@@ -106,9 +86,7 @@ namespace Cubes {
                 "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
                 "}\n\0";
 
-            uint32_t VAO, VBO, IBO;
-            glGenVertexArrays(1, &VAO);
-            glBindVertexArray(VAO);
+            _vertexArray.reset(VertexArray::Create());
 
             _vertexBuffer.reset(VertexBuffer::Create(&vertices, sizeof(vertices)));
  
@@ -120,16 +98,10 @@ namespace Cubes {
                 _vertexBuffer->SetLayout(layout);
             }
 
-            uint32_t index = 0;
-            const auto& layout = _vertexBuffer->GetLayout();
-            for (const auto& element : layout) {
-                glEnableVertexAttribArray(index);
-                glVertexAttribPointer(index, element.GetComponentCount(), ShaderDataTypeToOpenGLBaseType(element.Type),
-                    element.Normalized ? GL_TRUE : GL_FALSE, layout.GetStride(), (const void*)element.Offset);
-                ++index;
-            }
-
             _indexBuffer.reset(IndexBuffer::Create(indices, 3));
+
+            _vertexArray->AddVertexBuffer(_vertexBuffer);
+            _vertexArray->SetIndexBuffer(_indexBuffer);
              
             _shader.reset(Shader::Create(vertexShaderSource, fragmentShaderSource));
             _shader->Bind();
