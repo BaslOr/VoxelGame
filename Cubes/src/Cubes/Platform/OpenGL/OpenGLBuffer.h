@@ -9,11 +9,15 @@ namespace Cubes {
 		OpenGLVertexBuffer(void* data, uint32_t size);
 		~OpenGLVertexBuffer();
 
+		inline void SetLayout(const BufferLayout& layout) override { _layout = layout; }
+		inline const BufferLayout& GetLayout() const override { return _layout; }
+
 		virtual void Bind() const;
 		virtual void UnBind() const;
 
 	private:
 		RendererID _rendererID;
+		BufferLayout _layout;
 	};
 
 

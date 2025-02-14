@@ -1,2 +1,14 @@
 ﻿  OpenGLBuffer.cpp
+  Buffer.cpp
+  Application.cpp
+C:\Dev\VoxelGame\Cubes\src\Cubes\Application.cpp(128,82): warning C4312: 'type cast': conversion from 'const uint32_t' to 'const void *' of greater size
+  (compiling source file '/src/Cubes/Application.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Application.cpp(109,27): warning C4101: 'VBO': unreferenced local variable
+  (compiling source file '/src/Cubes/Application.cpp')
+  
+C:\Dev\VoxelGame\Cubes\src\Cubes\Application.cpp(109,32): warning C4101: 'IBO': unreferenced local variable
+  (compiling source file '/src/Cubes/Application.cpp')
+  
+  Generating Code...
   Cubes.vcxproj -> C:\Dev\VoxelGame\bin\Debug-windows-x86_64\Cubes\Cubes.lib

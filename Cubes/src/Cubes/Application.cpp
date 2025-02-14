@@ -4,9 +4,30 @@
 #include "Platform/OpenGL/OpenGLShader.h"
 
 
-namespace Cubes{
+namespace Cubes {
 
     Application* Application::_instance = nullptr;
+
+    //TODO: Abstract the function out
+    static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) { 
+        switch (type)
+        {
+        case Cubes::ShaderDataType::Float:     return GL_FLOAT;
+        case Cubes::ShaderDataType::Float2:    return GL_FLOAT;
+        case Cubes::ShaderDataType::Float3:    return GL_FLOAT;
+        case Cubes::ShaderDataType::Float4:    return GL_FLOAT;
+        case Cubes::ShaderDataType::Mat3:      return GL_FLOAT;
+        case Cubes::ShaderDataType::Mat4:      return GL_FLOAT;
+        case Cubes::ShaderDataType::Int:       return GL_INT;
+        case Cubes::ShaderDataType::Int2:      return GL_INT;
+        case Cubes::ShaderDataType::Int3:      return GL_INT;
+        case Cubes::ShaderDataType::Int4:      return GL_INT;
+        case Cubes::ShaderDataType::Bool:      return GL_BOOL;
+        }
+
+        CB_CORE_ASSERT(false, "Unkown Shader Data type!");
+        return 0;
+    }
 
     Application::Application()
     {
@@ -90,6 +111,23 @@ namespace Cubes{
             glBindVertexArray(VAO);
 
             _vertexBuffer.reset(VertexBuffer::Create(&vertices, sizeof(vertices)));
+ 
+            {
+                BufferLayout layout = {
+                   { ShaderDataType::Float3, "aPos"}
+                };
+
+                _vertexBuffer->SetLayout(layout);
+            }
+
+            uint32_t index = 0;
+            const auto& layout = _vertexBuffer->GetLayout();
+            for (const auto& element : layout) {
+                glEnableVertexAttribArray(index);
+                glVertexAttribPointer(index, element.GetComponentCount(), ShaderDataTypeToOpenGLBaseType(element.Type),
+                    element.Normalized ? GL_TRUE : GL_FALSE, layout.GetStride(), (const void*)element.Offset);
+                ++index;
+            }
 
             _indexBuffer.reset(IndexBuffer::Create(indices, 3));
              
@@ -97,8 +135,6 @@ namespace Cubes{
             _shader->Bind();
 
             glDrawArrays(GL_TRIANGLES, 0, 3);
-
-
         }
     }
 

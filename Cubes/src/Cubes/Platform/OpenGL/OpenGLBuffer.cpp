@@ -12,8 +12,6 @@ namespace Cubes {
         glGenBuffers(1, &_rendererID);
         glBindBuffer(GL_ARRAY_BUFFER, _rendererID);
         glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     }
 
     OpenGLVertexBuffer::~OpenGLVertexBuffer()
