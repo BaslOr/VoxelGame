@@ -1,8 +1,0 @@
-﻿  Application.cpp
-  OpenGLVertexArray.cpp
-C:\Dev\VoxelGame\Cubes\src\Cubes\Platform\OpenGL\OpenGLVertexArray.cpp(59,78): warning C4312: 'type cast': conversion from 'const uint32_t' to 'const void *' of greater size
-  (compiling source file '/src/Cubes/Platform/OpenGL/OpenGLVertexArray.cpp')
-  
-  VertexArray.cpp
-  Generating Code...
-  Cubes.vcxproj -> C:\Dev\VoxelGame\bin\Debug-windows-x86_64\Cubes\Cubes.lib
