@@ -1,21 +1,23 @@
 #pragma once
+#include "RendererCommand.h"
+#include "RendererAPI.h"
 
 namespace Cubes {
 
-	enum class RenderAPI {
-		None = 0, OpenGL = 1, Vulkan = 2 
-	};
 
-	using RendererID = uint32_t;
+    using RendererID = uint32_t;
 
 
+    class Renderer {
+    public:
 
-	class Renderer {
-	public:
+        static void BeginScene();
+        static void EndScene();
 
-		inline static RenderAPI GetRenderAPI() { return RenderAPI::OpenGL; } //Query RenderAPI 
+        static void Submit(const std::shared_ptr<VertexArray>& vertexArray);
 
-	private:
-	};
+        inline static RendererAPI::API GetAPI() { return  RendererAPI::GetAPI(); }
+
+    };
 
 }

@@ -91,6 +91,9 @@
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Cubes\Renderer\VertexArray.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Cubes\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Cubes\Renderer\RendererCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">
@@ -131,5 +134,8 @@
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Cubes\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\RendererCommand.cpp" />
   </ItemGroup>
 </Project>

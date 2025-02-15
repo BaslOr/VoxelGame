@@ -39,7 +39,7 @@ namespace Cubes {
         LayerStack _layerStack;
 
         std::unique_ptr<Shader> _shader;
-        std::unique_ptr<VertexArray> _vertexArray;
+        std::shared_ptr<VertexArray> _vertexArray;
         std::shared_ptr<VertexBuffer> _vertexBuffer;
         std::shared_ptr<IndexBuffer> _indexBuffer;
 

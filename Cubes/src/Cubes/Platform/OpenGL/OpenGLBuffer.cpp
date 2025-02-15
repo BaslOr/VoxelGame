@@ -35,6 +35,7 @@ namespace Cubes {
     /////////////////////////////////////////////////////////////////////
 
     OpenGLIndexBuffer::OpenGLIndexBuffer(uint16_t* data, uint16_t count)
+        : _count(count)
     {
         glGenBuffers(1, &_rendererID);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _rendererID);

@@ -2,6 +2,8 @@
 #include "Application.h"
 #include <glad/glad.h>
 #include "Platform/OpenGL/OpenGLShader.h"
+#include "Renderer/Renderer.h"
+#include "Renderer/RendererCommand.h"
 
 
 namespace Cubes {
@@ -18,6 +20,51 @@ namespace Cubes {
         Cubes::Log::init();
         _window = std::unique_ptr<Window>(Window::Create());
         _window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
+
+
+        //Temporary: ---------------------------------------------------------------------
+        float vertices[3 * 4] = {
+            -0.5f,  0.5f, 0.f, //up, left
+             0.5f,  0.5f, 0.f, //up, right
+             0.5f, -0.5f, 0.f, //down, right
+            -0.5f, -0.5f, 0.f  //down, left
+        };
+
+        uint16_t indices[3 * 2] = {
+            0, 1, 2, 2, 3, 0
+        };
+
+        std::string vertexShaderSource = "#version 330 core\n"
+            "layout (location = 0) in vec3 aPos;\n"
+            "void main()\n"
+            "{\n"
+            "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+            "}\0";
+        std::string fragmentShaderSource = "#version 330 core\n"
+            "out vec4 FragColor;\n"
+            "void main()\n"
+            "{\n"
+            "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+            "}\n\0";
+
+        _vertexArray.reset(VertexArray::Create());
+
+        _vertexBuffer.reset(VertexBuffer::Create(&vertices, sizeof(vertices)));
+
+        {
+            BufferLayout layout = {
+               { ShaderDataType::Float3, "aPos"}
+            };
+
+            _vertexBuffer->SetLayout(layout);
+        }
+
+        _indexBuffer.reset(IndexBuffer::Create(indices, 6));
+
+        _vertexArray->AddVertexBuffer(_vertexBuffer);
+        _vertexArray->SetIndexBuffer(_indexBuffer);
+
+        _shader.reset(Shader::Create(vertexShaderSource, fragmentShaderSource));
     }
 
     Application::~Application()
@@ -59,54 +106,15 @@ namespace Cubes {
                 layer->OnUpdate();
 
             //Render
-            glClearColor(.23f, .3f, .5f, 1.f);
-            glClear(GL_COLOR_BUFFER_BIT);
+            RendererCommand::SetClearColor(glm::vec4(.23f, .3f, .5f, 1.f));
+            RendererCommand::Clear();
 
-            //Temporary: ---------------------------------------------------------------------
-            float vertices[3 * 3] = {
-                0.f, 0.5f, 0.f,
-                0.5f, -0.5f, 0.f,
-                -0.5f, -0.5f, 0.f
-            };
 
-            uint16_t indices[3] = {
-                0, 1, 2
-            };
-
-            std::string vertexShaderSource = "#version 330 core\n"
-                "layout (location = 0) in vec3 aPos;\n"
-                "void main()\n"
-                "{\n"
-                "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-                "}\0";
-            std::string fragmentShaderSource = "#version 330 core\n"
-                "out vec4 FragColor;\n"
-                "void main()\n"
-                "{\n"
-                "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
-                "}\n\0";
-
-            _vertexArray.reset(VertexArray::Create());
-
-            _vertexBuffer.reset(VertexBuffer::Create(&vertices, sizeof(vertices)));
- 
-            {
-                BufferLayout layout = {
-                   { ShaderDataType::Float3, "aPos"}
-                };
-
-                _vertexBuffer->SetLayout(layout);
-            }
-
-            _indexBuffer.reset(IndexBuffer::Create(indices, 3));
-
-            _vertexArray->AddVertexBuffer(_vertexBuffer);
-            _vertexArray->SetIndexBuffer(_indexBuffer);
-             
-            _shader.reset(Shader::Create(vertexShaderSource, fragmentShaderSource));
+            Renderer::BeginScene();
             _shader->Bind();
+            Renderer::Submit(_vertexArray);
+            Renderer::EndScene();
 
-            glDrawArrays(GL_TRIANGLES, 0, 3);
         }
     }
 

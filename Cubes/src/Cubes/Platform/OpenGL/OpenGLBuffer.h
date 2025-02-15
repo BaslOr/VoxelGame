@@ -16,7 +16,7 @@ namespace Cubes {
 		virtual void UnBind() const;
 
 	private:
-		RendererID _rendererID;
+		uint32_t _rendererID;
 		BufferLayout _layout;
 	};
 
@@ -30,8 +30,11 @@ namespace Cubes {
 		virtual void Bind() const;
 		virtual void UnBind() const;
 
+		inline uint16_t GetCount() const override { return _count; }
+
 	private:
-		RendererID _rendererID;
+		uint32_t _rendererID;
+		uint16_t _count;
 	};
 
 }

@@ -1,7 +1,6 @@
 #pragma once
 #include <stdint.h>
 
-#include "Renderer.h"
 #include "../Core.h"
 
 namespace Cubes {
@@ -117,6 +116,7 @@ namespace Cubes {
         static VertexBuffer* Create(void* data, uint32_t size);
     };
 
+
     class IndexBuffer 
     {
     public:
@@ -124,6 +124,8 @@ namespace Cubes {
 
         virtual void Bind() const = 0;
         virtual void UnBind() const = 0;
+
+        virtual uint16_t GetCount() const = 0;
 
         static IndexBuffer* Create(uint16_t* data, uint16_t count);
     };
