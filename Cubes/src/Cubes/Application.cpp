@@ -1,9 +1,6 @@
 #include "cbpch.h"
 #include "Application.h"
-#include <glad/glad.h>
-#include "Platform/OpenGL/OpenGLShader.h"
 #include "Renderer/Renderer.h"
-#include "Renderer/RendererCommand.h"
 
 
 namespace Cubes {
@@ -12,6 +9,7 @@ namespace Cubes {
 
 
     Application::Application()
+        : _camera(-1.6f, 1.6f, -0.9f, 0.9f)
     {
         if (_instance != nullptr)
             CB_CORE_ERROR("Application already exists");
@@ -21,10 +19,9 @@ namespace Cubes {
         _window = std::unique_ptr<Window>(Window::Create());
         _window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
 
-
         //Temporary: ---------------------------------------------------------------------
         float vertices[3 * 4] = {
-            -0.5f,  0.5f, 0.f, //up, left
+            -0.5f,  0.5f, 0.f, //up, left   
              0.5f,  0.5f, 0.f, //up, right
              0.5f, -0.5f, 0.f, //down, right
             -0.5f, -0.5f, 0.f  //down, left
@@ -36,9 +33,12 @@ namespace Cubes {
 
         std::string vertexShaderSource = "#version 330 core\n"
             "layout (location = 0) in vec3 aPos;\n"
+            "\n"
+            "uniform mat4 u_ViewProjection;\n"
+            "\n"
             "void main()\n"
             "{\n"
-            "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+            "   gl_Position = u_ViewProjection * vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
             "}\0";
         std::string fragmentShaderSource = "#version 330 core\n"
             "out vec4 FragColor;\n"
@@ -98,6 +98,7 @@ namespace Cubes {
 
     void Application::run()
     {
+        float offset = 0.f;
         while (_isRunning) {
             //Update
             _window->OnUpdate();
@@ -109,12 +110,15 @@ namespace Cubes {
             RendererCommand::SetClearColor(glm::vec4(.23f, .3f, .5f, 1.f));
             RendererCommand::Clear();
 
+            _camera.SetPosition(glm::vec3(offset, 0.f, 0.f));
+            
 
-            Renderer::BeginScene();
+            Renderer::BeginScene(_camera);
             _shader->Bind();
-            Renderer::Submit(_vertexArray);
+            Renderer::Submit(_shader, _vertexArray);
             Renderer::EndScene();
 
+            offset += 0.0001f;
         }
     }
 

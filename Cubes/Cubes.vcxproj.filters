@@ -94,6 +94,7 @@
     <ClInclude Include="src\Cubes\Renderer\RendererAPI.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Cubes\Renderer\RendererCommand.h" />
+    <ClInclude Include="src\Cubes\Renderer\OrthographicCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">
@@ -137,5 +138,6 @@
     <ClCompile Include="src\Cubes\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Cubes\Renderer\RendererCommand.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>

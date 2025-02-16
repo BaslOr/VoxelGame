@@ -10,6 +10,7 @@
 #include <glm/glm.hpp>
 #include "Renderer/Buffer.h"
 #include "Renderer/VertexArray.h"
+#include "Renderer/OrthographicCamera.h"
 
 
 
@@ -38,7 +39,9 @@ namespace Cubes {
         std::unique_ptr<Window> _window;
         LayerStack _layerStack;
 
-        std::unique_ptr<Shader> _shader;
+        OrthograpicCamera _camera;
+
+        std::shared_ptr<Shader> _shader;
         std::shared_ptr<VertexArray> _vertexArray;
         std::shared_ptr<VertexBuffer> _vertexBuffer;
         std::shared_ptr<IndexBuffer> _indexBuffer;

@@ -1,5 +1,6 @@
 #include "cbpch.h"
 #include "Shader.h"
+#include "Renderer.h"
 #include "../Platform/OpenGL/OpenGLShader.h"
 
 namespace Cubes {
