@@ -7,7 +7,7 @@ namespace Cubes {
 	Renderer::SceneData* Renderer::_sceneData = new Renderer::SceneData;
 
 
-	void Renderer::BeginScene(OrthograpicCamera& camera)
+	void Renderer::BeginScene(PerspectiveCamera& camera)
 	{
 		_sceneData->ViewProjectionMatrix = camera.GetViewProjection();
 	}
@@ -19,7 +19,6 @@ namespace Cubes {
 	void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray)
 	{
 		vertexArray->Bind();
-		shader->Bind();
 		shader->SetUniformMat4("u_ViewProjection", _sceneData->ViewProjectionMatrix);
 		RendererCommand::DrawIndexed(vertexArray);
 	}

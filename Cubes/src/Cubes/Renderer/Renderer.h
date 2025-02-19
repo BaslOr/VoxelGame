@@ -1,7 +1,7 @@
 #pragma once
 #include "RendererCommand.h"
 #include "RendererAPI.h"
-#include "OrthographicCamera.h"
+#include "PerspectiveCamera.h"
 #include "Shader.h"
 
 namespace Cubes {
@@ -13,7 +13,7 @@ namespace Cubes {
     class Renderer {
     public:
 
-        static void BeginScene(OrthograpicCamera& camera);
+        static void BeginScene(PerspectiveCamera& camera);
         static void EndScene();
 
         static void Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray);

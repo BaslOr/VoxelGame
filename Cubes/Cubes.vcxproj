@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Cubes\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Cubes\Renderer\PerspectiveCamera.h" />
     <ClInclude Include="src\Cubes\Renderer\RendererCommand.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -182,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\PerspectiveCamera.cpp" />
     <ClCompile Include="src\Cubes\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.cpp" />

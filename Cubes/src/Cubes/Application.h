@@ -10,7 +10,7 @@
 #include <glm/glm.hpp>
 #include "Renderer/Buffer.h"
 #include "Renderer/VertexArray.h"
-#include "Renderer/OrthographicCamera.h"
+#include "Renderer/PerspectiveCamera.h"
 
 
 
@@ -39,7 +39,8 @@ namespace Cubes {
         std::unique_ptr<Window> _window;
         LayerStack _layerStack;
 
-        OrthograpicCamera _camera;
+        glm::vec3 _cameraPosition = glm::vec3(0.f, 0.f, 3.f);
+        PerspectiveCamera _camera;
 
         std::shared_ptr<Shader> _shader;
         std::shared_ptr<VertexArray> _vertexArray;
