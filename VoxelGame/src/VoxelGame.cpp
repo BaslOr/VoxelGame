@@ -1,4 +1,5 @@
 #include "VoxelGame.h"
+#include <GLFW/glfw3.h>
 
 
 namespace GameNamespace {
@@ -56,16 +57,14 @@ namespace GameNamespace {
         _shader.reset(Cubes::Shader::Create(vertexShaderSource, fragmentShaderSource));
 	}
 
-	void VoxelGame::OnUpdate()
+	void VoxelGame::OnUpdate(Cubes::TimeStep deltaTime)
 	{
         //Update
-        _camera.OnUpdate();
+        _camera.OnUpdate(deltaTime);
 
         //Render
         Cubes::RendererCommand::SetClearColor(glm::vec4(.23f, .3f, .5f, 1.f));
         Cubes::RendererCommand::Clear();
-
-        glEnable(GL_DEPTH_TEST);
 
         Cubes::Renderer::BeginScene(_camera);
         _shader->Bind();

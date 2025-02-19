@@ -9,7 +9,7 @@ namespace GameNamespace {
 		VoxelGame();
 		~VoxelGame() = default;
 
-		void OnUpdate() override;
+		void OnUpdate(Cubes::TimeStep deltaTime) override;
 
 	private:
 		Camera _camera;

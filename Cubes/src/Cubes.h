@@ -7,6 +7,7 @@
 #include "Cubes/Events/Event.h"
 #include "Cubes/Input.h"
 #include "Cubes/Renderer/Renderer.h"
+#include "Cubes/Time/TimeStep.h"
 
 //----------Entry Point-------------------------
 #include "Cubes/Entrypoint.h"

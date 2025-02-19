@@ -1,6 +1,7 @@
 #include "cbpch.h"
 #include "Application.h"
 #include "Renderer/Renderer.h"
+#include <GLFW/glfw3.h>
 
 
 namespace Cubes {
@@ -53,16 +54,18 @@ namespace Cubes {
 
     void Application::run()
     {
-        float rotation = 0;
         while (_isRunning) {
             //Update
+            float time = (float)glfwGetTime(); //TODO: Platform::GetTime();
+            TimeStep deltaTime = time - _lastFrameTime;
+            _lastFrameTime = time;
+
             _window->OnUpdate();
 
-            OnUpdate();
+            OnUpdate(deltaTime);
 
             for (Layer* layer : _layerStack)
                 layer->OnUpdate();
-
 
         }
     }

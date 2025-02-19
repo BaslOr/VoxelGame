@@ -9,8 +9,10 @@ namespace GameNamespace {
 		
 	}
 
-	void Camera::OnUpdate()
+	void Camera::OnUpdate(Cubes::TimeStep deltaTime)
     {
+        float moveDistance = _movementSpeed * deltaTime;
+
         if (Cubes::Input::IsKeyDown(CB_KEY_W))
             _position.z -= .1f;
         else if (Cubes::Input::IsKeyDown(CB_KEY_S))

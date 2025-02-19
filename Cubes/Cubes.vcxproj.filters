@@ -96,6 +96,7 @@
     <ClInclude Include="src\Cubes\Renderer\RendererCommand.h" />
     <ClInclude Include="src\Cubes\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Cubes\Renderer\PerspectiveCamera.h" />
+    <ClInclude Include="src\Cubes\Time\TimeStep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Application.cpp">

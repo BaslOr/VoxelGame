@@ -6,6 +6,7 @@
 #include "LayerStack.h"
 #include "Input.h"
 #include "Renderer/Shader.h"
+#include "Time/Timestep.h"
 
 #include <glm/glm.hpp>
 #include "Renderer/Buffer.h"
@@ -26,7 +27,7 @@ namespace Cubes {
 
         void OnEvent(Event& e);
         
-        virtual void OnUpdate() = 0;
+        virtual void OnUpdate(TimeStep deltaTime) = 0;
 
         void PushLayer(Layer* layer);
         void PushOverlay(Layer* overlay);
@@ -38,6 +39,8 @@ namespace Cubes {
 
         bool OnWindowClose(WindowCloseEvent& e);
 
+    private:
+
         std::unique_ptr<Window> _window;
         LayerStack _layerStack;
 
@@ -45,11 +48,13 @@ namespace Cubes {
         PerspectiveCamera _camera;
 
         bool _isRunning = true;
+        float _lastFrameTime = 0.f;
 
+    private:
         static Application* _instance;
     };
 
-	//To be defined in Client
-	Application* CreateApplication();
+    //To be defined in Client
+    Application* CreateApplication();
 
 }

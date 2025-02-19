@@ -31,8 +31,6 @@ namespace Cubes {
         glfwSetWindowUserPointer(_window, &_data);
         SetVSync(true);
 
-        glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
 
         //Set GLFW Callbacks
         glfwSetWindowSizeCallback(_window, [](GLFWwindow* window, int width, int height) {

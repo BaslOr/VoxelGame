@@ -1,7 +1,7 @@
 #pragma once
-#include <Cubes/Renderer/PerspectiveCamera.h>
-#include <Cubes/Input.h>
-#include <Cubes/Application.h>
+#include "Cubes/Application.h"
+#include "Cubes/Renderer/Renderer.h"
+
 
 namespace GameNamespace {
 
@@ -10,11 +10,14 @@ namespace GameNamespace {
 	public:
 		Camera(glm::vec3& position, float fov);
 
-		void OnUpdate();
+		void OnUpdate(Cubes::TimeStep timeStep);
 
 	private:
 		glm::vec3 _position;
 		float _fov;
+		
+
+		float _movementSpeed = 1.f;
 	};
 
 }
