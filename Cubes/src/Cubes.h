@@ -1,4 +1,4 @@
-//Is only included in Client
+//Is only included by Client
 
 #include "Cubes/Core.h"
 #include "Cubes/Application.h"
@@ -6,6 +6,7 @@
 #include "Cubes/ImGUI/ImGUILayer.h"
 #include "Cubes/Events/Event.h"
 #include "Cubes/Input.h"
+#include "Cubes/Renderer/Renderer.h"
 
 //----------Entry Point-------------------------
 #include "Cubes/Entrypoint.h"

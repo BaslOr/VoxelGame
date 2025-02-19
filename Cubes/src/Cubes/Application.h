@@ -25,6 +25,8 @@ namespace Cubes {
         void run();
 
         void OnEvent(Event& e);
+        
+        virtual void OnUpdate() = 0;
 
         void PushLayer(Layer* layer);
         void PushOverlay(Layer* overlay);
@@ -41,11 +43,6 @@ namespace Cubes {
 
         glm::vec3 _cameraPosition = glm::vec3(0.f, 0.f, 3.f);
         PerspectiveCamera _camera;
-
-        std::shared_ptr<Shader> _shader;
-        std::shared_ptr<VertexArray> _vertexArray;
-        std::shared_ptr<VertexBuffer> _vertexBuffer;
-        std::shared_ptr<IndexBuffer> _indexBuffer;
 
         bool _isRunning = true;
 

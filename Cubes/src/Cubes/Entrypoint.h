@@ -1,3 +1,4 @@
+#pragma once
 #include "Application.h"
 
 #ifdef CB_PLATFORM_WINDOWS

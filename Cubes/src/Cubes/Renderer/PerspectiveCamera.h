@@ -7,7 +7,7 @@ namespace Cubes {
     class PerspectiveCamera {
     public:
         PerspectiveCamera() {}
-        PerspectiveCamera(glm::vec3 position, float aspectRatio, float fov);
+        PerspectiveCamera(glm::vec3& position, float aspectRatio, float fov);
 
         inline void SetFOV(float fov) { _fov = fov; }
         inline float GetFOV() const { return _fov; }
