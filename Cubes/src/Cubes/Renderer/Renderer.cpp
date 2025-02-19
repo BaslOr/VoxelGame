@@ -16,10 +16,11 @@ namespace Cubes {
 	{
 	}
 
-	void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray)
+	void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray, const glm::mat4& modelMatrix)
 	{
 		vertexArray->Bind();
 		shader->SetUniformMat4("u_ViewProjection", _sceneData->ViewProjectionMatrix);
+		shader->SetUniformMat4("u_Model", modelMatrix);
 		RendererCommand::DrawIndexed(vertexArray);
 	}
 }

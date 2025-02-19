@@ -1,5 +1,6 @@
 #include "VoxelGame.h"
 #include <GLFW/glfw3.h>
+#include <glm/gtc/matrix_transform.hpp>
 
 
 namespace GameNamespace {
@@ -25,10 +26,11 @@ namespace GameNamespace {
             "layout (location = 0) in vec3 aPos;\n"
             "\n"
             "uniform mat4 u_ViewProjection;\n"
+            "uniform mat4 u_Model;\n"
             "\n"
             "void main()\n"
             "{\n"
-            "   gl_Position = u_ViewProjection * vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+            "   gl_Position = u_ViewProjection * u_Model * vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
             "}\0";
         std::string fragmentShaderSource = "#version 330 core\n"
             "out vec4 FragColor;\n"
@@ -66,9 +68,11 @@ namespace GameNamespace {
         Cubes::RendererCommand::SetClearColor(glm::vec4(.23f, .3f, .5f, 1.f));
         Cubes::RendererCommand::Clear();
 
+        glm::mat4 model = glm::translate(glm::mat4(1.f), glm::vec3(2.f, 0.f, 0.f));
+
         Cubes::Renderer::BeginScene(_camera);
         _shader->Bind();
-        Cubes::Renderer::Submit(_shader, _vertexArray);
+        Cubes::Renderer::Submit(_shader, _vertexArray, model);
         Cubes::Renderer::EndScene();
 	}
 
