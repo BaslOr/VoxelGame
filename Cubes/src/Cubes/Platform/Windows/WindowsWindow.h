@@ -25,6 +25,8 @@ namespace Cubes {
 		void SetVSync(bool enabled) override;
 		inline bool IsVSync() override { return _data.VSync; }
 
+		inline void SetInputModeCursor(bool enabled) override { enabled ? glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED) : glfwSetInputMode(_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL); }
+
 	private:
 
 		void initGLFW();

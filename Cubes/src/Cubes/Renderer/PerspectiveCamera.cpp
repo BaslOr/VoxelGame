@@ -1,6 +1,5 @@
 #include "cbpch.h"
 #include "PerspectiveCamera.h"
-#include <glm/gtc/matrix_transform.hpp>
 #include "../Events/ApplicationEvent.h"
 #include "../Core.h"
 
@@ -33,7 +32,7 @@ namespace Cubes {
     void PerspectiveCamera::RecalculateViewProjectionMatrix()
     {
         _direction = glm::normalize(_position - _target);
-        glm::vec3 right = glm::normalize(glm::cross(CAMERA_UP, _direction));
+        _right = glm::normalize(glm::cross(CAMERA_UP, _direction));
 
         _viewMatrix = glm::lookAt(_position, _position + _front, CAMERA_UP);
 
@@ -42,7 +41,8 @@ namespace Cubes {
 
     bool PerspectiveCamera::OnWindowResize(WindowResizeEvent& event)
     {
-        _projectionMatrix = glm::perspective(_fov, (float)event.GetWidth() / (float)event.GetHeight(), 0.1f, 100.f);
+        _aspectRatio = (float)event.GetWidth() / (float)event.GetHeight();
+        _projectionMatrix = glm::perspective(_fov, _aspectRatio, 0.1f, 100.f);
         CalculateViewProjectionMatrix();
 
         return false;

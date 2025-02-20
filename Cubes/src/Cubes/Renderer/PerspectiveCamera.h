@@ -1,5 +1,6 @@
 #pragma once
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include "../Events/ApplicationEvent.h"
 
 namespace Cubes {
@@ -9,7 +10,11 @@ namespace Cubes {
         PerspectiveCamera() {}
         PerspectiveCamera(glm::vec3& position, float aspectRatio, float fov);
 
-        inline void SetFOV(float fov) { _fov = fov; }
+        inline void SetFOV(float fov) { 
+            _fov = fov;
+            _projectionMatrix = glm::perspective(_fov, _aspectRatio, 0.1f, 100.f);
+            RecalculateViewProjectionMatrix();
+        }
         inline float GetFOV() const { return _fov; }
 
         inline glm::mat4 GetViewProjection() const { return _viewProjectionMatrix; }
@@ -17,25 +22,26 @@ namespace Cubes {
         inline void SetPosition(glm::vec3& position) { _position = position; RecalculateViewProjectionMatrix(); }
         inline glm::vec3 GetPosition() const { return _position; }
 
-        inline void SetRotation(float rotation) { _rotation = rotation; RecalculateViewProjectionMatrix(); }
-        inline float GetRotation() const { return _rotation; }
+        inline void SetDirection(glm::vec3 direction) { _direction = direction; RecalculateViewProjectionMatrix(); }
+        inline glm::vec3 GetDirection() const { return _direction; }
 
 
         void OnEvent(Event& event);
 
-    private:
+    protected:
         void CalculateViewProjectionMatrix();
         void RecalculateViewProjectionMatrix();
 
         bool OnWindowResize(WindowResizeEvent& event);
 
-    private:
+    protected:
         glm::vec3 _position;
         glm::vec3 _target;
         glm::vec3 _front;
         glm::vec3 _direction;
+        glm::vec3 _right;
         float _fov;
-        float _rotation;
+        float _aspectRatio;
         
         glm::mat4 _projectionMatrix;
         glm::mat4 _viewMatrix;

@@ -33,6 +33,7 @@ namespace Cubes {
 		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool state) = 0;
 		virtual bool IsVSync() = 0;
+		virtual void SetInputModeCursor(bool enabled) = 0;
 		
 
 		static Window* Create(const WindowProps& props = WindowProps());
