@@ -13,6 +13,8 @@ namespace Cubes {
 		void UnBind() const override;
 
 		void SetUniformMat4(std::string name, glm::mat4 matrix) const override;
+		void SetUnifromInt(std::string name, int value) const override;
+
 
 	private:
 		uint32_t _rendererID;

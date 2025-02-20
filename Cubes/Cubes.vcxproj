@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>cbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -99,7 +99,7 @@
       <PrecompiledHeaderFile>cbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -125,7 +125,7 @@
       <PrecompiledHeaderFile>cbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -146,15 +146,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Cubes\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Cubes\Renderer\PerspectiveCamera.h" />
-    <ClInclude Include="src\Cubes\Renderer\RendererCommand.h" />
-    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="src\Cubes\Renderer\Buffer.h" />
-    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLShader.h" />
-    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.h" />
     <ClInclude Include="src\Cubes.h" />
     <ClInclude Include="src\Cubes\Application.h" />
     <ClInclude Include="src\Cubes\Core.h" />
@@ -170,44 +161,59 @@
     <ClInclude Include="src\Cubes\LayerStack.h" />
     <ClInclude Include="src\Cubes\MouseButtonCodes.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLTexture2D.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Cubes\Renderer\Buffer.h" />
+    <ClInclude Include="src\Cubes\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Cubes\Renderer\PerspectiveCamera.h" />
     <ClInclude Include="src\Cubes\Renderer\RenderContext.h" />
     <ClInclude Include="src\Cubes\Renderer\Renderer.h" />
     <ClInclude Include="src\Cubes\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Cubes\Renderer\RendererCommand.h" />
     <ClInclude Include="src\Cubes\Renderer\Shader.h" />
+    <ClInclude Include="src\Cubes\Renderer\Texture.h" />
     <ClInclude Include="src\Cubes\Renderer\VertexArray.h" />
     <ClInclude Include="src\Cubes\Time\TimeStep.h" />
     <ClInclude Include="src\Cubes\Utility\Log.h" />
     <ClInclude Include="src\Cubes\Utility\Window.h" />
     <ClInclude Include="src\Cubes\cbpch.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Cubes\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\Cubes\Renderer\PerspectiveCamera.cpp" />
-    <ClCompile Include="src\Cubes\Renderer\RendererCommand.cpp" />
-    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="src\Cubes\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLShader.cpp" />
-    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.cpp" />
     <ClCompile Include="src\Cubes\Application.cpp" />
     <ClCompile Include="src\Cubes\Events\ApplicationEvent.cpp" />
     <ClCompile Include="src\Cubes\ImGUI\ImGUILayer.cpp" />
     <ClCompile Include="src\Cubes\Layer.cpp" />
     <ClCompile Include="src\Cubes\LayerStack.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\ImGUIOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLTexture2D.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\PerspectiveCamera.cpp" />
     <ClCompile Include="src\Cubes\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Cubes\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\RendererCommand.cpp" />
     <ClCompile Include="src\Cubes\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\Texture.cpp" />
     <ClCompile Include="src\Cubes\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Cubes\Utility\Log.cpp" />
     <ClCompile Include="src\Cubes\cbpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

@@ -27,8 +27,8 @@ namespace Cubes {
 
 			glDeleteShader(vertexShader);
 
-			CB_CORE_ASSERT(false, "Failed to compile Vertex Shader");
 			CB_CORE_ERROR("{0}", errorLog.data());
+			CB_CORE_ASSERT(false, "Failed to compile Vertex Shader");
 		}
 
 		uint32_t fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
@@ -45,8 +45,8 @@ namespace Cubes {
 			glDeleteShader(vertexShader);
 			glDeleteShader(fragmentShader);
 
-			CB_CORE_ASSERT(false, "Failed to compile Fragment Shader");
 			CB_CORE_ERROR("{0}", errorLog.data());
+			CB_CORE_ASSERT(false, "Failed to compile Fragment Shader");
 		}
 
 		_rendererID = glCreateProgram();
@@ -72,6 +72,8 @@ namespace Cubes {
 
 		glDetachShader(_rendererID, vertexShader);
 		glDetachShader(_rendererID, fragmentShader);
+		glDeleteShader(vertexShader);
+		glDeleteShader(fragmentShader);
 	}
 	OpenGLShader::~OpenGLShader()
 	{
@@ -93,5 +95,11 @@ namespace Cubes {
 		glUseProgram(_rendererID);
 		int location = glGetUniformLocation(_rendererID, name.c_str());
 		glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+	}
+	void OpenGLShader::SetUnifromInt(std::string name, int value) const
+	{
+		glUseProgram(_rendererID);
+		int location = glGetUniformLocation(_rendererID, name.c_str());
+		glUniform1i(location, value);
 	}
 }

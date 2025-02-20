@@ -12,6 +12,7 @@ namespace Cubes {
         virtual void UnBind() const = 0;
 
         virtual void SetUniformMat4(std::string name, glm::mat4 matrix) const = 0;
+        virtual void SetUnifromInt(std::string name, int value) const = 0;
 
     static Ref<Shader> Create(std::string& vertexCode, std::string& fragmentCode);
 
