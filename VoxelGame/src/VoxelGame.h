@@ -14,10 +14,10 @@ namespace GameNamespace {
 	private:
 		Camera _camera;
 
-		std::shared_ptr<Cubes::Shader> _shader;
-		std::shared_ptr<Cubes::VertexArray> _vertexArray;
-		std::shared_ptr<Cubes::VertexBuffer> _vertexBuffer;
-		std::shared_ptr<Cubes::IndexBuffer> _indexBuffer;
+		Cubes::Ref<Cubes::Shader> _shader;
+		Cubes::Ref<Cubes::VertexArray> _vertexArray;
+		Cubes::Ref<Cubes::VertexBuffer> _vertexBuffer;
+		Cubes::Ref<Cubes::IndexBuffer> _indexBuffer;
 	};
 
 }

@@ -46,7 +46,7 @@ namespace Cubes {
         glBindVertexArray(0);
     }
 
-    void OpenGLVertexArray::AddVertexBuffer(std::shared_ptr<VertexBuffer> vertexBuffer)
+    void OpenGLVertexArray::AddVertexBuffer(Ref<VertexBuffer> vertexBuffer)
     {
         glBindVertexArray(_rendererID);
         vertexBuffer->Bind();
@@ -63,7 +63,7 @@ namespace Cubes {
         _vertexBuffers.push_back(vertexBuffer);
     }
 
-    void OpenGLVertexArray::SetIndexBuffer(std::shared_ptr<IndexBuffer> indexBuffer)
+    void OpenGLVertexArray::SetIndexBuffer(Ref<IndexBuffer> indexBuffer)
     {
         glBindVertexArray(_rendererID);
         indexBuffer->Bind();

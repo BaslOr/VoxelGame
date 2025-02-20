@@ -5,10 +5,9 @@
 
 namespace Cubes {
 
-    const glm::vec3 CAMERA_UP = glm::vec3(0.f, 1.f, 0.f);
 
     PerspectiveCamera::PerspectiveCamera(glm::vec3& position, float aspectRatio, float fov)
-        : _projectionMatrix(1.f), _viewMatrix(1.f), _front(0.f, 0.f, -1.f), _position(position), _target(0.f), _fov(fov)
+        : _projectionMatrix(1.f), _viewMatrix(1.f), _front(0.f, 0.f, -1.f), _position(position), _target(0.f), _fov(fov), _up(glm::vec3(0.f, 1.f, 0.f))
     {
         _projectionMatrix = glm::perspective(fov, aspectRatio, 0.1f, 100.f);
 
@@ -32,9 +31,9 @@ namespace Cubes {
     void PerspectiveCamera::RecalculateViewProjectionMatrix()
     {
         _direction = glm::normalize(_position - _target);
-        _right = glm::normalize(glm::cross(CAMERA_UP, _direction));
+        _right = glm::normalize(glm::cross(_up, _direction));
 
-        _viewMatrix = glm::lookAt(_position, _position + _front, CAMERA_UP);
+        _viewMatrix = glm::lookAt(_position, _position + _front, _up);
 
         CalculateViewProjectionMatrix();
     }

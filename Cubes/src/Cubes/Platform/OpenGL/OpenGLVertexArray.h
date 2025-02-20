@@ -11,16 +11,16 @@ namespace Cubes {
         inline  void Bind() const override;
         inline void UnBind() const override;
 
-        void AddVertexBuffer(std::shared_ptr<VertexBuffer> vertexBuffer) override;
-        void SetIndexBuffer(std::shared_ptr<IndexBuffer> indexBuffer) override;
+        void AddVertexBuffer(Ref<VertexBuffer> vertexBuffer) override;
+        void SetIndexBuffer(Ref<IndexBuffer> indexBuffer) override;
 
-        inline std::vector<std::shared_ptr<VertexBuffer>> GetVertexBuffers() const override { return _vertexBuffers; }
-        inline std::shared_ptr<IndexBuffer> GetIndexBuffer() const override { return _indexBuffer; }
+        inline std::vector<Ref<VertexBuffer>> GetVertexBuffers() const override { return _vertexBuffers; }
+        inline Ref<IndexBuffer> GetIndexBuffer() const override { return _indexBuffer; }
 
     private:
         uint32_t _rendererID;
-        std::vector<std::shared_ptr<VertexBuffer>> _vertexBuffers;
-        std::shared_ptr<IndexBuffer> _indexBuffer;
+        std::vector<Ref<VertexBuffer>> _vertexBuffers;
+        Ref<IndexBuffer> _indexBuffer;
     };
 
 }

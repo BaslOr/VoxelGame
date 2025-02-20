@@ -40,6 +40,7 @@ namespace Cubes {
         glm::vec3 _front;
         glm::vec3 _direction;
         glm::vec3 _right;
+        glm::vec3 _up;
         float _fov;
         float _aspectRatio;
         
