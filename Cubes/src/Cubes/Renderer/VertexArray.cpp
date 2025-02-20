@@ -8,7 +8,7 @@ namespace Cubes {
 
     
 
-    VertexArray* VertexArray::Create()
+    Ref<VertexArray> VertexArray::Create()
     {
         switch (Renderer::GetAPI())
         {
@@ -16,7 +16,7 @@ namespace Cubes {
             CB_CORE_ERROR("You need to select an Rendering API before creating a Vertex Array"); return nullptr;
             break;
         case RendererAPI::API::OpenGL:
-            return new OpenGLVertexArray();
+            return std::make_shared<OpenGLVertexArray>();
             break;
         case RendererAPI::API::Vulkan:
             CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;

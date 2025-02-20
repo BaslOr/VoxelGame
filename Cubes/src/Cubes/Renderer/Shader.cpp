@@ -5,7 +5,7 @@
 
 namespace Cubes {
 
-	Shader* Shader::Create(std::string& vertexCode, std::string& fragmentCode)
+	Ref<Shader> Shader::Create(std::string& vertexCode, std::string& fragmentCode)
 	{
         switch (Renderer::GetAPI())
         {
@@ -13,7 +13,7 @@ namespace Cubes {
             CB_CORE_ERROR("You need to select an Rendering API before creating a Shader"); return nullptr;
             break;
         case RendererAPI::API::OpenGL:
-            return new OpenGLShader(vertexCode, fragmentCode);
+            return std::make_shared<OpenGLShader>(vertexCode, fragmentCode);
             break;
         case RendererAPI::API::Vulkan:
             CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;

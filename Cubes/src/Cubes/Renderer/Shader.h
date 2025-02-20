@@ -13,7 +13,7 @@ namespace Cubes {
 
         virtual void SetUniformMat4(std::string name, glm::mat4 matrix) const = 0;
 
-    static Shader* Create(std::string& vertexCode, std::string& fragmentCode);
+    static Ref<Shader> Create(std::string& vertexCode, std::string& fragmentCode);
 
     };
 

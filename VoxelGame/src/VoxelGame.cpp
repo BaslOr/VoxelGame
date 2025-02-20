@@ -39,9 +39,9 @@ namespace GameNamespace {
             "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
             "}\n\0";
 
-        _vertexArray.reset(Cubes::VertexArray::Create());
+        _vertexArray = Cubes::VertexArray::Create();
 
-        _vertexBuffer.reset(Cubes::VertexBuffer::Create(&vertices, sizeof(vertices)));
+        _vertexBuffer = Cubes::VertexBuffer::Create(&vertices, sizeof(vertices));
 
         {
             Cubes::BufferLayout layout = {
@@ -51,12 +51,12 @@ namespace GameNamespace {
             _vertexBuffer->SetLayout(layout);
         }
 
-        _indexBuffer.reset(Cubes::IndexBuffer::Create(indices, 6));
+        _indexBuffer = Cubes::IndexBuffer::Create(indices, 6);
 
         _vertexArray->AddVertexBuffer(_vertexBuffer);
         _vertexArray->SetIndexBuffer(_indexBuffer);
 
-        _shader.reset(Cubes::Shader::Create(vertexShaderSource, fragmentShaderSource));
+        _shader = Cubes::Shader::Create(vertexShaderSource, fragmentShaderSource);
 	}
 
 	void VoxelGame::OnUpdate(Cubes::TimeStep deltaTime)

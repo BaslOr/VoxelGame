@@ -5,7 +5,8 @@
 #include "Renderer.h"
 
 namespace Cubes {
-	VertexBuffer* VertexBuffer::Create(void* data, uint32_t size)
+
+	Ref<VertexBuffer> VertexBuffer::Create(void* data, uint32_t size)
 	{
         switch (Renderer::GetAPI())
         {
@@ -13,7 +14,7 @@ namespace Cubes {
             CB_CORE_ERROR("You need to select an Rendering API before creating a Vertex Buffer"); return nullptr;
             break;
         case RendererAPI::API::OpenGL:
-            return new OpenGLVertexBuffer(data, size);
+            return std::make_shared<OpenGLVertexBuffer>(data, size);
             break;
         case RendererAPI::API::Vulkan:
             CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;
@@ -24,7 +25,7 @@ namespace Cubes {
         return nullptr;
 	}
 
-    IndexBuffer* IndexBuffer::Create(uint16_t* data, uint16_t count)
+    Ref <IndexBuffer> IndexBuffer::Create(uint16_t* data, uint16_t count)
     {
         switch (Renderer::GetAPI())
         {
@@ -32,7 +33,7 @@ namespace Cubes {
             CB_CORE_ERROR("You need to select an Rendering API before creating a Index Buffer"); return nullptr;
             break;
         case RendererAPI::API::OpenGL:
-            return new OpenGLIndexBuffer(data, count);
+            return std::make_shared<OpenGLIndexBuffer>(data, count);
             break;
         case RendererAPI::API::Vulkan:
             CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;

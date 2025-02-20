@@ -112,8 +112,8 @@ namespace Cubes {
 
         virtual void Bind() const = 0;
         virtual void UnBind() const = 0;
-
-        static VertexBuffer* Create(void* data, uint32_t size);
+        
+        static Ref<VertexBuffer> Create(void* data, uint32_t size);
     };
 
 
@@ -127,7 +127,7 @@ namespace Cubes {
 
         virtual uint16_t GetCount() const = 0;
 
-        static IndexBuffer* Create(uint16_t* data, uint16_t count);
+        static Ref<IndexBuffer> Create(uint16_t* data, uint16_t count);
     };
 
 }

@@ -16,7 +16,7 @@ namespace Cubes {
 		virtual std::vector<Ref<VertexBuffer>> GetVertexBuffers() const = 0;
 		virtual Ref<IndexBuffer> GetIndexBuffer() const = 0;
 
-		static VertexArray* Create();
+		static Ref<VertexArray> Create();
 	};
 
 }
