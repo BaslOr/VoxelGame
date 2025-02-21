@@ -13,6 +13,8 @@ namespace Cubes {
     class Renderer {
     public:
 
+        static void Init();
+
         static void BeginScene(PerspectiveCamera& camera);
         static void EndScene();
 

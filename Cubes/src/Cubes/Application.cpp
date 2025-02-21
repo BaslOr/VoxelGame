@@ -19,6 +19,8 @@ namespace Cubes {
 
         _window = std::unique_ptr<Window>(Window::Create());
         _window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
+
+        Renderer::Init();
     }
 
     Application::~Application()

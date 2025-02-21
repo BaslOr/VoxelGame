@@ -70,6 +70,7 @@ namespace GameNamespace {
         _shader = Cubes::Shader::Create(vertexShaderSource, fragmentShaderSource);
         _shader->SetUnifromInt("u_Texture", 0);
         _texture = Cubes::Texture::Create("../VoxelGame/Assets/Textures/TestIcon.png");
+        _text = Cubes::Texture::Create("../VoxelGame/Assets/Textures/OgerText.png");
 	}
 
 	void VoxelGame::OnUpdate(Cubes::TimeStep deltaTime)
@@ -84,6 +85,8 @@ namespace GameNamespace {
         Cubes::Renderer::BeginScene(_camera);
         _shader->Bind();
         _texture->Bind();
+        Cubes::Renderer::Submit(_shader, _vertexArray);
+        _text->Bind();
         Cubes::Renderer::Submit(_shader, _vertexArray);
         Cubes::Renderer::EndScene();
 	}

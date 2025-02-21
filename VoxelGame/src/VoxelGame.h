@@ -18,7 +18,9 @@ namespace GameNamespace {
 		Cubes::Ref<Cubes::VertexArray> _vertexArray;
 		Cubes::Ref<Cubes::VertexBuffer> _vertexBuffer;
 		Cubes::Ref<Cubes::IndexBuffer> _indexBuffer;
+
 		Cubes::Ref<Cubes::Texture> _texture;
+		Cubes::Ref<Cubes::Texture> _text;
 	};
 
 }

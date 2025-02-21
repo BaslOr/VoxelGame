@@ -7,6 +7,11 @@ namespace Cubes {
 	Renderer::SceneData* Renderer::_sceneData = new Renderer::SceneData;
 
 
+	void Renderer::Init()
+	{
+		RendererCommand::Init();
+	}
+
 	void Renderer::BeginScene(PerspectiveCamera& camera)
 	{
 		_sceneData->ViewProjectionMatrix = camera.GetViewProjection();

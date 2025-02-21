@@ -6,6 +6,7 @@ namespace Cubes {
 	class RendererCommand
 	{
 	public:
+		inline static void Init() { _rendererAPI->Init(); }
 		
 		inline static void Clear() { _rendererAPI->Clear(); }
 		inline static void SetClearColor(const glm::vec4& color) { _rendererAPI->SetClearColor(color); }

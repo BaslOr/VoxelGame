@@ -12,6 +12,15 @@ namespace Cubes {
         stbi_set_flip_vertically_on_load(true);
         unsigned char* data = stbi_load(path.c_str(), &width, &height, &numChannels, 4);
 
+        int internalFormat = 0, dataFormat = 0;
+        if(numChannels == 4) { 
+            dataFormat = GL_RGBA8;
+            internalFormat = GL_RGBA;
+        }
+        else if (numChannels == 3) {
+             dataFormat = GL_RGB8;
+             internalFormat = GL_RGBA;
+        }
 
 
         glGenTextures(1, &_rendererID);
@@ -22,7 +31,7 @@ namespace Cubes {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         
         if (data) {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+            glTexImage2D(GL_TEXTURE_2D, 0, dataFormat, width, height, 0, internalFormat, GL_UNSIGNED_BYTE, data);
             glGenerateMipmap(GL_TEXTURE_2D);
 
             _width = width;
