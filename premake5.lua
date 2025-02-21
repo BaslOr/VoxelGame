@@ -17,6 +17,7 @@ IncludeDir["glad"] = "Cubes/vendor/glad/include"
 IncludeDir["ImGUI"] = "Cubes/vendor/ImGUI"
 IncludeDir["glm"] = "Cubes/vendor/glm"
 IncludeDir["stb_image"] = "Cubes/vendor/stb_image"
+IncludeDir["tinyobjloader"] = "Cubes/vendor/tinyobjloader"
 
 include "Cubes/vendor/GLFW"
 include "Cubes/vendor/glad"
@@ -43,7 +44,9 @@ project "Cubes"
         "%{prj.name}/src/**.cpp",
 
         "%{prj.name}/vendor/stb_image/**.h",
-        "%{prj.name}/vendor/stb_image/**.cpp"
+        "%{prj.name}/vendor/stb_image/**.cpp",
+
+        "%{prj.name}/vendor/tinyobjloader/tiny_obj_loader.h",
     }
 
     includedirs {
@@ -52,7 +55,8 @@ project "Cubes"
         "%{IncludeDir.ImGUI}",
         "%{IncludeDir.glad}",
         "%{IncludeDir.glm}",
-        "%{IncludeDir.stb_image}"
+        "%{IncludeDir.stb_image}",
+        "%{IncludeDir.tinyobjloader}"
     }
 
     links {
