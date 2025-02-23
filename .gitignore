@@ -9,6 +9,9 @@
 /bin/
 /bin-int/
 
+#vendor
+imgui.ini
+
 # Prerequisites
 *.d
 
