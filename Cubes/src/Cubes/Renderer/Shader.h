@@ -17,6 +17,7 @@ namespace Cubes {
         virtual void SetUniformFloat4(std::string name, glm::vec4 value) const = 0;
 
         static Ref<Shader> Create(std::string& vertexCode, std::string& fragmentCode);
+        static Ref<Shader> Create(const std::string& filePath);
 
     };
 

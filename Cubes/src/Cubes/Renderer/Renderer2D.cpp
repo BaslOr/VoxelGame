@@ -35,35 +35,6 @@ namespace Cubes {
             0, 1, 2, 2, 3, 0
         };
 
-        //TODO: Temporary
-        std::string vertexShaderSource = "#version 330 core\n"
-            "layout (location = 0) in vec3 aPos;\n"
-            "layout (location = 1) in vec2 aTexCoord;\n"
-            "\n"
-            "uniform mat4 u_ViewProjection;\n"
-            "uniform mat4 u_Model;\n"
-            "\n"
-            "out vec2 TexCoord;\n"
-            "\n"
-            "void main()\n"
-            "{\n"
-            "   gl_Position = u_ViewProjection * u_Model * vec4(aPos.xyz, 1.0);\n"
-            "   TexCoord = aTexCoord;\n"
-            "}\0";
-        std::string fragmentShaderSource = "#version 330 core\n"
-            "out vec4 FragColor;\n"
-            "\n"
-            "in vec2 TexCoord;\n"
-            "\n"
-            "uniform vec4 u_Color;\n"
-            "\n"
-            "void main()\n"
-            "{\n"
-            "   FragColor = u_Color;\n"
-            "}\n\0";
-
-
-
         renderer2DData->QuadVertexArray = VertexArray::Create();
         renderer2DData->QuadVertexBuffer = VertexBuffer::Create(&quadVertices, sizeof(quadVertices));
         {
@@ -80,7 +51,7 @@ namespace Cubes {
         renderer2DData->QuadVertexArray->AddVertexBuffer(renderer2DData->QuadVertexBuffer);
         renderer2DData->QuadVertexArray->SetIndexBuffer(renderer2DData->QuadIndexBuffer);
 
-        renderer2DData->QuadShader = Shader::Create(vertexShaderSource, fragmentShaderSource);
+        renderer2DData->QuadShader = Shader::Create("../Cubes/resources/defaultShader.glsl");
         
         
         //_texture = Cubes::Texture::Create("../VoxelGame/Assets/Textures/TestIcon.png");

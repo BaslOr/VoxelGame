@@ -242,4 +242,7 @@
     </ClCompile>
     <ClCompile Include="src\Cubes\Renderer\Renderer2D.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\defaultShader.glsl" />
+  </ItemGroup>
 </Project>
