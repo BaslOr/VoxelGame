@@ -7,11 +7,13 @@ namespace Cubes {
 	{
 	public:
 		OpenGLShader(const std::string& filePath);
-		OpenGLShader(std::string& vertexCode, std::string& fragmentCode);
+		OpenGLShader(const std::string& name, std::string& vertexCode, std::string& fragmentCode);
 		~OpenGLShader();
 
 		void Bind() const override;
 		void UnBind() const override;
+
+		const inline std::string& GetName() const override { return _name; }
 
 		//Unifroms
 		void SetUniformMat4(std::string name, glm::mat4 matrix) const override;
@@ -28,6 +30,7 @@ namespace Cubes {
 
 	private:
 		uint32_t _rendererID;
+		std::string _name;
 	};
 
 }

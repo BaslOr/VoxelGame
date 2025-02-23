@@ -15,7 +15,8 @@ namespace Cubes {
         Ref<VertexArray> QuadVertexArray;
         Ref<VertexBuffer> QuadVertexBuffer;
         Ref<IndexBuffer> QuadIndexBuffer;
-        Ref<Shader> QuadShader;
+
+        ShaderLibrary ShaderLib;
     };
 
     static Renderer2DData* renderer2DData = new Renderer2DData;
@@ -51,7 +52,7 @@ namespace Cubes {
         renderer2DData->QuadVertexArray->AddVertexBuffer(renderer2DData->QuadVertexBuffer);
         renderer2DData->QuadVertexArray->SetIndexBuffer(renderer2DData->QuadIndexBuffer);
 
-        renderer2DData->QuadShader = Shader::Create("../Cubes/resources/defaultShader.glsl");
+        renderer2DData->ShaderLib.Load("../Cubes/resources/defaultShader.glsl");
         
         
         //_texture = Cubes::Texture::Create("../VoxelGame/Assets/Textures/TestIcon.png");
@@ -60,11 +61,11 @@ namespace Cubes {
 
     void Renderer2D::DrawQuad(glm::vec2 position, glm::vec2 size, glm::vec4 color)
     {
-        renderer2DData->QuadShader->Bind();
+        const auto& shader = renderer2DData->ShaderLib.Get("defaultShader");
         renderer2DData->QuadVertexArray->Bind();
-        renderer2DData->QuadShader->SetUniformMat4("u_ViewProjection", renderer2DData->ViewProjectionMatrix);
-        renderer2DData->QuadShader->SetUniformMat4("u_Model", glm::mat4(1.f));
-        renderer2DData->QuadShader->SetUniformFloat4("u_Color", color);
+        shader->SetUniformMat4("u_ViewProjection", renderer2DData->ViewProjectionMatrix);
+        shader->SetUniformMat4("u_Model", glm::mat4(1.f));
+        shader->SetUniformFloat4("u_Color", color);
         RenderCommand::DrawIndexed(renderer2DData->QuadVertexArray);
     }
 

@@ -27,11 +27,18 @@ namespace Cubes {
     {
         std::string source = ReadShaderFile(filePath);
         auto shaderSources = ProcessShaderFile(source);
-
         Compile(shaderSources);
+
+        //Extract name from filePath
+        auto lastSlash = filePath.find_last_of("/\\");
+        lastSlash = lastSlash == std::string::npos ? 0 : lastSlash + 1;
+        auto lastDot = filePath.rfind('.');
+        auto count = lastDot == std::string::npos ? filePath.size() - lastSlash : lastDot - lastSlash;
+        _name = filePath.substr(lastSlash, count);
     }
 
-    OpenGLShader::OpenGLShader(std::string& vertexCode, std::string& fragmentCode)
+    OpenGLShader::OpenGLShader(const std::string& name, std::string& vertexCode, std::string& fragmentCode)
+        : _name(name)
     {
         const char* cVertexCode = vertexCode.c_str();
         const char* cFragmentCode = fragmentCode.c_str();
