@@ -29,9 +29,9 @@ namespace GameNamespace {
         else if (Cubes::Input::IsKeyDown(CB_KEY_S))
             _position -= _front * _movementSpeed;
         if (Cubes::Input::IsKeyDown(CB_KEY_D))
-            _position += _right * _movementSpeed;
-        else if (Cubes::Input::IsKeyDown(CB_KEY_A))
             _position -= _right * _movementSpeed;
+        else if (Cubes::Input::IsKeyDown(CB_KEY_A))
+            _position += _right * _movementSpeed;
         if (Cubes::Input::IsKeyDown(CB_KEY_SPACE))
             _position.y += _movementSpeed;
         else if (Cubes::Input::IsKeyDown(CB_KEY_LEFT_SHIFT))

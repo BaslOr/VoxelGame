@@ -25,7 +25,7 @@ namespace Cubes {
 		_sceneData->ViewProjectionMatrix = camera.GetViewProjection();
 		Renderer2D::BeginScene(camera);
 
-		RenderCommand::SetClearColor(glm::vec4(.23f, .3f, .5f, 1.f));
+		RenderCommand::SetClearColor(glm::vec4(.15f, .15f, .15f, 1.f));
 		RenderCommand::Clear();
 	}
 
