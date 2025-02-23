@@ -75,7 +75,7 @@ namespace Cubes {
 
     std::string OpenGLShader::ReadShaderFile(const std::string& filePath)
     {
-        std::ifstream file(filePath, std::ios::in, std::ios::binary);
+        std::ifstream file(filePath, std::ios::in | std::ios::binary);
 
         if (!file.is_open()) {
             CB_CORE_ERROR("Unable to open Shader file: {0}", filePath);
