@@ -76,7 +76,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>cbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_DEBUG;CB_DEBUG_UTILS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;vendor\stb_image;vendor\tinyobjloader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -98,7 +98,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>cbpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_BUILD_DLL;GLFW_INCLUDE_NONE;CB_RELEASE;CB_DEBUG_UTILS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendor\spdlog\include;vendor\GLFW\include;vendor\ImGUI;vendor\glad\include;vendor\glm;vendor\stb_image;vendor\tinyobjloader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -172,11 +172,11 @@
     <ClInclude Include="src\Cubes\Renderer\Buffer.h" />
     <ClInclude Include="src\Cubes\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Cubes\Renderer\PerspectiveCamera.h" />
+    <ClInclude Include="src\Cubes\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Cubes\Renderer\RenderContext.h" />
     <ClInclude Include="src\Cubes\Renderer\Renderer.h" />
     <ClInclude Include="src\Cubes\Renderer\Renderer2D.h" />
     <ClInclude Include="src\Cubes\Renderer\RendererAPI.h" />
-    <ClInclude Include="src\Cubes\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Cubes\Renderer\Shader.h" />
     <ClInclude Include="src\Cubes\Renderer\Texture.h" />
     <ClInclude Include="src\Cubes\Renderer\VertexArray.h" />
@@ -205,10 +205,10 @@
     <ClCompile Include="src\Cubes\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Cubes\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Cubes\Renderer\PerspectiveCamera.cpp" />
+    <ClCompile Include="src\Cubes\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Cubes\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Cubes\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\Cubes\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="src\Cubes\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Cubes\Renderer\Shader.cpp" />
     <ClCompile Include="src\Cubes\Renderer\Texture.cpp" />
     <ClCompile Include="src\Cubes\Renderer\VertexArray.cpp" />
@@ -228,9 +228,6 @@
     <ProjectReference Include="vendor\ImGUI\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\defaultShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

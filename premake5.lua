@@ -80,12 +80,18 @@ project "Cubes"
         }
         
     filter "configurations:Debug"
-        defines "CB_DEBUG"
+        defines {
+            "CB_DEBUG",
+            "CB_DEBUG_UTILS"
+        }
         runtime "Debug"  
         symbols "on"
 
     filter "configurations:Release"
-        defines "CB_RELEASE"
+        defines {
+            "CB_RELEASE",
+            "CB_DEBUG_UTILS"
+        }
         runtime "Release" 
         optimize "on"
 
@@ -135,12 +141,18 @@ project "VoxelGame"
         }
 
     filter "configurations:Debug"
-        defines "CB_DEBUG"
+        defines {
+            "CB_DEBUG",
+            "CB_DEBUG_UTILS"
+        }
         runtime "Debug"
         symbols "on"
 
     filter "configurations:Release"
-        defines "CB_RELEASE"
+        defines {
+            "CB_RELEASE",
+            "CB_DEBUG_UTILS"
+        }
         runtime "Release"
         optimize "on"
 
