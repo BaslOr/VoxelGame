@@ -11,6 +11,7 @@ namespace GameNamespace {
 
     void Camera::OnUpdate(Cubes::TimeStep deltaTime)
     {
+        //Only do Mouse calculations when right mouse Button is clicked
         bool doMouseCalculations = false;
         if (Cubes::Input::IsMouseButtonDown(CB_MOUSE_BUTTON_RIGHT)) {
             Cubes::Application::Get().GetWindow().SetInputModeCursor(true);

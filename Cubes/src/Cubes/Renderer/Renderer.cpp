@@ -12,6 +12,11 @@ namespace Cubes {
 		RendererCommand::Init();
 	}
 
+	void Renderer::OnWindowsResize(uint32_t width, uint32_t height)
+	{
+		RendererCommand::SetViewport(0, 0, width, height);
+	}
+
 	void Renderer::BeginScene(PerspectiveCamera& camera)
 	{
 		_sceneData->ViewProjectionMatrix = camera.GetViewProjection();

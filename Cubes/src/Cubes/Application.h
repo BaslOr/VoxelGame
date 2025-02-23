@@ -26,7 +26,6 @@ namespace Cubes {
         void run();
 
         void OnEvent(Event& e);
-        
         virtual void OnUpdate(TimeStep deltaTime) = 0;
 
         void PushLayer(Layer* layer);
@@ -36,8 +35,8 @@ namespace Cubes {
         inline Window& GetWindow() { return *_window; }
 
     private:
-
         bool OnWindowClose(WindowCloseEvent& e);
+        bool OnWindowResizeEvent(WindowResizeEvent& e);
 
     private:
 
@@ -48,6 +47,7 @@ namespace Cubes {
         PerspectiveCamera _camera;
 
         bool _isRunning = true;
+        bool _minimized = false;
         float _lastFrameTime = 0.f;
 
     private:

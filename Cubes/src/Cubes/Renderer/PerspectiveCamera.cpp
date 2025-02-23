@@ -18,9 +18,7 @@ namespace Cubes {
     void PerspectiveCamera::OnEvent(Event& event)
     {
         EventDispatcher dispatcher(event);
-        dispatcher.Dispatch<WindowResizeEvent>(
-            [this](WindowResizeEvent& event) -> bool { return OnWindowResize(event); }
-        );
+        dispatcher.Dispatch<WindowResizeEvent>(CB_BIND_EVENT_FUNC(PerspectiveCamera::OnWindowResizeEvent));
     }
 
     void PerspectiveCamera::CalculateViewProjectionMatrix()
@@ -38,7 +36,7 @@ namespace Cubes {
         CalculateViewProjectionMatrix();
     }
 
-    bool PerspectiveCamera::OnWindowResize(WindowResizeEvent& event)
+    bool PerspectiveCamera::OnWindowResizeEvent(WindowResizeEvent& event)
     {
         _aspectRatio = (float)event.GetWidth() / (float)event.GetHeight();
         _projectionMatrix = glm::perspective(_fov, _aspectRatio, 0.1f, 100.f);

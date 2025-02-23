@@ -32,7 +32,7 @@ namespace Cubes {
         void CalculateViewProjectionMatrix();
         void RecalculateViewProjectionMatrix();
 
-        bool OnWindowResize(WindowResizeEvent& event);
+        bool OnWindowResizeEvent(WindowResizeEvent& event);
 
     protected:
         glm::vec3 _position;

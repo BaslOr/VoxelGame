@@ -84,7 +84,7 @@ namespace GameNamespace {
 
         Cubes::Renderer::BeginScene(_camera);
         _shader->Bind();
-        _texture->Bind();
+         _texture->Bind();
         Cubes::Renderer::Submit(_shader, _vertexArray);
         _text->Bind();
         Cubes::Renderer::Submit(_shader, _vertexArray);

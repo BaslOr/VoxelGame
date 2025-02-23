@@ -14,6 +14,7 @@ namespace Cubes {
     public:
 
         static void Init();
+        static void OnWindowsResize(uint32_t width, uint32_t height);
 
         static void BeginScene(PerspectiveCamera& camera);
         static void EndScene();

@@ -6,6 +6,9 @@
 #include "Cubes/Utility/Log.h"
 #include "Cubes/ImGUI/ImGUILayer.h"
 #include "Cubes/Events/Event.h"
+#include "Cubes/Events/ApplicationEvent.h"
+#include "Cubes/Events/KeyEvent.h"
+#include "Cubes/Events/MouseEvent.h"
 #include "Cubes/Input.h"
 #include "Cubes/Time/TimeStep.h"
 

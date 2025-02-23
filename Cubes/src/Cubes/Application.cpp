@@ -31,6 +31,7 @@ namespace Cubes {
     {
         EventDispatcher dispatcher(event);
         dispatcher.Dispatch<WindowCloseEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowClose));
+        dispatcher.Dispatch<WindowResizeEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowResizeEvent));
 
         for (auto it = _layerStack.end(); it != _layerStack.begin();) {
             (*--it)->OnEvent(event);
@@ -62,12 +63,14 @@ namespace Cubes {
             TimeStep deltaTime = time - _lastFrameTime;
             _lastFrameTime = time;
 
+            if (!_minimized) {
+                for (Layer* layer : _layerStack)
+                    layer->OnUpdate();
+            }
+
             _window->OnUpdate();
 
             OnUpdate(deltaTime);
-
-            for (Layer* layer : _layerStack)
-                layer->OnUpdate();
 
         }
     }
@@ -77,6 +80,19 @@ namespace Cubes {
     {
         _isRunning = false;
         return true;
+    }
+
+    bool Application::OnWindowResizeEvent(WindowResizeEvent& e)
+    {
+        if (e.GetWidth() == 0 || e.GetHeight() == 0) {
+            _minimized = true;
+            return false;
+        }
+
+        _minimized  = false;
+        Renderer::OnWindowsResize(e.GetWidth(), e.GetHeight());
+
+        return false;
     }
 
 }
