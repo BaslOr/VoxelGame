@@ -129,7 +129,7 @@
     <ClInclude Include="src\Cubes\Renderer\RendererAPI.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\RendererCommand.h">
+    <ClInclude Include="src\Cubes\Renderer\RenderCommand.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Renderer\Shader.h">
@@ -219,7 +219,7 @@
     <ClCompile Include="src\Cubes\Renderer\RendererAPI.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\RendererCommand.cpp">
+    <ClCompile Include="src\Cubes\Renderer\RenderCommand.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Renderer\Shader.cpp">

@@ -3,7 +3,7 @@
 
 namespace Cubes {
 
-	class RendererCommand
+	class RenderCommand
 	{
 	public:
 		inline static void Init() { _rendererAPI->Init(); }

@@ -4,7 +4,7 @@
 #include "../Core.h"
 #include "VertexArray.h"
 #include "Shader.h"
-#include "RendererCommand.h"
+#include "RenderCommand.h"
 
 
 namespace Cubes {
@@ -65,7 +65,7 @@ namespace Cubes {
         renderer2DData->QuadShader->SetUniformMat4("u_ViewProjection", renderer2DData->ViewProjectionMatrix);
         renderer2DData->QuadShader->SetUniformMat4("u_Model", glm::mat4(1.f));
         renderer2DData->QuadShader->SetUniformFloat4("u_Color", color);
-        RendererCommand::DrawIndexed(renderer2DData->QuadVertexArray);
+        RenderCommand::DrawIndexed(renderer2DData->QuadVertexArray);
     }
 
     void Renderer2D::Shutdown()

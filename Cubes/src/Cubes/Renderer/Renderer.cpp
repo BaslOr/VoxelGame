@@ -11,13 +11,13 @@ namespace Cubes {
 
 	void Renderer::Init()
 	{
-		RendererCommand::Init();
+		RenderCommand::Init();
 		Renderer2D::Init();
 	}
 
 	void Renderer::OnWindowsResize(uint32_t width, uint32_t height)
 	{
-		RendererCommand::SetViewport(0, 0, width, height);
+		RenderCommand::SetViewport(0, 0, width, height);
 	}
 
 	void Renderer::BeginScene(PerspectiveCamera& camera)
@@ -25,8 +25,8 @@ namespace Cubes {
 		_sceneData->ViewProjectionMatrix = camera.GetViewProjection();
 		Renderer2D::BeginScene(camera);
 
-		RendererCommand::SetClearColor(glm::vec4(.23f, .3f, .5f, 1.f));
-		RendererCommand::Clear();
+		RenderCommand::SetClearColor(glm::vec4(.23f, .3f, .5f, 1.f));
+		RenderCommand::Clear();
 	}
 
 	void Renderer::EndScene()
@@ -39,6 +39,6 @@ namespace Cubes {
 		vertexArray->Bind();
 		shader->SetUniformMat4("u_ViewProjection", _sceneData->ViewProjectionMatrix);
 		shader->SetUniformMat4("u_Model", modelMatrix);
-		RendererCommand::DrawIndexed(vertexArray);
+		RenderCommand::DrawIndexed(vertexArray);
 	}
 }
