@@ -14,6 +14,8 @@ namespace Cubes {
 
 		void SetUniformMat4(std::string name, glm::mat4 matrix) const override;
 		void SetUnifromInt(std::string name, int value) const override;
+		void SetUniformFloat3(std::string name, glm::vec3 value) const override;
+		void SetUniformFloat4(std::string name, glm::vec4 value) const override;
 
 
 	private:
