@@ -206,28 +206,24 @@ namespace Cubes {
 
     void OpenGLShader::SetUniformMat4(std::string name, glm::mat4 matrix) const
     {
-        glUseProgram(_rendererID);
         int location = glGetUniformLocation(_rendererID, name.c_str());
         glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 
     void OpenGLShader::SetUnifromInt(std::string name, int value) const
     {
-        glUseProgram(_rendererID);
         int location = glGetUniformLocation(_rendererID, name.c_str());
         glUniform1i(location, value);
     }
 
     void OpenGLShader::SetUniformFloat3(std::string name, glm::vec3 value) const
     {
-        glUseProgram(_rendererID);
         int location = glGetUniformLocation(_rendererID, name.c_str());
         glUniform3f(location, value.x, value.y, value.z);
     }
 
     void OpenGLShader::SetUniformFloat4(std::string name, glm::vec4 value) const
     {
-        glUseProgram(_rendererID);
         int location = glGetUniformLocation(_rendererID, name.c_str());
         glUniform4f(location, value.x, value.y, value.z, value.a);
     }

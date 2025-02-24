@@ -3,23 +3,22 @@
 
 namespace GameNamespace {
 
-	class VoxelGame : public Cubes::Application
-	{
-	public:
-		VoxelGame();
-		~VoxelGame() = default;
+    class VoxelGame : public Cubes::Application
+    {
+    public:
+        VoxelGame();
+        ~VoxelGame() = default;
 
-		void OnUpdate(Cubes::TimeStep deltaTime) override;
+        void OnUpdate(Cubes::TimeStep deltaTime) override;
 
-	private:
-		Camera _camera;
+    private:
+        Camera _camera;
 
-		Cubes::Ref<Cubes::Texture> _texture;
-
-	};
+        Cubes::Ref<Cubes::Texture> _texture;
+    };
 
 }
 
 Cubes::Application* Cubes::CreateApplication() {
-	return new GameNamespace::VoxelGame();
+    return new GameNamespace::VoxelGame();
 }
