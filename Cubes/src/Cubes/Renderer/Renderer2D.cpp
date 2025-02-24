@@ -10,8 +10,6 @@
 namespace Cubes {
 
     struct Renderer2DData {
-        glm::mat4 ViewProjectionMatrix;
-
         Ref<VertexArray> QuadVertexArray;
         Ref<VertexBuffer> QuadVertexBuffer;
         Ref<IndexBuffer> QuadIndexBuffer;
@@ -53,21 +51,55 @@ namespace Cubes {
         renderer2DData->QuadVertexArray->SetIndexBuffer(renderer2DData->QuadIndexBuffer);
 
         renderer2DData->ShaderLib.Load("../Cubes/resources/defaultShader.glsl");
+        renderer2DData->ShaderLib.Load("../Cubes/resources/textureShader.glsl");
 	}
 
-    void Renderer2D::DrawQuad(glm::vec2 position, glm::vec2 size, glm::vec4 color, float rotation)
+    void Renderer2D::DrawQuad(glm::vec3 position, glm::vec2 size, glm::vec4 color, float rotation)
     {
         //Transform
-        glm::mat4 model = glm::translate(glm::mat4(1.f), glm::vec3(position, 0.f));
+        glm::mat4 model = glm::translate(glm::mat4(1.f), position);
         model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.f, 0.f, 1.f));
         model = glm::scale(model, glm::vec3(size, 0.f));
 
+        //Bind
         const auto& shader = renderer2DData->ShaderLib.Get("defaultShader");
         renderer2DData->QuadVertexArray->Bind();
-        shader->SetUniformMat4("u_ViewProjection", renderer2DData->ViewProjectionMatrix);
+
+        //Set Uniforms
         shader->SetUniformMat4("u_Model", model);
         shader->SetUniformFloat4("u_Color", color);
+
         RenderCommand::DrawIndexed(renderer2DData->QuadVertexArray);
+    }
+
+    void Renderer2D::DrawQuad(glm::vec2 position, glm::vec2 size, glm::vec4 color, float rotation)
+    {
+        DrawQuad(glm::vec3(position, 0.f), size, color, rotation);
+    }
+
+    void Renderer2D::DrawTexture(Ref<Texture> texture, glm::vec3 position, glm::vec2 size, glm::vec4 color, float rotation)
+    {
+        //Transform
+        glm::mat4 model = glm::translate(glm::mat4(1.f), position);
+        model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.f, 0.f, 1.f));
+        model = glm::scale(model, glm::vec3(size, 0.f));
+
+        //Bind
+        const auto& shader = renderer2DData->ShaderLib.Get("textureShader");
+        renderer2DData->QuadVertexArray->Bind();
+        texture->Bind();
+
+        //Set Uniforms
+        shader->SetUniformMat4("u_Model", model);
+        shader->SetUniformFloat4("u_Color", color);
+        shader->SetUnifromInt("u_Sampler", 0);
+
+        RenderCommand::DrawIndexed(renderer2DData->QuadVertexArray);
+    }
+
+    void Renderer2D::DrawTexture(Ref<Texture> texture, glm::vec2 position, glm::vec2 size, glm::vec4 color, float rotation)
+    {
+        DrawTexture(texture, glm::vec3(position, 0.f), size, color, rotation);
     }
 
     void Renderer2D::Shutdown()
@@ -77,7 +109,10 @@ namespace Cubes {
 
     void Renderer2D::BeginScene(PerspectiveCamera& camera)
     {
-        renderer2DData->ViewProjectionMatrix = camera.GetViewProjection();
+        const auto& defaultShader = renderer2DData->ShaderLib.Get("defaultShader");
+        defaultShader->SetUniformMat4("u_ViewProjection", camera.GetViewProjection());
+        const auto& textureShader = renderer2DData->ShaderLib.Get("textureShader");
+        textureShader->SetUniformMat4("u_ViewProjection", camera.GetViewProjection());
     }
 
     void Renderer2D::EndScene()
