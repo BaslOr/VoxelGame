@@ -8,10 +8,11 @@
 #include "Renderer/Shader.h"
 #include "Time/Timestep.h"
 
-#include <glm/glm.hpp>
 #include "Renderer/Buffer.h"
 #include "Renderer/VertexArray.h"
 #include "Renderer/PerspectiveCamera.h"
+
+#include "ImGUI/ImGUILayer.h"
 
 
 
@@ -41,6 +42,7 @@ namespace Cubes {
     private:
 
         std::unique_ptr<Window> _window;
+        ImGUILayer* _ImGuiLayer;
         LayerStack _layerStack;
 
         glm::vec3 _cameraPosition = glm::vec3(0.f, 0.f, 3.f);

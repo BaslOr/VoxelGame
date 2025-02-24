@@ -10,8 +10,6 @@ namespace GameNamespace {
     VoxelGame::VoxelGame()
         : _camera(glm::vec3(0.f, 0.f, 3.f), 45.f)
     {
-        PushOverlay(new Cubes::ImGUILayer());
-
         _texture = Cubes::Texture::Create("../VoxelGame/Assets/Textures/TestIcon.png");
     }
 

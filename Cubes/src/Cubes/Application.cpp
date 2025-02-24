@@ -20,6 +20,9 @@ namespace Cubes {
         _window = std::unique_ptr<Window>(Window::Create());
         _window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
 
+        _ImGuiLayer = new ImGUILayer;
+        PushOverlay(_ImGuiLayer);
+
         Renderer::Init();
     }
 
@@ -67,6 +70,11 @@ namespace Cubes {
                 for (Layer* layer : _layerStack)
                     layer->OnUpdate();
             }
+
+            _ImGuiLayer->Begin();
+            for (Layer* layer : _layerStack)
+                layer->OnImGuiRender();
+            _ImGuiLayer->End();
 
             _window->OnUpdate();
 

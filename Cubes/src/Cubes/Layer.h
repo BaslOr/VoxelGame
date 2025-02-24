@@ -11,9 +11,9 @@ namespace Cubes {
 
 		virtual inline void OnAttach() {}
 		virtual inline void OnDetach() {}
-		virtual inline void OnEvent(Event& e) {}
 		virtual inline void OnImGuiRender() {}
 		virtual inline void OnUpdate() {}
+		virtual inline void OnEvent(Event& e) {}
 
 	private:
 		std::string _debugName;
