@@ -1,7 +1,7 @@
 #pragma once
 #include "Core.h"
 #include "Utility/Log.h"
-#include "Utility/Window.h"
+#include "Window.h"
 #include "Events/ApplicationEvent.h"
 #include "LayerStack.h"
 #include "Input.h"
@@ -12,7 +12,7 @@
 #include "Renderer/VertexArray.h"
 #include "Renderer/PerspectiveCamera.h"
 
-#include "ImGUI/ImGUILayer.h"
+#include "../ImGUI/ImGUILayer.h"
 
 
 

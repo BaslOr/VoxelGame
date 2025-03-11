@@ -1,7 +1,7 @@
 #include "cbpch.h"
 #include "VertexArray.h"
 #include "../Utility/Log.h"
-#include "../Platform/OpenGL/OpenGLVertexArray.h"
+#include "../../Platform/OpenGL/OpenGLVertexArray.h"
 #include "Renderer.h"
 
 namespace Cubes {

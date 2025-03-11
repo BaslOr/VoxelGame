@@ -1,6 +1,6 @@
 #include "cbpch.h"
 #include "OpenGLRenderContext.h"
-#include "../../Core.h"
+#include "../../Core/Core.h"
 
 namespace Cubes {
 

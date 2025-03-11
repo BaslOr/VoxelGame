@@ -1,7 +1,8 @@
 #pragma once
-#include "../../Renderer/RenderContext.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+#include "../../Core/Renderer/RenderContext.h"
 	
 namespace Cubes {
 

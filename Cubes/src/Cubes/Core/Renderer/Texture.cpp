@@ -1,7 +1,7 @@
 #include "cbpch.h"
 #include "Texture.h"
 #include "Renderer.h"
-#include "../Platform/OpenGL/OpenGLTexture2D.h"
+#include "../../Platform/OpenGL/OpenGLTexture2D.h"
 
 namespace Cubes {
 

@@ -1,7 +1,7 @@
 #include "cbpch.h"
 #include "WindowsInput.h"
 #include <GLFW/glfw3.h>
-#include "../../Application.h"
+#include "../../Core/Application.h"
 
 namespace Cubes {
 

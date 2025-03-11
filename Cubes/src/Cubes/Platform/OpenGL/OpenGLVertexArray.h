@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Renderer/VertexArray.h"
+#include "../../Core/Renderer/VertexArray.h"
 
 namespace Cubes {
 

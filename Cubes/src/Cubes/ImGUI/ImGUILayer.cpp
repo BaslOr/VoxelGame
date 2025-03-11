@@ -5,11 +5,9 @@
 #include "backends/imgui_impl_opengl3.h"
 #include "backends/imgui_impl_glfw.h"
 
-#include "../Application.h"
-
-// TEMPORARY
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include "../Core/Application.h"
 
 namespace Cubes {
 

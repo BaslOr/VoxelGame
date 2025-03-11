@@ -2,7 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include <Cubes/Renderer/Renderer2D.h>
+#include <Cubes/Core/Renderer/Renderer2D.h>
 
 
 namespace GameNamespace {
@@ -21,7 +21,7 @@ namespace GameNamespace {
         //Render
         Cubes::Renderer::BeginScene(_camera);
 
-        Cubes::Renderer2D::DrawTexture(_texture, glm::vec2(0.f), glm::vec2(1.f));
+        Cubes::Renderer2D::DrawTexture(_texture, glm::vec2(0.f), glm::vec2(1.f), glm::vec4(0.8, 0.8, 0.8, 1.f));
         Cubes::Renderer2D::DrawQuad(glm::vec2(-1.f, 1.f), glm::vec2(0.5f));
         Cubes::Renderer2D::DrawQuad(glm::vec2(1.f, 1.f), glm::vec2(0.5f), glm::vec4(0.f, 1.f, 0.f, 1.f));
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <GLFW/glfw3.h>
-#include "../../Utility/Window.h"
-#include "../../Platform/OpenGL/OpenGLRenderContext.h"
+#include "../../Core/Window.h"
+#include "../../Core/Renderer/RenderContext.h"
 
 namespace Cubes {
 

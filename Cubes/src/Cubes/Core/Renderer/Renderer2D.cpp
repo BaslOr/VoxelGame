@@ -56,17 +56,17 @@ namespace Cubes {
         renderer2DData->DefaultTexture = Texture::Create("../Cubes/resources/textures/DefaultTexture.png");
     }
 
-    void Renderer2D::DrawQuad(glm::vec3 position, glm::vec2 size, glm::vec4 color, float rotation)
+    void Renderer2D::DrawQuad(glm::vec3& position, glm::vec2& size, glm::vec4& color, float rotation)
     {
         DrawTexture(renderer2DData->DefaultTexture, position, size, color, rotation);
     }
 
-    void Renderer2D::DrawQuad(glm::vec2 position, glm::vec2 size, glm::vec4 color, float rotation)
+    void Renderer2D::DrawQuad(glm::vec2& position, glm::vec2& size, glm::vec4& color, float rotation)
     {
         DrawQuad(glm::vec3(position, 0.f), size, color, rotation);
     }
 
-    void Renderer2D::DrawTexture(Ref<Texture> texture, glm::vec3 position, glm::vec2 size, glm::vec4 color, float rotation)
+    void Renderer2D::DrawTexture(Ref<Texture> texture, glm::vec3& position, glm::vec2& size, glm::vec4& color, float rotation)
     {
         //Transform
         glm::mat4 model = glm::translate(glm::mat4(1.f), position);
@@ -86,7 +86,7 @@ namespace Cubes {
         RenderCommand::DrawIndexed(renderer2DData->QuadVertexArray);
     }
 
-    void Renderer2D::DrawTexture(Ref<Texture> texture, glm::vec2 position, glm::vec2 size, glm::vec4 color, float rotation)
+    void Renderer2D::DrawTexture(Ref<Texture> texture, glm::vec2& position, glm::vec2& size, glm::vec4& color, float rotation)
     {
         DrawTexture(texture, glm::vec3(position, 0.f), size, color, rotation);
     }

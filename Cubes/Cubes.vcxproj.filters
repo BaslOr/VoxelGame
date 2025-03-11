@@ -45,43 +45,43 @@
     <ClInclude Include="src\Cubes.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Application.h">
+    <ClInclude Include="src\Cubes\Core\Application.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Core.h">
+    <ClInclude Include="src\Cubes\Core\Core.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Entrypoint.h">
+    <ClInclude Include="src\Cubes\Core\Entrypoint.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Events\ApplicationEvent.h">
+    <ClInclude Include="src\Cubes\Core\Events\ApplicationEvent.h">
       <Filter>src\Cubes\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Events\Event.h">
+    <ClInclude Include="src\Cubes\Core\Events\Event.h">
       <Filter>src\Cubes\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Events\KeyEvent.h">
+    <ClInclude Include="src\Cubes\Core\Events\KeyEvent.h">
       <Filter>src\Cubes\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Events\MouseEvent.h">
+    <ClInclude Include="src\Cubes\Core\Events\MouseEvent.h">
       <Filter>src\Cubes\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h">
       <Filter>src\Cubes\ImGUI</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Input.h">
+    <ClInclude Include="src\Cubes\Core\Input.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\KeyCodes.h">
+    <ClInclude Include="src\Cubes\Core\KeyCodes.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Layer.h">
+    <ClInclude Include="src\Cubes\Core\Layer.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\LayerStack.h">
+    <ClInclude Include="src\Cubes\Core\LayerStack.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\MouseButtonCodes.h">
+    <ClInclude Include="src\Cubes\Core\MouseButtonCodes.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h">
@@ -108,49 +108,49 @@
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h">
       <Filter>src\Cubes\Platform\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\Buffer.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\Buffer.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\OrthographicCamera.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\OrthographicCamera.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\PerspectiveCamera.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\PerspectiveCamera.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\RenderCommand.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\RenderCommand.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\RenderContext.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\RenderContext.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\Renderer.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\Renderer.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\Renderer2D.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\Renderer2D.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\RendererAPI.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\RendererAPI.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\Shader.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\Shader.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\Texture.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\Texture.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Renderer\VertexArray.h">
+    <ClInclude Include="src\Cubes\Core\Renderer\VertexArray.h">
       <Filter>src\Cubes\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Time\TimeStep.h">
+    <ClInclude Include="src\Cubes\Core\Time\TimeStep.h">
       <Filter>src\Cubes\Time</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Utility\Log.h">
+    <ClInclude Include="src\Cubes\Core\Utility\Log.h">
       <Filter>src\Cubes\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Utility\Window.h">
+    <ClInclude Include="src\Cubes\Core\Window.h">
       <Filter>src\Cubes\Utility</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\cbpch.h">
+    <ClInclude Include="src\Cubes\Core\cbpch.h">
       <Filter>src\Cubes</Filter>
     </ClInclude>
     <ClInclude Include="vendor\stb_image\stb_image.h">
@@ -161,19 +161,19 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Cubes\Application.cpp">
+    <ClCompile Include="src\Cubes\Core\Application.cpp">
       <Filter>src\Cubes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Events\ApplicationEvent.cpp">
+    <ClCompile Include="src\Cubes\Core\Events\ApplicationEvent.cpp">
       <Filter>src\Cubes\Events</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\ImGUI\ImGUILayer.cpp">
       <Filter>src\Cubes\ImGUI</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Layer.cpp">
+    <ClCompile Include="src\Cubes\Core\Layer.cpp">
       <Filter>src\Cubes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\LayerStack.cpp">
+    <ClCompile Include="src\Cubes\Core\LayerStack.cpp">
       <Filter>src\Cubes</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp">
@@ -200,40 +200,40 @@
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Cubes\Platform\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\Buffer.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\Buffer.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\OrthographicCamera.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\OrthographicCamera.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\PerspectiveCamera.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\PerspectiveCamera.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\RenderCommand.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\RenderCommand.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\Renderer.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\Renderer.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\Renderer2D.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\Renderer2D.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\RendererAPI.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\RendererAPI.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\Shader.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\Shader.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\Texture.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\Texture.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Renderer\VertexArray.cpp">
+    <ClCompile Include="src\Cubes\Core\Renderer\VertexArray.cpp">
       <Filter>src\Cubes\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Utility\Log.cpp">
+    <ClCompile Include="src\Cubes\Core\Utility\Log.cpp">
       <Filter>src\Cubes\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\cbpch.cpp">
+    <ClCompile Include="src\Cubes\Core\cbpch.cpp">
       <Filter>src\Cubes</Filter>
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">

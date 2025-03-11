@@ -1,10 +1,11 @@
 #include "cbpch.h"
 #include <glad/glad.h>
 #include "WindowsWindow.h"
-#include "../../Utility/Log.h"
-#include "../../Events/ApplicationEvent.h"
-#include "../../Events/KeyEvent.h"
-#include "../../Events/MouseEvent.h"
+#include "../OpenGL/OpenGLRenderContext.h"
+#include "../../Core/Utility/Log.h"
+#include "../../Core/Events/ApplicationEvent.h"
+#include "../../Core/Events/KeyEvent.h"
+#include "../../Core/Events/MouseEvent.h"
 
 
 namespace Cubes {

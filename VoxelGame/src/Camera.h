@@ -1,6 +1,6 @@
 #pragma once
-#include "Cubes/Application.h"
-#include "Cubes/Renderer/Renderer.h"
+#include "Cubes/Core/Application.h"
+#include "Cubes/Core/Renderer/Renderer.h"
 
 
 namespace GameNamespace {

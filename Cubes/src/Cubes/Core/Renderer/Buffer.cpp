@@ -1,7 +1,7 @@
 #include "cbpch.h"
 #include "Buffer.h"
 #include "../Utility/Log.h"
-#include "../Platform/OpenGL/OpenGLBuffer.h"
+#include "../../Platform/OpenGL/OpenGLBuffer.h"
 #include "Renderer.h"
 
 namespace Cubes {
