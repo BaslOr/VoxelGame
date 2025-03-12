@@ -38,7 +38,7 @@ namespace Cubes {
             _height = height;
         }
         else {
-            CB_CORE_ERROR("Failed to load texture form file");
+            CB_CORE_LOG_ERROR("Failed to load texture form file");
         }
 
 

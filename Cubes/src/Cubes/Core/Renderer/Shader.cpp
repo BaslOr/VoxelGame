@@ -2,53 +2,69 @@
 #include "Shader.h"
 #include "Renderer.h"
 #include "../../Platform/OpenGL/OpenGLShader.h"
+#include "../Error/Error.h"
 
 namespace Cubes {
 
     //////////Shader/////////////////////////////////////////////////////////////////
     Ref<Shader> Shader::Create(const std::string& filePath)
     {
-        switch (Renderer::GetAPI())
+        try
         {
-        case RendererAPI::API::None:
-            CB_CORE_ERROR("You need to select an Rendering API before creating a Shader"); return nullptr;
-            break;
-        case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLShader>(filePath);
-            break;
-        case RendererAPI::API::Vulkan:
-            CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;
-            break;
+            return SelectAPIAndCreate(filePath);
         }
-
-        CB_CORE_ERROR("Unkown Rendering API");
-        return nullptr;
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
+        }
     }
 
     Ref<Shader> Shader::Create(const std::string& name, std::string& vertexCode, std::string& fragmentCode)
     {
+        try
+        {
+            return SelectAPIAndCreate(name, vertexCode, fragmentCode);
+        }
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
+        }
+    }
+
+    Ref<Shader> Cubes::Shader::SelectAPIAndCreate(const std::string& filePath)
+    {
         switch (Renderer::GetAPI())
         {
         case RendererAPI::API::None:
-            CB_CORE_ERROR("You need to select an Rendering API before creating a Shader"); return nullptr;
-            break;
+            throw NoAPISelectedError();
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLShader>(name, vertexCode, fragmentCode);
-            break;
+            return std::make_shared<OpenGLShader>(filePath);
         case RendererAPI::API::Vulkan:
-            CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;
-            break;
+            throw APINotSupportedError("Vulkan");
         }
-
-        CB_CORE_ERROR("Unkown Rendering API");
-        return nullptr;
     }
 
+
+    Ref<Shader> Cubes::Shader::SelectAPIAndCreate(const std::string& name, std::string& vertexCode, std::string& fragmentCode)
+    {
+        switch (Renderer::GetAPI())
+        {
+        case RendererAPI::API::None:
+            throw NoAPISelectedError();
+        case RendererAPI::API::OpenGL:
+            return std::make_shared<OpenGLShader>(name, vertexCode, fragmentCode);
+        case RendererAPI::API::Vulkan:
+            throw APINotSupportedError("Vulkan");
+        }
+
+        CB_CORE_LOG_ERROR("Unkown Rendering API");
+        return nullptr;
+    }
 
     ////////////////////Shader Library///////////////////////////////////////////////
     void ShaderLibrary::Add(const std::string& name, const Ref<Shader>& shader)
     {
-        CB_CORE_ASSERT(!Exists(name), "Shader allready exists");
+        CB_CORE_ASSERT_FALSE(Exists(name), "Shader allready exists");
         _shaders[name] = shader;
     }
 
@@ -74,7 +90,7 @@ namespace Cubes {
 
     Ref<Shader> ShaderLibrary::Get(const std::string& name)
     {
-        CB_CORE_ASSERT(Exists(name), "Shader allready exists");
+        CB_CORE_ASSERT_TRUE(Exists(name), "Shader doesn't exist");
         return _shaders[name];
     }
 

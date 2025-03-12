@@ -1,6 +1,7 @@
 #include "cbpch.h"
 #include "Buffer.h"
 #include "../Utility/Log.h"
+#include "../Error/Error.h"
 #include "../../Platform/OpenGL/OpenGLBuffer.h"
 #include "Renderer.h"
 
@@ -8,40 +9,64 @@ namespace Cubes {
 
 	Ref<VertexBuffer> VertexBuffer::Create(void* data, uint32_t size)
 	{
+        try
+        {
+            return SelectAPIAndCreate(data, size);
+        }
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
+        }
+	}
+
+    Ref<VertexBuffer> Cubes::VertexBuffer::SelectAPIAndCreate(void* data, uint32_t size)
+    {
         switch (Renderer::GetAPI())
         {
         case RendererAPI::API::None:
-            CB_CORE_ERROR("You need to select an Rendering API before creating a Vertex Buffer"); return nullptr;
+            throw NoAPISelectedError();
             break;
         case RendererAPI::API::OpenGL:
             return std::make_shared<OpenGLVertexBuffer>(data, size);
             break;
         case RendererAPI::API::Vulkan:
-            CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;
+            throw APINotSupportedError("Vulkan");
             break;
         }
+    }
 
-        CB_CORE_ERROR("Unkown Rendering API");
-        return nullptr;
-	}
 
-    Ref <IndexBuffer> IndexBuffer::Create(uint16_t* data, uint16_t count)
+    /////////////////////////////////////////////////////////////////////////////
+    //////////////////////IndexBuffer////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+
+    Ref<IndexBuffer> IndexBuffer::Create(uint16_t* data, uint16_t count)
+    {
+        try
+        {
+            return SelectAPIAndCreate(data, count);
+        }
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
+        }
+    }
+
+    Ref<IndexBuffer> Cubes::IndexBuffer::SelectAPIAndCreate(uint16_t* data, uint16_t count)
     {
         switch (Renderer::GetAPI())
         {
         case RendererAPI::API::None:
-            CB_CORE_ERROR("You need to select an Rendering API before creating a Index Buffer"); return nullptr;
+            throw NoAPISelectedError();
             break;
         case RendererAPI::API::OpenGL:
             return std::make_shared<OpenGLIndexBuffer>(data, count);
             break;
         case RendererAPI::API::Vulkan:
-            CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;
+            throw APINotSupportedError("Vulkan");
             break;
         }
-
-        CB_CORE_ERROR("Unkown Rendering API");
-        return nullptr;
     }
 
 }

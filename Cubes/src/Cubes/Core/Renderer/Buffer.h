@@ -2,8 +2,16 @@
 #include <stdint.h>
 
 #include "../Core.h"
+#include "../Error/Error.h"
 
 namespace Cubes {
+
+    class UnkownShaderDataTypeError : public Error {
+    public:
+        UnkownShaderDataTypeError()
+            : Error("Unkown shader data type")
+        {}
+    };
 
     enum class ShaderDataType 
     {
@@ -14,24 +22,30 @@ namespace Cubes {
         Bool
     };
 
-    static constexpr uint32_t GetShaderDataTypeSize(ShaderDataType type) {
-        switch (type)
+    static uint32_t GetShaderDataTypeSize(ShaderDataType type) {
+        try
         {
-            case Cubes::ShaderDataType::Float:     return 4;
-            case Cubes::ShaderDataType::Float2:    return 4 * 2;
-            case Cubes::ShaderDataType::Float3:    return 4 * 3;
-            case Cubes::ShaderDataType::Float4:    return 4 * 4;
-            case Cubes::ShaderDataType::Mat3:      return 4 * 3 * 3 ;
-            case Cubes::ShaderDataType::Mat4:      return 4 * 4 * 4;
-            case Cubes::ShaderDataType::Int:       return 4;
-            case Cubes::ShaderDataType::Int2:      return 4 *2;
-            case Cubes::ShaderDataType::Int3:      return 4 *3;
-            case Cubes::ShaderDataType::Int4:      return 4 * 4;
-            case Cubes::ShaderDataType::Bool:      return 4;
-        }
+            switch (type)
+            {
+                case Cubes::ShaderDataType::Float:     return 4;
+                case Cubes::ShaderDataType::Float2:    return 4 * 2;
+                case Cubes::ShaderDataType::Float3:    return 4 * 3;
+                case Cubes::ShaderDataType::Float4:    return 4 * 4;
+                case Cubes::ShaderDataType::Mat3:      return 4 * 3 * 3;
+                case Cubes::ShaderDataType::Mat4:      return 4 * 4 * 4;
+                case Cubes::ShaderDataType::Int:       return 4;
+                case Cubes::ShaderDataType::Int2:      return 4 * 2;
+                case Cubes::ShaderDataType::Int3:      return 4 * 3;
+                case Cubes::ShaderDataType::Int4:      return 4 * 4;
+                case Cubes::ShaderDataType::Bool:      return 4;
+            }
 
-        CB_CORE_ASSERT(false, "Unkown Shader Data type!");
-        return 0;
+            throw UnkownShaderDataTypeError();
+        }
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
+        }
     }
 
     struct BufferElement 
@@ -49,6 +63,17 @@ namespace Cubes {
         { }
 
         uint32_t GetComponentCount() const {
+            try
+            {
+                return GetComponentCountFromTable();
+            }
+            catch (const Error& error)
+            {
+                CB_CORE_LOG_ERROR("{0}", error.what());
+            }
+        }
+
+        uint32_t GetComponentCountFromTable() const {
             switch (Type)
             {
                 case Cubes::ShaderDataType::Float:    return 1;
@@ -56,15 +81,15 @@ namespace Cubes {
                 case Cubes::ShaderDataType::Float3:   return 3;
                 case Cubes::ShaderDataType::Float4:   return 4;
                 case Cubes::ShaderDataType::Mat3:     return 3 * 3;
-                case Cubes::ShaderDataType::Mat4:     return 4 * 4; 
+                case Cubes::ShaderDataType::Mat4:     return 4 * 4;
                 case Cubes::ShaderDataType::Int:      return 1;
                 case Cubes::ShaderDataType::Int2:     return 2;
                 case Cubes::ShaderDataType::Int3:     return 3;
                 case Cubes::ShaderDataType::Int4:     return 4;
                 case Cubes::ShaderDataType::Bool:     return 1;
             }
-            CB_CORE_ASSERT(false, "Unkown Shader Data type!");
-            return 0;
+
+            throw UnkownShaderDataTypeError();
         }
     };
 
@@ -114,7 +139,14 @@ namespace Cubes {
         virtual void UnBind() const = 0;
         
         static Ref<VertexBuffer> Create(void* data, uint32_t size);
+
+    private:
+        static Ref<VertexBuffer> SelectAPIAndCreate(void* data, uint32_t size);
     };
+
+    /////////////////////////////////////////////////////////////////////////////
+    //////////////////////IndexBuffer////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
 
 
     class IndexBuffer 
@@ -128,6 +160,9 @@ namespace Cubes {
         virtual uint16_t GetCount() const = 0;
 
         static Ref<IndexBuffer> Create(uint16_t* data, uint16_t count);
+
+    private:
+        static Ref<IndexBuffer> SelectAPIAndCreate(uint16_t* data, uint16_t count);
     };
 
 }

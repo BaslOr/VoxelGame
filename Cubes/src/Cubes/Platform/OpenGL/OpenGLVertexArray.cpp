@@ -4,25 +4,31 @@
 
 namespace Cubes {
 
-    //TODO: Abstract the function out
     static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
-        switch (type)
+        try
         {
-        case Cubes::ShaderDataType::Float:     return GL_FLOAT;
-        case Cubes::ShaderDataType::Float2:    return GL_FLOAT;
-        case Cubes::ShaderDataType::Float3:    return GL_FLOAT;
-        case Cubes::ShaderDataType::Float4:    return GL_FLOAT;
-        case Cubes::ShaderDataType::Mat3:      return GL_FLOAT;
-        case Cubes::ShaderDataType::Mat4:      return GL_FLOAT;
-        case Cubes::ShaderDataType::Int:       return GL_INT;
-        case Cubes::ShaderDataType::Int2:      return GL_INT;
-        case Cubes::ShaderDataType::Int3:      return GL_INT;
-        case Cubes::ShaderDataType::Int4:      return GL_INT;
-        case Cubes::ShaderDataType::Bool:      return GL_BOOL;
+            switch (type)
+            {
+            case Cubes::ShaderDataType::Float:     return GL_FLOAT;
+            case Cubes::ShaderDataType::Float2:    return GL_FLOAT;
+            case Cubes::ShaderDataType::Float3:    return GL_FLOAT;
+            case Cubes::ShaderDataType::Float4:    return GL_FLOAT;
+            case Cubes::ShaderDataType::Mat3:      return GL_FLOAT;
+            case Cubes::ShaderDataType::Mat4:      return GL_FLOAT;
+            case Cubes::ShaderDataType::Int:       return GL_INT;
+            case Cubes::ShaderDataType::Int2:      return GL_INT;
+            case Cubes::ShaderDataType::Int3:      return GL_INT;
+            case Cubes::ShaderDataType::Int4:      return GL_INT;
+            case Cubes::ShaderDataType::Bool:      return GL_BOOL;
+            }
+
+            throw UnkownShaderDataTypeError();
+        }
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
         }
 
-        CB_CORE_ASSERT(false, "Unkown Shader Data type!");
-        return 0;
     }
     
  

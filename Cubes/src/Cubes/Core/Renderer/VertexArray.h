@@ -17,6 +17,9 @@ namespace Cubes {
 		virtual Ref<IndexBuffer> GetIndexBuffer() const = 0;
 
 		static Ref<VertexArray> Create();
+
+	private:
+		static Ref<VertexArray> SelectAPIAndCreate();
 	};
 
 }

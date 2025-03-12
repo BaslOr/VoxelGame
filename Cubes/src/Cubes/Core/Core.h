@@ -17,8 +17,13 @@
 
 //TODO: Only enable in Debug buils
 #ifdef CB_DEBUG_UTILS
-    #define CB_ASSERT(x, ...) { if(!(x)) { CB_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
-    #define CB_CORE_ASSERT(x, ...) { if(!(x)) { CB_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+    #define CB_CORE_ASSERT(...) { CB_CORE_ASSERT_TRUE(true, ...) }
+    #define CB_CORE_ASSERT_TRUE(x, ...) { if(!(x)) { CB_CORE_LOG_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+    #define CB_CORE_ASSERT_FALSE(x, ...) { CB_CORE_ASSERT_TRUE(!(x), __VA_ARGS__) }
+
+    #define CB_ASSERT(...) CB_ASSERT_TRUE(true, ...)
+    #define CB_ASSERT_TRUE(x, ...) { if(!(x)) { CB_LOG_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+    #define CB_ASSERT_FALSE(x, ...) CB_ASSERT_TRUE(!(x), __VA_ARGS__)
 #endif // CB_DEBUG_UTILS
 
 

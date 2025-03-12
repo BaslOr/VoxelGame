@@ -15,6 +15,8 @@ namespace Cubes {
 
 	private:
 		GLFWwindow* _window;
+
+		void CreateOpenGLRenderContext();
 	};
 
 }

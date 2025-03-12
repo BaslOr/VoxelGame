@@ -1,9 +1,31 @@
 #pragma once
 #include "../Utility/Log.h"
 #include "../Core.h"
+#include "../Error/Error.h"
 #include <glm/glm.hpp>
 
 namespace Cubes {
+
+    class VertexShaderCompilationsError : public Error {
+    public:
+        VertexShaderCompilationsError(const char* errorMessage)
+            : Error(errorMessage)
+        { }
+    };
+
+    class FragmentShaderCompilationsError : public Error {
+    public:
+        FragmentShaderCompilationsError(const char* errorMessage)
+            : Error(errorMessage)
+        { }
+    };
+
+    class UnkownShaderTypeError : public Error {
+    public:
+        UnkownShaderTypeError(const char* typeName)
+            : Error(std::string(typeName) + " is wrong written or not available in Cubes")
+        { }
+    };
 
     class Shader {
     public:
@@ -22,6 +44,10 @@ namespace Cubes {
         static Ref<Shader> Create(const std::string& name, std::string& vertexCode, std::string& fragmentCode);
         static Ref<Shader> Create(const std::string& filePath);
 
+    private:
+
+        static Ref<Shader> SelectAPIAndCreate(const std::string& name, std::string& vertexCode, std::string& fragmentCode);
+        static Ref<Shader> SelectAPIAndCreate(const std::string& filePath);
     };
 
 

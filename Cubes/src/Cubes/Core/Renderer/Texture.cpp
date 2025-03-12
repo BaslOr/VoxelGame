@@ -2,24 +2,34 @@
 #include "Texture.h"
 #include "Renderer.h"
 #include "../../Platform/OpenGL/OpenGLTexture2D.h"
+#include "../Error/Error.h"
 
 namespace Cubes {
 
 
-    Ref<Texture> Texture::Create(const std::string& path)
+    Ref<Texture> Texture::Create(const std::string& texturePath)
+    {
+        try
+        {
+            return SelectAPIAndCreate(texturePath);
+        }
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
+        }
+    }
+
+    Ref<Texture> Cubes::Texture::SelectAPIAndCreate(const std::string& texturePath)
     {
         switch (Renderer::GetAPI())
         {
-            case RendererAPI::API::None:
-                CB_CORE_ASSERT(false, "No Graphics API selected"); return nullptr;
-            case RendererAPI::API::OpenGL:
-                return std::make_shared<OpenGLTexture2D>(path);
-            case RendererAPI::API::Vulkan:
-                CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;
+        case RendererAPI::API::None:
+            throw NoAPISelectedError();
+        case RendererAPI::API::OpenGL:
+            return std::make_shared<OpenGLTexture2D>(texturePath);
+        case RendererAPI::API::Vulkan:
+            throw APINotSupportedError("Vulkan");
         }
-
-        CB_CORE_ASSERT(false, "Failed to create Texture2D");
-        return nullptr;
     }
 
 }

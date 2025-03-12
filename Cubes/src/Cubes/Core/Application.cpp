@@ -12,7 +12,7 @@ namespace Cubes {
     Application::Application()
     {
         if (_instance != nullptr)
-            CB_CORE_ERROR("Application already exists");
+            CB_CORE_LOG_ERROR("Application already exists");
         _instance = this;
 
         Cubes::Log::init();

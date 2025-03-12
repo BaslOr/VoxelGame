@@ -2,6 +2,7 @@
 #pragma once
 
 #include "Cubes/Core/Core.h"
+#include "Cubes/Core/Error/Error.h"
 #include "Cubes/Core/Application.h"
 #include "Cubes/Core/Utility/Log.h"
 #include "Cubes/ImGUI/ImGUILayer.h"

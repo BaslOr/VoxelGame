@@ -23,10 +23,22 @@ namespace Cubes {
 
 	private:
 		std::string ReadShaderFile(const std::string& filePath);
+		std::string ReadShaderFileImpl(const std::string& filePath);
+
 		std::unordered_map<uint32_t, std::string> ProcessShaderFile(const std::string& filePath);
 
 		void Compile(std::unordered_map<uint32_t, std::string>& sources);
-		uint32_t CompileShader(uint32_t shaderType, const std::string& code);
+
+		std::array < uint32_t, 2> CreateShaders(std::unordered_map<uint32_t, std::string>& sources);
+		std::array<uint32_t, 2> CreateShadersImpl(std::unordered_map<uint32_t, std::string>& sources);
+
+		void CleanUpShaders(std::array<uint32_t, 2> shaders);
+		
+		uint32_t CreateOpenGLShaderID(uint32_t shaderType, const std::string& code);
+		uint32_t CreateOpenGLShaderIDImpl(uint32_t shaderType, const std::string& code);
+
+		uint32_t CreateProgram(std::array<uint32_t, 2> shaders);
+		uint32_t CreateProgramImpl(std::array<uint32_t, 2> shaders);
 
 	private:
 		uint32_t _rendererID;

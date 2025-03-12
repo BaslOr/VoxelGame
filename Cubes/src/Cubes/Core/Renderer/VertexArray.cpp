@@ -3,6 +3,7 @@
 #include "../Utility/Log.h"
 #include "../../Platform/OpenGL/OpenGLVertexArray.h"
 #include "Renderer.h"
+#include "../Error/Error.h"
 
 namespace Cubes {
 
@@ -10,21 +11,27 @@ namespace Cubes {
 
     Ref<VertexArray> VertexArray::Create()
     {
+        try
+        {
+            return SelectAPIAndCreate();
+        }
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
+        }
+    }
+
+    Ref<VertexArray> Cubes::VertexArray::SelectAPIAndCreate()
+    {
         switch (Renderer::GetAPI())
         {
         case RendererAPI::API::None:
-            CB_CORE_ERROR("You need to select an Rendering API before creating a Vertex Array"); return nullptr;
-            break;
+            throw NoAPISelectedError();
         case RendererAPI::API::OpenGL:
             return std::make_shared<OpenGLVertexArray>();
-            break;
         case RendererAPI::API::Vulkan:
-            CB_CORE_ERROR("Vulkan is not supported yet"); return nullptr;
-            break;
+            throw APINotSupportedError("Vulkan");
         }
-
-        CB_CORE_ERROR("Unkown Rendering API");
-        return nullptr;
     }
 
 }

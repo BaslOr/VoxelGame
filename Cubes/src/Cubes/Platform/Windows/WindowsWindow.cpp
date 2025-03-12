@@ -11,7 +11,7 @@
 namespace Cubes {
 
     static void GLFWErrorCallback(int error, const char* description) {
-        CB_CORE_ERROR("GLFW error has occured: {0}", error);
+        CB_CORE_LOG_ERROR("GLFW error has occured: {0}", error);
     }
 
     Window* Window::Create(const WindowProps& props)
@@ -138,7 +138,7 @@ namespace Cubes {
     {
         if (!GLFW_INITIALIZED) {
             if (!glfwInit()) {
-                CB_CORE_ERROR("GLFW isn't initialized");
+                CB_CORE_LOG_ERROR("GLFW isn't initialized");
             }
             glfwSetErrorCallback(GLFWErrorCallback);
         }
@@ -149,7 +149,7 @@ namespace Cubes {
         glfwMakeContextCurrent(_window);
         int succes = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
         if (!succes)
-            CB_CORE_ERROR("Isn't able to load OpenGL functions");
+            CB_CORE_LOG_ERROR("Isn't able to load OpenGL functions");
     }
 
 }

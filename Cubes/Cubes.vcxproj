@@ -150,6 +150,7 @@
     <ClInclude Include="src\Cubes\Core\Application.h" />
     <ClInclude Include="src\Cubes\Core\Core.h" />
     <ClInclude Include="src\Cubes\Core\Entrypoint.h" />
+    <ClInclude Include="src\Cubes\Core\Error\Error.h" />
     <ClInclude Include="src\Cubes\Core\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Cubes\Core\Events\Event.h" />
     <ClInclude Include="src\Cubes\Core\Events\KeyEvent.h" />
