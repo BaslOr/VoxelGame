@@ -20,7 +20,7 @@ namespace GameNamespace {
 		float _yaw = -90.f, _pitch = 0.f;
 		
 
-		float _movementSpeed = 0.01f;
+		float _movementSpeed = 0.02f;
 		float _mouseSensitivity = 0.05f;
 	};
 
