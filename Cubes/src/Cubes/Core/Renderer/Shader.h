@@ -46,8 +46,8 @@ namespace Cubes {
 
     private:
 
-        static Ref<Shader> SelectAPIAndCreate(const std::string& name, std::string& vertexCode, std::string& fragmentCode);
-        static Ref<Shader> SelectAPIAndCreate(const std::string& filePath);
+        static Ref<Shader> CreateShader(const std::string& name, std::string& vertexCode, std::string& fragmentCode);
+        static Ref<Shader> CreateShader(const std::string& filePath);
     };
 
 

@@ -11,7 +11,7 @@ namespace Cubes {
     {
         try
         {
-            return SelectAPIAndCreate(texturePath);
+            return CreateTexture(texturePath);
         }
         catch (const Error& error)
         {
@@ -19,7 +19,7 @@ namespace Cubes {
         }
     }
 
-    Ref<Texture> Cubes::Texture::SelectAPIAndCreate(const std::string& texturePath)
+    Ref<Texture> Cubes::Texture::CreateTexture(const std::string& texturePath)
     {
         switch (Renderer::GetAPI())
         {

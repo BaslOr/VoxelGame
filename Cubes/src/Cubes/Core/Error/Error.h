@@ -1,6 +1,11 @@
 #pragma once
 #include <exception>
 #include <string>
+#include <stdint.h>
+#include <ostream>
+
+#include <spdlog/spdlog.h>
+#include <spdlog/fmt/ostr.h>
 
 namespace Cubes {
 
@@ -45,7 +50,5 @@ namespace Cubes {
             : Error("Failed to initialize " + std::string(APIName))
         { }
     };
-
-
 
 }

@@ -11,7 +11,7 @@ namespace Cubes {
 	{
         try
         {
-            return SelectAPIAndCreate(data, size);
+            return CreateVertexBuffer(data, size);
         }
         catch (const Error& error)
         {
@@ -19,7 +19,7 @@ namespace Cubes {
         }
 	}
 
-    Ref<VertexBuffer> Cubes::VertexBuffer::SelectAPIAndCreate(void* data, uint32_t size)
+    Ref<VertexBuffer> Cubes::VertexBuffer::CreateVertexBuffer(void* data, uint32_t size)
     {
         switch (Renderer::GetAPI())
         {
@@ -45,7 +45,7 @@ namespace Cubes {
     {
         try
         {
-            return SelectAPIAndCreate(data, count);
+            return CreateIndexBuffer(data, count);
         }
         catch (const Error& error)
         {
@@ -53,7 +53,7 @@ namespace Cubes {
         }
     }
 
-    Ref<IndexBuffer> Cubes::IndexBuffer::SelectAPIAndCreate(uint16_t* data, uint16_t count)
+    Ref<IndexBuffer> Cubes::IndexBuffer::CreateIndexBuffer(uint16_t* data, uint16_t count)
     {
         switch (Renderer::GetAPI())
         {

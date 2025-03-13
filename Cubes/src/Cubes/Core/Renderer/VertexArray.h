@@ -19,7 +19,7 @@ namespace Cubes {
 		static Ref<VertexArray> Create();
 
 	private:
-		static Ref<VertexArray> SelectAPIAndCreate();
+		static Ref<VertexArray> CreateVertexArray();
 	};
 
 }

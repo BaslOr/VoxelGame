@@ -13,7 +13,7 @@ namespace Cubes {
     {
         try
         {
-            return SelectAPIAndCreate();
+            return CreateVertexArray();
         }
         catch (const Error& error)
         {
@@ -21,7 +21,7 @@ namespace Cubes {
         }
     }
 
-    Ref<VertexArray> Cubes::VertexArray::SelectAPIAndCreate()
+    Ref<VertexArray> Cubes::VertexArray::CreateVertexArray()
     {
         switch (Renderer::GetAPI())
         {

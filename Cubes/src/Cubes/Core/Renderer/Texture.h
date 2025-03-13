@@ -16,7 +16,7 @@ namespace Cubes {
 
 	private:
 
-		static Ref<Texture> SelectAPIAndCreate(const std::string& texturePath);
+		static Ref<Texture> CreateTexture(const std::string& texturePath);
 
 	};
 

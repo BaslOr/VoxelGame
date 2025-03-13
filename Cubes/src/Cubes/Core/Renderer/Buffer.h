@@ -141,7 +141,7 @@ namespace Cubes {
         static Ref<VertexBuffer> Create(void* data, uint32_t size);
 
     private:
-        static Ref<VertexBuffer> SelectAPIAndCreate(void* data, uint32_t size);
+        static Ref<VertexBuffer> CreateVertexBuffer(void* data, uint32_t size);
     };
 
     /////////////////////////////////////////////////////////////////////////////
@@ -162,7 +162,7 @@ namespace Cubes {
         static Ref<IndexBuffer> Create(uint16_t* data, uint16_t count);
 
     private:
-        static Ref<IndexBuffer> SelectAPIAndCreate(uint16_t* data, uint16_t count);
+        static Ref<IndexBuffer> CreateIndexBuffer(uint16_t* data, uint16_t count);
     };
 
 }

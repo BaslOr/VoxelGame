@@ -11,7 +11,7 @@ namespace Cubes {
     {
         try
         {
-            return SelectAPIAndCreate(filePath);
+            return CreateShader(filePath);
         }
         catch (const Error& error)
         {
@@ -23,7 +23,7 @@ namespace Cubes {
     {
         try
         {
-            return SelectAPIAndCreate(name, vertexCode, fragmentCode);
+            return CreateShader(name, vertexCode, fragmentCode);
         }
         catch (const Error& error)
         {
@@ -31,7 +31,7 @@ namespace Cubes {
         }
     }
 
-    Ref<Shader> Cubes::Shader::SelectAPIAndCreate(const std::string& filePath)
+    Ref<Shader> Cubes::Shader::CreateShader(const std::string& filePath)
     {
         switch (Renderer::GetAPI())
         {
@@ -45,7 +45,7 @@ namespace Cubes {
     }
 
 
-    Ref<Shader> Cubes::Shader::SelectAPIAndCreate(const std::string& name, std::string& vertexCode, std::string& fragmentCode)
+    Ref<Shader> Cubes::Shader::CreateShader(const std::string& name, std::string& vertexCode, std::string& fragmentCode)
     {
         switch (Renderer::GetAPI())
         {
