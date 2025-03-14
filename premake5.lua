@@ -36,7 +36,7 @@ project "Cubes"
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
     pchheader "cbpch.h"
-    pchsource "Cubes/src/Cubes/cbpch.cpp"
+    pchsource "Cubes/src/Cubes/Core/cbpch.cpp"
 
     files {
         "%{prj.name}/src/**.h",

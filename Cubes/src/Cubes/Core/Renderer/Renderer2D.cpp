@@ -54,7 +54,7 @@ namespace Cubes {
         shader->Bind();
         shader->SetUniformMat4("u_Model", model);
         shader->SetUniformFloat4("u_Color", color);
-        //shader->SetUniformInt("u_Sampler", 0);
+        shader->SetUniformInt("u_Sampler", 0);
 
         RenderCommand::DrawIndexed(renderer2DData.QuadVertexArray);
     }

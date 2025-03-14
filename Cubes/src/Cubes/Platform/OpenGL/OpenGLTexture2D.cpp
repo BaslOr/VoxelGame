@@ -10,7 +10,7 @@ namespace Cubes {
     {
         int width, height, numChannels;
         stbi_set_flip_vertically_on_load(true);
-        unsigned char* data = stbi_load(path.c_str(), &width, &height, &numChannels, 4);
+        unsigned char* data = stbi_load(path.c_str(), &width, &height, &numChannels, 0);
 
         int internalFormat = 0, dataFormat = 0;
         if (numChannels == 4) {
