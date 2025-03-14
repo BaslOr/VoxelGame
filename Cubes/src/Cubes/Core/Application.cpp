@@ -28,6 +28,7 @@ namespace Cubes {
 
     Application::~Application()
     {
+        Renderer::ShutDown();
     }
 
     void Application::OnEvent(Event& event)

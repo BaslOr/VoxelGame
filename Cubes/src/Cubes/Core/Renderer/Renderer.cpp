@@ -2,17 +2,39 @@
 #include "Renderer.h"
 
 #include "Renderer2D.h"
-
+#include "MeshFactory.h"
 
 namespace Cubes {
 
-	Renderer::SceneData* Renderer::_sceneData = new Renderer::SceneData;
+
+	struct SceneData {
+		glm::mat4 ViewProjectionMatrix;
+	};
+
+	struct RendererData {
+		Ref<VertexArray> CubeVertexArray;
+		Ref<VertexBuffer> CubeVertexBuffer;
+		Ref<IndexBuffer> CubeIndexBuffer;
+	};
+
+	static SceneData sceneData;
+	static RendererData rendererData;
+
 
 
 	void Renderer::Init()
 	{
 		RenderCommand::Init();
+
+		ShaderLibrary::Load("../Cubes/resources/shaders/DefaultShader.glsl");
 		Renderer2D::Init();
+
+		InitCubeData();
+	}
+
+	void Renderer::ShutDown() 
+	{
+		Renderer2D::Shutdown();
 	}
 
 	void Renderer::OnWindowsResize(uint32_t width, uint32_t height)
@@ -20,10 +42,20 @@ namespace Cubes {
 		RenderCommand::SetViewport(0, 0, width, height);
 	}
 
+	void Cubes::Renderer::EnableWireframeMode(bool enable)
+	{
+		RenderCommand::EnableWireframeMode(enable);
+	}
+
 	void Renderer::BeginScene(PerspectiveCamera& camera)
 	{
-		_sceneData->ViewProjectionMatrix = camera.GetViewProjection();
-		Renderer2D::BeginScene(camera);
+		const auto& defaultShader = ShaderLibrary::Get("DefaultShader");
+		sceneData.ViewProjectionMatrix = camera.GetViewProjection();
+		defaultShader->Bind();
+		defaultShader->SetUniformMat4("u_ViewProjection", camera.GetViewProjection());
+
+		Renderer2D::BeginScene();
+
 
 		RenderCommand::SetClearColor(glm::vec4(.15f, .15f, .15f, 1.f));
 		RenderCommand::Clear();
@@ -37,8 +69,42 @@ namespace Cubes {
 	void Renderer::Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& modelMatrix)
 	{
 		vertexArray->Bind();
-		shader->SetUniformMat4("u_ViewProjection", _sceneData->ViewProjectionMatrix);
+		shader->SetUniformMat4("u_ViewProjection", sceneData.ViewProjectionMatrix);
 		shader->SetUniformMat4("u_Model", modelMatrix);
 		RenderCommand::DrawIndexed(vertexArray);
 	}
+
+	void Renderer::DrawCube(glm::vec3& position, glm::vec3& size, glm::vec4& color)
+	{
+		//Transform
+		glm::mat4 model = glm::translate(glm::mat4(1.f), position);		
+		model = glm::scale(model, size);		
+
+		Submit(ShaderLibrary::Get("DefaultShader"), rendererData.CubeVertexArray, model);
+	}
+
+
+
+	void Cubes::Renderer::InitCubeData()
+	{
+		auto cubeVertices = MeshFactory::GetCubeVertices();
+		auto cubeIndices = MeshFactory::GetCubeIndices();
+
+		rendererData.CubeVertexBuffer = VertexBuffer::Create(cubeVertices.data(), cubeVertices.size() * sizeof(float));
+		rendererData.CubeIndexBuffer = IndexBuffer::Create(cubeIndices.data(), cubeIndices.size());
+		rendererData.CubeVertexArray = VertexArray::Create();
+		{
+			Cubes::BufferLayout layout = {
+			   { Cubes::ShaderDataType::Float3, "aPos"},
+			   { Cubes::ShaderDataType::Float2, "aTexCoord" }
+			};
+
+			rendererData.CubeVertexBuffer->SetLayout(layout);
+		}
+
+		rendererData.CubeVertexArray->AddVertexBuffer(rendererData.CubeVertexBuffer);
+		rendererData.CubeVertexArray->SetIndexBuffer(rendererData.CubeIndexBuffer);
+	}
+
+	
 }

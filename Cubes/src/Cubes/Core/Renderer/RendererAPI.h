@@ -20,6 +20,8 @@ namespace Cubes {
 
 		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray) = 0;
 
+		virtual void EnableWireframeMode(bool enable) = 0;
+
 		inline static API GetAPI() { return _API; }
 	private:
 		static API _API;

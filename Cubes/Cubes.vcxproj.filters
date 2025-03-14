@@ -160,6 +160,7 @@
       <Filter>vendor\tinyobjloader</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Error\Error.h" />
+    <ClInclude Include="src\Cubes\Core\Renderer\MeshFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Core\Application.cpp">
@@ -241,5 +242,11 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\ImGUI\ImGuiBuild.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\DefaultShader.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\DefaultTexture.png" />
   </ItemGroup>
 </Project>

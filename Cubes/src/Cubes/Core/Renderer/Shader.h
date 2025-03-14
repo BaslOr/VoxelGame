@@ -37,7 +37,7 @@ namespace Cubes {
         virtual const std::string& GetName() const = 0;
 
         virtual void SetUniformMat4(std::string name, glm::mat4 matrix) const = 0;
-        virtual void SetUnifromInt(std::string name, int value) const = 0;
+        virtual void SetUniformInt(std::string name, int value) const = 0;
         virtual void SetUniformFloat3(std::string name, glm::vec3 value) const = 0;
         virtual void SetUniformFloat4(std::string name, glm::vec4 value) const = 0;
 
@@ -53,17 +53,17 @@ namespace Cubes {
 
     class ShaderLibrary {
     public:
-        void Add(const Ref<Shader>& shader);
-        void Add(const std::string& name, const Ref<Shader>& shader);
-        Ref<Shader> Load(const std::string& filePath);
-        Ref<Shader> Load(const std::string& name, const std::string& filePath);
+        static void Add(const Ref<Shader>& shader);
+        static void Add(const std::string& name, const Ref<Shader>& shader);
+        static Ref<Shader> Load(const std::string& filePath);
+        static Ref<Shader> Load(const std::string& name, const std::string& filePath);
 
-        Ref<Shader> Get(const std::string& name);
+        static Ref<Shader> Get(const std::string& name);
     private:
-        bool Exists(const std::string& name);
+        static bool Exists(const std::string& name);
 
     private:
-        std::unordered_map<std::string, Ref<Shader>> _shaders;
+        inline static std::unordered_map<std::string, Ref<Shader>> _shaders;
 
     };
 

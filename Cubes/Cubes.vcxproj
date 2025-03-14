@@ -155,6 +155,7 @@
     <ClInclude Include="src\Cubes\Core\Events\Event.h" />
     <ClInclude Include="src\Cubes\Core\Events\KeyEvent.h" />
     <ClInclude Include="src\Cubes\Core\Events\MouseEvent.h" />
+    <ClInclude Include="src\Cubes\Core\Renderer\MeshFactory.h" />
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h" />
     <ClInclude Include="src\Cubes\Core\Input.h" />
     <ClInclude Include="src\Cubes\Core\KeyCodes.h" />
@@ -228,6 +229,12 @@
     <ProjectReference Include="vendor\ImGUI\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\shaders\DefaultShader.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\DefaultTexture.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

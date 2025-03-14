@@ -89,7 +89,7 @@ namespace Cubes {
         glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 
-    void OpenGLShader::SetUnifromInt(std::string name, int value) const
+    void OpenGLShader::SetUniformInt(std::string name, int value) const
     {
         int location = glGetUniformLocation(_rendererID, name.c_str());
         glUniform1i(location, value);

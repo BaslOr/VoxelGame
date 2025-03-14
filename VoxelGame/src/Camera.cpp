@@ -6,7 +6,7 @@ namespace GameNamespace {
     Camera::Camera(glm::vec3& position, float fov)
 		: PerspectiveCamera(position, (float)Cubes::Application::Get().GetWindow().GetWidth() / (float)Cubes::Application::Get().GetWindow().GetHeight(), fov), _fov(fov), _position(position)
 	{
-        SetDirection(glm::vec3(0.f));
+        SetDirection(glm::vec3(0.f, 0.f, -1.f));
 	}
 
     void Camera::OnUpdate(Cubes::TimeStep deltaTime)

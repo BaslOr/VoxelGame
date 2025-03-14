@@ -13,6 +13,8 @@ namespace Cubes {
 
         void DrawIndexed(const Ref<VertexArray>& vertexArray) override;
 
+        void EnableWireframeMode(bool enable) override;
+
     private:
     };
 

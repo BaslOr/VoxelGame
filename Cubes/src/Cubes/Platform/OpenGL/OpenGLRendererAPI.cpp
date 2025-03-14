@@ -28,6 +28,12 @@ namespace Cubes {
     void OpenGLRendererAPI::DrawIndexed(const Ref<VertexArray>& vertexArray)
     {
         glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_SHORT, nullptr);
+        GLenum err;
+    }
+
+    void OpenGLRendererAPI::EnableWireframeMode(bool enable)
+    {
+        enable ? glPolygonMode(GL_FRONT_AND_BACK, GL_LINE) : glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     }
 
 }
