@@ -27,6 +27,7 @@ namespace Cubes {
         
 
         initGLFW();
+        glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
         _window = glfwCreateWindow(_data.Width, _data.Height, _data.Title.c_str(), NULL, NULL);
         _context = new OpenGLRenderContext(_window);
         glfwSetWindowUserPointer(_window, &_data);
@@ -118,6 +119,16 @@ namespace Cubes {
         glfwDestroyWindow(_window);
     }
 
+    void WindowsWindow::initGLFW()
+    {
+        if (!GLFW_INITIALIZED) {
+            if (!glfwInit()) {
+                CB_CORE_LOG_ERROR("GLFW isn't initialized");
+            }
+            glfwSetErrorCallback(GLFWErrorCallback);
+        }
+    }
+
     void WindowsWindow::OnUpdate()
     {
         glfwPollEvents();
@@ -132,16 +143,6 @@ namespace Cubes {
             glfwSwapInterval(0);
 
         _data.VSync = enabled;
-    }
-
-    void WindowsWindow::initGLFW()
-    {
-        if (!GLFW_INITIALIZED) {
-            if (!glfwInit()) {
-                CB_CORE_LOG_ERROR("GLFW isn't initialized");
-            }
-            glfwSetErrorCallback(GLFWErrorCallback);
-        }
     }
 
     void WindowsWindow::setupOpenGL()
