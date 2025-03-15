@@ -35,6 +35,7 @@ namespace Cubes {
     OpenGLVertexArray::OpenGLVertexArray()
     {
         glGenVertexArrays(1, &_rendererID);
+        glBindVertexArray(_rendererID);
     }
 
     OpenGLVertexArray::~OpenGLVertexArray()

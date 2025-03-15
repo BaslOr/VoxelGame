@@ -35,7 +35,7 @@ namespace Cubes {
 
     void Renderer2D::DrawQuad(glm::vec2& position, glm::vec2& size, glm::vec4& color, float rotation)
     {
-        DrawQuad(glm::vec3(position, 0.f), size, color, rotation);  
+        DrawQuad(glm::vec3(position, 0.f), size, color, rotation);
     }
 
     void Renderer2D::DrawTexture(Ref<Texture> texture, glm::vec3& position, glm::vec2& size, glm::vec4& color, float rotation)
@@ -50,7 +50,7 @@ namespace Cubes {
         texture->Bind();
 
         //Set Uniforms
-        const auto& shader = ShaderLibrary::Get("DefaultShader");
+        Ref<Shader> shader = ShaderLibrary::Get("DefaultShader");
         shader->Bind();
         shader->SetUniformMat4("u_Model", model);
         shader->SetUniformFloat4("u_Color", color);

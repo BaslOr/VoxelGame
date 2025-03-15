@@ -4,6 +4,9 @@
 #include "Renderer2D.h"
 #include "MeshFactory.h"
 
+
+#include <glad/glad.h>
+
 namespace Cubes {
 
 
@@ -15,6 +18,8 @@ namespace Cubes {
 		Ref<VertexArray> CubeVertexArray;
 		Ref<VertexBuffer> CubeVertexBuffer;
 		Ref<IndexBuffer> CubeIndexBuffer;
+
+		Ref<Texture> DefaultTexture;
 	};
 
 	static SceneData sceneData;
@@ -27,9 +32,12 @@ namespace Cubes {
 		RenderCommand::Init();
 
 		ShaderLibrary::Load("../Cubes/resources/shaders/DefaultShader.glsl");
+
 		Renderer2D::Init();
 
 		InitCubeData();
+		rendererData.DefaultTexture = Texture::Create("../Cubes/resources/textures/DefaultTexture.png");
+
 	}
 
 	void Renderer::ShutDown() 
@@ -49,13 +57,12 @@ namespace Cubes {
 
 	void Renderer::BeginScene(PerspectiveCamera& camera)
 	{
-		const auto& defaultShader = ShaderLibrary::Get("DefaultShader");
+		Ref<Shader> defaultShader = ShaderLibrary::Get("DefaultShader");
 		sceneData.ViewProjectionMatrix = camera.GetViewProjection();
 		defaultShader->Bind();
 		defaultShader->SetUniformMat4("u_ViewProjection", camera.GetViewProjection());
 
 		Renderer2D::BeginScene();
-
 
 		RenderCommand::SetClearColor(glm::vec4(.15f, .15f, .15f, 1.f));
 		RenderCommand::Clear();
@@ -69,7 +76,6 @@ namespace Cubes {
 	void Renderer::Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& modelMatrix)
 	{
 		vertexArray->Bind();
-		shader->SetUniformMat4("u_ViewProjection", sceneData.ViewProjectionMatrix);
 		shader->SetUniformMat4("u_Model", modelMatrix);
 		RenderCommand::DrawIndexed(vertexArray);
 	}
@@ -77,10 +83,15 @@ namespace Cubes {
 	void Renderer::DrawCube(glm::vec3& position, glm::vec3& size, glm::vec4& color)
 	{
 		//Transform
-		glm::mat4 model = glm::translate(glm::mat4(1.f), position);		
-		model = glm::scale(model, size);		
+		glm::mat4 model = glm::translate(glm::mat4(1.f), position);
+		model = glm::scale(model, size);
 
-		Submit(ShaderLibrary::Get("DefaultShader"), rendererData.CubeVertexArray, model);
+		//Bind
+		rendererData.DefaultTexture->Bind();
+		auto shader = ShaderLibrary::Get("DefaultShader");
+		shader->SetUniformFloat4("u_Color", color);
+
+		Submit(shader, rendererData.CubeVertexArray, model);
 	}
 
 
@@ -90,9 +101,9 @@ namespace Cubes {
 		auto cubeVertices = MeshFactory::GetCubeVertices();
 		auto cubeIndices = MeshFactory::GetCubeIndices();
 
+		rendererData.CubeVertexArray = VertexArray::Create();
 		rendererData.CubeVertexBuffer = VertexBuffer::Create(cubeVertices.data(), cubeVertices.size() * sizeof(float));
 		rendererData.CubeIndexBuffer = IndexBuffer::Create(cubeIndices.data(), cubeIndices.size());
-		rendererData.CubeVertexArray = VertexArray::Create();
 		{
 			Cubes::BufferLayout layout = {
 			   { Cubes::ShaderDataType::Float3, "aPos"},

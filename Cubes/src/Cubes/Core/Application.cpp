@@ -19,11 +19,11 @@ namespace Cubes {
 
         _window = std::unique_ptr<Window>(Window::Create());
         _window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
+        Renderer::Init();
 
         _ImGuiLayer = new ImGUILayer;
         PushOverlay(_ImGuiLayer);
 
-        Renderer::Init();
     }
 
     Application::~Application()

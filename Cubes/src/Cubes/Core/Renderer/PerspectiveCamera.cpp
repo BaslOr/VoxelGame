@@ -28,11 +28,9 @@ namespace Cubes {
 
     void PerspectiveCamera::RecalculateViewProjectionMatrix()
     {
-        _direction = glm::normalize(_position - _target);
-        _right = glm::normalize(glm::cross(_up, _front));
-
+        _front = glm::normalize(_direction);
+        _right = glm::normalize(glm::cross(_front, _up));
         _viewMatrix = glm::lookAt(_position, _position + _front, _up);
-
         CalculateViewProjectionMatrix();
     }
 

@@ -53,14 +53,6 @@ namespace Cubes {
 
         inline static std::array<float, 5 * 4> GetQuadVertices() 
         {
-            /*return {
-                //Positions             TexCoords
-                -0.5f,  0.5f, 0.f,      0.f, 1.f, // top-left
-                 0.5f,  0.5f, 0.f,      1.f, 1.f, // top-right
-                 0.5f, -0.5f, 0.f,      1.f, 0.f, // bottom-right
-                -0.5f, -0.5f, 0.f,      0.f, 0.f  // bottom-left
-            };*/
-
             return {
                 //Positions           TexCoords
                 -1.0f,  1.0f, 0.f,    0.f, 1.f, //up, left   
