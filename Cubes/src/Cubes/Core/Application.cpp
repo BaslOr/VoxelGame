@@ -15,8 +15,7 @@ namespace Cubes {
             CB_CORE_LOG_ERROR("Application already exists");
         _instance = this;
 
-        Cubes::Log::init();
-
+        InitLogger();
         _window = std::unique_ptr<Window>(Window::Create());
         _window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
         Renderer::Init();
@@ -102,6 +101,18 @@ namespace Cubes {
         Renderer::OnWindowsResize(e.GetWidth(), e.GetHeight());
 
         return false;
+    }
+
+    void Application::InitLogger()
+    {
+        try
+        {
+            Cubes::Log::init();
+        }
+        catch (const Error& error)
+        {
+            CB_CORE_LOG_ERROR("{0}", error.what());
+        }
     }
 
 }

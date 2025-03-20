@@ -11,14 +11,14 @@ namespace Cubes {
         inline static std::array<Vertex, 8> GetCubeVertices() 
         {
             return {{
-                { glm::vec3(-1.0f, -1.0f, -1.0f),  glm::vec2(0.0f, 0.0f) }, // unten hinten links
-                { glm::vec3( 1.0f, -1.0f, -1.0f),  glm::vec2(1.0f, 0.0f) }, // unten hinten rechts
-                { glm::vec3( 1.0f,  1.0f, -1.0f),  glm::vec2(1.0f, 1.0f) }, // oben hinten rechts
-                { glm::vec3(-1.0f,  1.0f, -1.0f),  glm::vec2(0.0f, 1.0f) }, // oben hinten links
-                { glm::vec3(-1.0f, -1.0f,  1.0f),  glm::vec2(0.0f, 0.0f) }, // unten vorne links
-                { glm::vec3( 1.0f, -1.0f,  1.0f),  glm::vec2(1.0f, 0.0f) }, // unten vorne rechts
-                { glm::vec3( 1.0f,  1.0f,  1.0f),  glm::vec2(1.0f, 1.0f) }, // oben vorne rechts
-                { glm::vec3(-1.0f,  1.0f,  1.0f),  glm::vec2(0.0f, 1.0f) }  // oben vorne links
+                { glm::vec3(-1.0f, -1.0f, -1.0f),  glm::vec2(0.0f, 0.0f) },  // unten hinten links
+                { glm::vec3( 1.0f, -1.0f, -1.0f),  glm::vec2(1.0f, 0.0f) },  // unten hinten rechts
+                { glm::vec3( 1.0f,  1.0f, -1.0f),  glm::vec2(1.0f, 1.0f) },  // oben hinten rechts
+                { glm::vec3(-1.0f,  1.0f, -1.0f),  glm::vec2(0.0f, 1.0f) },  // oben hinten links
+                { glm::vec3(-1.0f, -1.0f,  1.0f),  glm::vec2(0.0f, 0.0f) },  // unten vorne links
+                { glm::vec3( 1.0f, -1.0f,  1.0f),  glm::vec2(1.0f, 0.0f) },  // unten vorne rechts
+                { glm::vec3( 1.0f,  1.0f,  1.0f),  glm::vec2(1.0f, 1.0f) },  // oben vorne rechts
+                { glm::vec3(-1.0f,  1.0f,  1.0f),  glm::vec2(0.0f, 1.0f) }   // oben vorne links
             }};
         }
 
@@ -54,9 +54,9 @@ namespace Cubes {
         inline static std::array<Vertex, 4> GetQuadVertices() 
         {
             return {{
-                { glm::vec3(-1.0f,  1.0f, 0.f),   glm::vec2(0.f, 1.f) }, //up, left   
-                { glm::vec3( 1.0f,  1.0f, 0.f),   glm::vec2(1.f, 1.f) }, //up, right
-                { glm::vec3( 1.0f, -1.0f, 0.f),   glm::vec2(1.f, 0.f) }, //down, right
+                { glm::vec3(-1.0f,  1.0f, 0.f),   glm::vec2(0.f, 1.f) },   //up, left   
+                { glm::vec3( 1.0f,  1.0f, 0.f),   glm::vec2(1.f, 1.f) },   //up, right
+                { glm::vec3( 1.0f, -1.0f, 0.f),   glm::vec2(1.f, 0.f) },   //down, right
                 { glm::vec3(-1.0f, -1.0f, 0.f),   glm::vec2(0.f, 0.f) }    //down, left
             }};
         }
