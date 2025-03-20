@@ -37,6 +37,12 @@
     <Filter Include="src\Cubes\Platform\Windows">
       <UniqueIdentifier>{3CC30028-28D3-ACF8-918C-11177DBB9B91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Cubes\Vendor">
+      <UniqueIdentifier>{6BF978C3-57F2-9715-8024-7D9A6C7C7721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Cubes\Vendor\TinyOBJLoader">
+      <UniqueIdentifier>{50FBBF39-3C21-8AA0-2567-0F6C112CAF6C}</UniqueIdentifier>
+    </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
     </Filter>
@@ -96,6 +102,9 @@
     <ClInclude Include="src\Cubes\Core\Renderer\MeshFactory.h">
       <Filter>src\Cubes\Core\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Core\Renderer\Model.h">
+      <Filter>src\Cubes\Core\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\OrthographicCamera.h">
       <Filter>src\Cubes\Core\Renderer</Filter>
     </ClInclude>
@@ -132,6 +141,9 @@
     <ClInclude Include="src\Cubes\Core\Utility\Log.h">
       <Filter>src\Cubes\Core\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Core\Utility\ModelLoader.h">
+      <Filter>src\Cubes\Core\Utility</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Core\Window.h">
       <Filter>src\Cubes\Core</Filter>
     </ClInclude>
@@ -164,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h">
       <Filter>src\Cubes\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Vendor\TinyOBJLoader\tiny_obj_loader.h">
+      <Filter>src\Cubes\Vendor\TinyOBJLoader</Filter>
     </ClInclude>
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
@@ -254,8 +269,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\shaders\DefaultShader.glsl" />
   </ItemGroup>
 </Project>

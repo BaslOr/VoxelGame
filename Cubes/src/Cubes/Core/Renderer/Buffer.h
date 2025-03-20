@@ -157,12 +157,12 @@ namespace Cubes {
         virtual void Bind() const = 0;
         virtual void UnBind() const = 0;
 
-        virtual uint16_t GetCount() const = 0;
+        virtual uint32_t GetCount() const = 0;
 
-        static Ref<IndexBuffer> Create(uint16_t* data, uint16_t count);
+        static Ref<IndexBuffer> Create(uint32_t* data, uint32_t count);
 
     private:
-        static Ref<IndexBuffer> CreateIndexBuffer(uint16_t* data, uint16_t count);
+        static Ref<IndexBuffer> CreateIndexBuffer(uint32_t* data, uint32_t count);
     };
 
 }

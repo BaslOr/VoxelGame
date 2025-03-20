@@ -41,7 +41,7 @@ namespace Cubes {
     /////////////////////////////////////////////////////////////////////////////
 
 
-    Ref<IndexBuffer> IndexBuffer::Create(uint16_t* data, uint16_t count)
+    Ref<IndexBuffer> IndexBuffer::Create(uint32_t* data, uint32_t count)
     {
         try
         {
@@ -53,7 +53,7 @@ namespace Cubes {
         }
     }
 
-    Ref<IndexBuffer> Cubes::IndexBuffer::CreateIndexBuffer(uint16_t* data, uint16_t count)
+    Ref<IndexBuffer> Cubes::IndexBuffer::CreateIndexBuffer(uint32_t* data, uint32_t count)
     {
         switch (Renderer::GetAPI())
         {

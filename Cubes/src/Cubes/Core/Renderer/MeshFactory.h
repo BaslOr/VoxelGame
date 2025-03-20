@@ -22,7 +22,7 @@ namespace Cubes {
             };
         }
 
-        inline static std::array<uint16_t, 3 * 12> GetCubeIndices() 
+        inline static std::array<uint32_t, 3 * 12> GetCubeIndices()
         {
             return {
                 // Front face
@@ -63,7 +63,7 @@ namespace Cubes {
 
         }
 
-        inline static std::array<uint16_t, 2 * 3> GetQuadIndices()
+        inline static std::array<uint32_t, 2 * 3> GetQuadIndices()
         {
             return {
                 0, 1, 2,

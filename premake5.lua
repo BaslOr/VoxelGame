@@ -46,7 +46,7 @@ project "Cubes"
         "%{prj.name}/vendor/stb_image/**.h",
         "%{prj.name}/vendor/stb_image/**.cpp",
 
-        "%{prj.name}/vendor/tinyobjloader/tiny_obj_loader.h",
+        "%{prj.name}/vendor/tinyobjloader/tiny_obj_loader.h"
     }
 
     includedirs {
@@ -122,7 +122,8 @@ project "VoxelGame"
         "Cubes/vendor/spdlog/include",
         "%{IncludeDir.ImGUI}",
         "Cubes/vendor/GLFW/include",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "Cubes/vendor/tinyobjloader"
     }
 
     links {

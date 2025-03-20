@@ -73,11 +73,35 @@ namespace Cubes {
 		Renderer2D::EndScene();
 	}
 
-	void Renderer::Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& modelMatrix)
+	void Cubes::Renderer::DrawModel(Model& model, glm::vec3& position, glm::vec3& size, glm::vec4& color)
 	{
-		vertexArray->Bind();
+		Ref<VertexArray> VAO = VertexArray::Create();
+		Ref<VertexBuffer> VBO = VertexBuffer::Create(model.Vertices.data(), sizeof(Vertex) * model.Vertices.size());
+		Ref<IndexBuffer> IBO = IndexBuffer::Create(model.Indices.data(), model.Indices.size());
+		{
+			Cubes::BufferLayout layout = {
+			   { Cubes::ShaderDataType::Float3, "aPos"},
+			   { Cubes::ShaderDataType::Float2, "aTexCoord" }
+			};
+
+			VBO->SetLayout(layout);
+		}
+
+		VAO->AddVertexBuffer(VBO);
+		VAO->SetIndexBuffer(IBO);
+
+		//Transform
+		glm::mat4 modelMatrix = glm::translate(glm::mat4(1.f), position);
+		modelMatrix = glm::scale(modelMatrix, size);
+		
+		//Bind
+		model.Texture->Bind();
+		auto shader = ShaderLibrary::Get("DefaultShader");
+		shader->SetUniformFloat4("u_Color", color); 
 		shader->SetUniformMat4("u_Model", modelMatrix);
-		RenderCommand::DrawIndexed(vertexArray);
+		shader->SetUniformInt("u_Sampler", 0);
+
+		RenderCommand::DrawIndexed(VAO);
 	}
 
 	void Renderer::DrawCube(glm::vec3& position, glm::vec3& size, glm::vec4& color)
@@ -94,7 +118,12 @@ namespace Cubes {
 		Submit(shader, rendererData.CubeVertexArray, model);
 	}
 
-
+	void Renderer::Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& modelMatrix)
+	{
+		vertexArray->Bind();
+		shader->SetUniformMat4("u_Model", modelMatrix);
+		RenderCommand::DrawIndexed(vertexArray);
+	}
 
 	void Cubes::Renderer::InitCubeData()
 	{

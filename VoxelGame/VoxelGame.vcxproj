@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_DEBUG;CB_DEBUG_UTILS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Cubes\src;..\Cubes\vendor\spdlog\include;..\Cubes\vendor\ImGUI;..\Cubes\vendor\GLFW\include;..\Cubes\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Cubes\src;..\Cubes\vendor\spdlog\include;..\Cubes\vendor\ImGUI;..\Cubes\vendor\GLFW\include;..\Cubes\vendor\glm;..\Cubes\vendor\tinyobjloader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -97,7 +97,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_RELEASE;CB_DEBUG_UTILS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Cubes\src;..\Cubes\vendor\spdlog\include;..\Cubes\vendor\ImGUI;..\Cubes\vendor\GLFW\include;..\Cubes\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Cubes\src;..\Cubes\vendor\spdlog\include;..\Cubes\vendor\ImGUI;..\Cubes\vendor\GLFW\include;..\Cubes\vendor\glm;..\Cubes\vendor\tinyobjloader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -119,7 +119,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CB_PLATFORM_WINDOWS;CB_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\Cubes\src;..\Cubes\vendor\spdlog\include;..\Cubes\vendor\ImGUI;..\Cubes\vendor\GLFW\include;..\Cubes\vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Cubes\src;..\Cubes\vendor\spdlog\include;..\Cubes\vendor\ImGUI;..\Cubes\vendor\GLFW\include;..\Cubes\vendor\glm;..\Cubes\vendor\tinyobjloader;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>

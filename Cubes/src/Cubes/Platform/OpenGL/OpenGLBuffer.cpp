@@ -34,12 +34,12 @@ namespace Cubes {
     /////////Index Buffer////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////
 
-    OpenGLIndexBuffer::OpenGLIndexBuffer(uint16_t* data, uint16_t count)
+    OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t* data, uint32_t count)
         : _count(count)
     {
         glGenBuffers(1, &_rendererID);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _rendererID);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint16_t), data, GL_STATIC_DRAW);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32_t), data, GL_STATIC_DRAW);
     }
 
     OpenGLIndexBuffer::~OpenGLIndexBuffer()

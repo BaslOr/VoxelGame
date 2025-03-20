@@ -15,6 +15,7 @@ namespace GameNamespace {
         Camera _camera;
 
         Cubes::Ref<Cubes::Texture> _texture;
+        Cubes::Model _model;
     };
 
 }

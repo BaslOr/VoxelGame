@@ -68,8 +68,7 @@ namespace Cubes {
 
     void OpenGLRendererAPI::DrawIndexed(const Ref<VertexArray>& vertexArray)
     {
-        glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_SHORT, nullptr);
-        GLenum err;
+        glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
     }
 
     void OpenGLRendererAPI::EnableWireframeMode(bool enable)

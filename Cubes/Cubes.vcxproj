@@ -162,6 +162,7 @@
     <ClInclude Include="src\Cubes\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Buffer.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\MeshFactory.h" />
+    <ClInclude Include="src\Cubes\Core\Renderer\Model.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\PerspectiveCamera.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\RenderCommand.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="src\Cubes\Core\Renderer\VertexArray.h" />
     <ClInclude Include="src\Cubes\Core\Time\TimeStep.h" />
     <ClInclude Include="src\Cubes\Core\Utility\Log.h" />
+    <ClInclude Include="src\Cubes\Core\Utility\ModelLoader.h" />
     <ClInclude Include="src\Cubes\Core\Window.h" />
     <ClInclude Include="src\Cubes\Core\cbpch.h" />
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h" />
@@ -185,6 +187,7 @@
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Cubes\Vendor\TinyOBJLoader\tiny_obj_loader.h" />
     <ClInclude Include="vendor\stb_image\stb_image.h" />
     <ClInclude Include="vendor\tinyobjloader\tiny_obj_loader.h" />
   </ItemGroup>
@@ -229,9 +232,6 @@
     <ProjectReference Include="vendor\ImGUI\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\shaders\DefaultShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

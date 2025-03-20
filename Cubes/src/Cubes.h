@@ -18,6 +18,8 @@
 #include "Cubes/Core/Renderer/Buffer.h"
 #include "Cubes/Core/Renderer/Shader.h"
 #include "Cubes/Core/Renderer/Texture.h"
+#include "Cubes/Core/Renderer/Model.h"
+#include "Cubes/Core/Utility/ModelLoader.h"
 
 //----------Entry Point-------------------------
 #include "Cubes/Core/Entrypoint.h"

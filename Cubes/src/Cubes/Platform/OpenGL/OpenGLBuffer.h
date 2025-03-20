@@ -24,17 +24,17 @@ namespace Cubes {
 	class OpenGLIndexBuffer : public IndexBuffer
 	{
 	public:
-		OpenGLIndexBuffer(uint16_t* data, uint16_t count);
+		OpenGLIndexBuffer(uint32_t* data, uint32_t count);
 		~OpenGLIndexBuffer();
 
 		virtual void Bind() const;
 		virtual void UnBind() const;
 
-		inline uint16_t GetCount() const override { return _count; }
+		inline uint32_t GetCount() const override { return _count; }
 
 	private:
 		uint32_t _rendererID;
-		uint16_t _count;
+		uint32_t _count;
 	};
 
 }
