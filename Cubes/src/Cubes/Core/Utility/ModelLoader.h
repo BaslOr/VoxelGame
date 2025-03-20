@@ -11,27 +11,59 @@ namespace Cubes {
     public:
 
         inline static Model LoadModel(const std::string& modelPath, const std::string& texturePath) {
-            //Load Model
+            auto& geometryData = LoadGeometryData(modelPath);
+
+            Model model{};
+            model.Vertices = geometryData.first;
+            model.Indices = geometryData.second;
+            model.Texture = Texture::Create(texturePath);
+
+            return model;
+        }
+
+
+    private:
+
+        inline static std::pair<std::vector<Vertex>, std::vector<uint32_t>> LoadGeometryData(const std::string& modelPath) {
             std::vector<Vertex> vertices;
             std::vector<uint32_t> indices;
 
             tinyobj::attrib_t attrib;
             std::vector<tinyobj::shape_t> shapes;
             std::vector<tinyobj::material_t> materials;
-            std::string warn, err;
 
-            if (!tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, modelPath.c_str())) {
-                throw FailedToOpenFileError(modelPath.c_str());
-            }
+            LoadObjDataFromFile(modelPath, &attrib, &shapes, &materials);
+            auto geometryData = PopulateVerticesAndIndices(attrib, shapes);
+            return geometryData;
+        }
 
-            if (!warn.empty()) {
-                CB_CORE_LOG_WARN("Tiny obj loader: {0}", warn);
-            }
-            if (!err.empty()) {
-                CB_CORE_LOG_ERROR("Tiny obj loader: {0}", err);
-            }
+        inline static void LoadObjDataFromFile(const std::string& modelPath, tinyobj::attrib_t* attrib, std::vector<tinyobj::shape_t>* shapes, std::vector<tinyobj::material_t>* materials) {
+            try
+            {
+                std::string warn, error;
+                if (!tinyobj::LoadObj(attrib, shapes, materials, &warn, &error, modelPath.c_str())) {
+                    throw FailedToOpenFileError(modelPath.c_str());
+                }
 
+                if (!warn.empty()) {
+                    CB_CORE_LOG_WARN("{0}", warn);
+                }
+
+                if (!error.empty()) {
+                    CB_CORE_LOG_ERROR("{0}", error);
+                }
+            }
+            catch (const Error& error)
+            {
+                CB_CORE_LOG_ERROR("{0}", error.what());
+            }
+        }
+
+        inline static std::pair<std::vector<Vertex>, std::vector<std::uint32_t>> PopulateVerticesAndIndices(tinyobj::attrib_t& attrib,
+            std::vector<tinyobj::shape_t>& shapes) {
             std::unordered_map<Vertex, uint32_t> uniqueVertices{};
+            std::vector<Vertex> vertices;
+            std::vector<uint32_t> indices;
 
             for (const auto& shape : shapes) {
                 for (const auto& index : shape.mesh.indices) {
@@ -64,15 +96,9 @@ namespace Cubes {
                 }
             }
 
-            Model model{};
-            model.Vertices = vertices;
-            model.Indices = indices;
-
-            //Load Texture
-            model.Texture = Texture::Create(texturePath);
-
-            return model;
+            return { vertices, indices };
         }
+
     };
 
 }

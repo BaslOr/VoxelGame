@@ -37,7 +37,7 @@ namespace GameNamespace {
             for (uint32_t j =  0; j < 20; j++)
             {
                 glm::vec3 postion(i, -2, j);
-                Cubes::Renderer::DrawCube(postion, glm::vec3(1.f), glm::vec4(0.8f, 0.1f, 0.1f, 1.f));
+                Cubes::Renderer::DrawCube(postion, glm::vec3(1.f), glm::vec4(0.1, 0.6f, 0.2f, 1.f));
             }
         }
 

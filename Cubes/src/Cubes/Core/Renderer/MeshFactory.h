@@ -1,25 +1,25 @@
 #pragma once
 #include <array>
 #include <stdint.h>
+#include "Model.h"
 
 namespace Cubes {
 
     class MeshFactory {
     public:
 
-        inline static std::array<float, 5 * 8> GetCubeVertices() 
+        inline static std::array<Vertex, 8> GetCubeVertices() 
         {
-            return {
-                // Position          // TexCoord
-                -1.0f, -1.0f, -1.0f,  0.0f, 0.0f, // 0
-                 1.0f, -1.0f, -1.0f,  1.0f, 0.0f, // 1
-                 1.0f,  1.0f, -1.0f,  1.0f, 1.0f, // 2
-                -1.0f,  1.0f, -1.0f,  0.0f, 1.0f, // 3
-                -1.0f, -1.0f,  1.0f,  0.0f, 0.0f, // 4
-                 1.0f, -1.0f,  1.0f,  1.0f, 0.0f, // 5
-                 1.0f,  1.0f,  1.0f,  1.0f, 1.0f, // 6
-                -1.0f,  1.0f,  1.0f,  0.0f, 1.0f  // 7
-            };
+            return {{
+                { glm::vec3(-1.0f, -1.0f, -1.0f),  glm::vec2(0.0f, 0.0f) }, // unten hinten links
+                { glm::vec3( 1.0f, -1.0f, -1.0f),  glm::vec2(1.0f, 0.0f) }, // unten hinten rechts
+                { glm::vec3( 1.0f,  1.0f, -1.0f),  glm::vec2(1.0f, 1.0f) }, // oben hinten rechts
+                { glm::vec3(-1.0f,  1.0f, -1.0f),  glm::vec2(0.0f, 1.0f) }, // oben hinten links
+                { glm::vec3(-1.0f, -1.0f,  1.0f),  glm::vec2(0.0f, 0.0f) }, // unten vorne links
+                { glm::vec3( 1.0f, -1.0f,  1.0f),  glm::vec2(1.0f, 0.0f) }, // unten vorne rechts
+                { glm::vec3( 1.0f,  1.0f,  1.0f),  glm::vec2(1.0f, 1.0f) }, // oben vorne rechts
+                { glm::vec3(-1.0f,  1.0f,  1.0f),  glm::vec2(0.0f, 1.0f) }  // oben vorne links
+            }};
         }
 
         inline static std::array<uint32_t, 3 * 12> GetCubeIndices()
@@ -51,16 +51,14 @@ namespace Cubes {
             };
         }
 
-        inline static std::array<float, 5 * 4> GetQuadVertices() 
+        inline static std::array<Vertex, 4> GetQuadVertices() 
         {
-            return {
-                //Positions           TexCoords
-                -1.0f,  1.0f, 0.f,    0.f, 1.f, //up, left   
-                 1.0f,  1.0f, 0.f,    1.f, 1.f, //up, right
-                 1.0f, -1.0f, 0.f,    1.f, 0.f, //down, right
-                -1.0f, -1.0f, 0.f,    0.f, 0.f  //down, left
-            };
-
+            return {{
+                { glm::vec3(-1.0f,  1.0f, 0.f),   glm::vec2(0.f, 1.f) }, //up, left   
+                { glm::vec3( 1.0f,  1.0f, 0.f),   glm::vec2(1.f, 1.f) }, //up, right
+                { glm::vec3( 1.0f, -1.0f, 0.f),   glm::vec2(1.f, 0.f) }, //down, right
+                { glm::vec3(-1.0f, -1.0f, 0.f),   glm::vec2(0.f, 0.f) }    //down, left
+            }};
         }
 
         inline static std::array<uint32_t, 2 * 3> GetQuadIndices()

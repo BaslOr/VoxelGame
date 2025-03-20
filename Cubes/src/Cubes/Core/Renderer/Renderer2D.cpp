@@ -64,11 +64,6 @@ namespace Cubes {
         DrawTexture(texture, glm::vec3(position, 0.f), size, color, rotation);
     }
 
-    void Renderer2D::Shutdown()
-    {
-
-    }
-
     void Renderer2D::BeginScene()
     {
 
@@ -79,13 +74,18 @@ namespace Cubes {
 
     }
 
+    void Renderer2D::Shutdown()
+    {
+
+    }
+
     void Cubes::Renderer2D::InitQuadData()
     {
         auto quadVertices = MeshFactory::GetQuadVertices();
         auto quadIndices = MeshFactory::GetQuadIndices();
 
         renderer2DData.QuadVertexArray = VertexArray::Create();
-        renderer2DData.QuadVertexBuffer = VertexBuffer::Create(quadVertices.data(), quadVertices.size() * sizeof(float));
+        renderer2DData.QuadVertexBuffer = VertexBuffer::Create(quadVertices.data(), quadVertices.size() * sizeof(Vertex));
         {
             Cubes::BufferLayout layout = {
                { Cubes::ShaderDataType::Float3, "aPos"},

@@ -131,7 +131,7 @@ namespace Cubes {
 		auto cubeIndices = MeshFactory::GetCubeIndices();
 
 		rendererData.CubeVertexArray = VertexArray::Create();
-		rendererData.CubeVertexBuffer = VertexBuffer::Create(cubeVertices.data(), cubeVertices.size() * sizeof(float));
+		rendererData.CubeVertexBuffer = VertexBuffer::Create(cubeVertices.data(), cubeVertices.size() * sizeof(Vertex));
 		rendererData.CubeIndexBuffer = IndexBuffer::Create(cubeIndices.data(), cubeIndices.size());
 		{
 			Cubes::BufferLayout layout = {
