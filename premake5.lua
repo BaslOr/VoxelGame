@@ -12,6 +12,7 @@ workspace "VoxelGame"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
+IncludeDir["spdlog"] = "Cubes/vendor/spdlog/include"
 IncludeDir["GLFW"] = "Cubes/vendor/GLFW/include"
 IncludeDir["glad"] = "Cubes/vendor/glad/include"
 IncludeDir["ImGUI"] = "Cubes/vendor/ImGUI"
@@ -49,7 +50,7 @@ project "Cubes"
     }
 
     includedirs {
-        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.spdlog}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.ImGUI}",
         "%{IncludeDir.glad}",
@@ -120,11 +121,11 @@ project "VoxelGame"
 
     includedirs {
         "Cubes/src",
-        "Cubes/vendor/spdlog/include",
+        "%{IncludeDir.spdlog}",
         "%{IncludeDir.ImGUI}",
-        "Cubes/vendor/GLFW/include",
+        "%{IncludeDir.GLFW}",
         "%{IncludeDir.glm}",
-        "Cubes/vendor/tiny_obj_loader"
+        "%{IncludeDir.tiny_obj_loader}"
     }
 
     links {
