@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VoxelGame", "VoxelGame\VoxelGame.vcxproj", "{ED40268D-59AB-DA03-A2E9-8BA90E93B858}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cubes", "Cubes\Cubes.vcxproj", "{9740FD0C-0355-25BE-CCD6-C81D38AA21EF}"

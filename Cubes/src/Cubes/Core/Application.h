@@ -27,7 +27,6 @@ namespace Cubes {
         void run();
 
         void OnEvent(Event& e);
-        virtual void OnUpdate(TimeStep deltaTime) = 0;
 
         void PushLayer(Layer* layer);
         void PushOverlay(Layer* overlay);
@@ -38,6 +37,8 @@ namespace Cubes {
     private:
         bool OnWindowClose(WindowCloseEvent& e);
         bool OnWindowResizeEvent(WindowResizeEvent& e);
+
+        void InitLogger();
 
     private:
 

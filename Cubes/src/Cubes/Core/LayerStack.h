@@ -4,24 +4,24 @@
 
 namespace Cubes {
 
-	class CB_API LayerStack
-	{
-	public:
-		LayerStack();
-		~LayerStack();
+    class CB_API LayerStack
+    {
+    public:
+        LayerStack();
+        ~LayerStack();
 
-		void PushLayer(Layer* layer);
-		void PushOverlay(Layer* overlay);
-		void PopLayer(Layer* layer);
-		void PopOverlay(Layer* overlay);
+        void PushLayer(Layer* layer);
+        void PushOverlay(Layer* overlay);
+        void PopLayer(Layer* layer);
+        void PopOverlay(Layer* overlay);
 
-		std::vector<Layer*>::iterator begin() { return _layerStack.begin(); }
-		std::vector<Layer*>::iterator end() { return _layerStack.end(); }
+        std::vector<Layer*>::iterator begin() { return _layerStack.begin(); }
+        std::vector<Layer*>::iterator end() { return _layerStack.end(); }
 
-	private:
-		std::vector<Layer*> _layerStack;
-		std::vector<Layer*>::iterator _layerInsert;
-	};
+    private:
+        std::vector<Layer*> _layerStack;
+        uint32_t _layerInsertIndex = 0;
+    };
 
 }
 

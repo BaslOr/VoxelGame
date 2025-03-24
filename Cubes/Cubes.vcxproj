@@ -149,6 +149,7 @@
     <ClInclude Include="src\Cubes.h" />
     <ClInclude Include="src\Cubes\Core\Application.h" />
     <ClInclude Include="src\Cubes\Core\Core.h" />
+    <ClInclude Include="src\Cubes\Core\Debug\ScopeTimer.h" />
     <ClInclude Include="src\Cubes\Core\Entrypoint.h" />
     <ClInclude Include="src\Cubes\Core\Error\Error.h" />
     <ClInclude Include="src\Cubes\Core\Events\ApplicationEvent.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="src\Cubes\Core\LayerStack.h" />
     <ClInclude Include="src\Cubes\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Buffer.h" />
+    <ClInclude Include="src\Cubes\Core\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\MeshFactory.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Model.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\OrthographicCamera.h" />
@@ -180,6 +182,7 @@
     <ClInclude Include="src\Cubes\Core\cbpch.h" />
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLFramebuffer.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLShader.h" />
@@ -187,7 +190,6 @@
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h" />
-    <ClInclude Include="src\Cubes\Vendor\TinyOBJLoader\tiny_obj_loader.h" />
     <ClInclude Include="vendor\stb_image\stb_image.h" />
     <ClInclude Include="vendor\tinyobjloader\tiny_obj_loader.h" />
   </ItemGroup>
@@ -197,6 +199,7 @@
     <ClCompile Include="src\Cubes\Core\Layer.cpp" />
     <ClCompile Include="src\Cubes\Core\LayerStack.cpp" />
     <ClCompile Include="src\Cubes\Core\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Cubes\Core\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\Cubes\Core\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Cubes\Core\Renderer\PerspectiveCamera.cpp" />
     <ClCompile Include="src\Cubes\Core\Renderer\RenderCommand.cpp" />
@@ -207,12 +210,14 @@
     <ClCompile Include="src\Cubes\Core\Renderer\Texture.cpp" />
     <ClCompile Include="src\Cubes\Core\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Cubes\Core\Utility\Log.cpp" />
+    <ClCompile Include="src\Cubes\Core\Utility\ModelLoader.cpp" />
     <ClCompile Include="src\Cubes\Core\cbpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Cubes\ImGUI\ImGUILayer.cpp" />
     <ClCompile Include="src\Cubes\ImGUI\ImGuiBuild.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLFramebuffer.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLShader.cpp" />
@@ -220,6 +225,7 @@
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\Cubes\Vendor\TinyOBJLoader\tiny_obj_loader.cpp" />
     <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -138,11 +138,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera.h" />
-    <ClInclude Include="src\VoxelGame.h" />
+    <ClInclude Include="src\SandboxLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\VoxelGame.cpp" />
+    <ClCompile Include="src\Sandbox.cpp" />
+    <ClCompile Include="src\SandboxLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cubes\Cubes.vcxproj">

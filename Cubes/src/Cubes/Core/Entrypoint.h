@@ -4,6 +4,8 @@
 #include "Core.h"
 
 #ifdef CB_PLATFORM_WINDOWS
+
+extern Cubes::Application* Cubes::CreateApplication();
 	
 int main(int argc, char** argv) {
 	try

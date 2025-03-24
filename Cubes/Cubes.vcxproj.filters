@@ -10,6 +10,9 @@
     <Filter Include="src\Cubes\Core">
       <UniqueIdentifier>{06F8FF97-F2C5-F39D-DB59-64C4C7C6CF02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Cubes\Core\Debug">
+      <UniqueIdentifier>{FC6EA106-E8FD-2AD0-911C-3FCB7D8A3B76}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Cubes\Core\Error">
       <UniqueIdentifier>{BFEBBA06-AB7A-44D0-5499-58CB40075576}</UniqueIdentifier>
     </Filter>
@@ -63,6 +66,9 @@
     <ClInclude Include="src\Cubes\Core\Core.h">
       <Filter>src\Cubes\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Core\Debug\ScopeTimer.h">
+      <Filter>src\Cubes\Core\Debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Core\Entrypoint.h">
       <Filter>src\Cubes\Core</Filter>
     </ClInclude>
@@ -97,6 +103,9 @@
       <Filter>src\Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\Buffer.h">
+      <Filter>src\Cubes\Core\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cubes\Core\Renderer\Framebuffer.h">
       <Filter>src\Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\MeshFactory.h">
@@ -156,6 +165,9 @@
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Cubes\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLFramebuffer.h">
+      <Filter>src\Cubes\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.h">
       <Filter>src\Cubes\Platform\OpenGL</Filter>
     </ClInclude>
@@ -176,9 +188,6 @@
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h">
       <Filter>src\Cubes\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Cubes\Vendor\TinyOBJLoader\tiny_obj_loader.h">
-      <Filter>src\Cubes\Vendor\TinyOBJLoader</Filter>
     </ClInclude>
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
@@ -201,6 +210,9 @@
       <Filter>src\Cubes\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\Buffer.cpp">
+      <Filter>src\Cubes\Core\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Core\Renderer\Framebuffer.cpp">
       <Filter>src\Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\OrthographicCamera.cpp">
@@ -233,6 +245,9 @@
     <ClCompile Include="src\Cubes\Core\Utility\Log.cpp">
       <Filter>src\Cubes\Core\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="src\Cubes\Core\Utility\ModelLoader.cpp">
+      <Filter>src\Cubes\Core\Utility</Filter>
+    </ClCompile>
     <ClCompile Include="src\Cubes\Core\cbpch.cpp">
       <Filter>src\Cubes\Core</Filter>
     </ClCompile>
@@ -243,6 +258,9 @@
       <Filter>src\Cubes\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>src\Cubes\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.cpp">
@@ -265,6 +283,9 @@
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp">
       <Filter>src\Cubes\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cubes\Vendor\TinyOBJLoader\tiny_obj_loader.cpp">
+      <Filter>src\Cubes\Vendor\TinyOBJLoader</Filter>
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>

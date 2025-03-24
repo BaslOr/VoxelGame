@@ -68,7 +68,7 @@ namespace Cubes {
 
             if (!_minimized) {
                 for (Layer* layer : _layerStack)
-                    layer->OnUpdate();
+                    layer->OnUpdate(deltaTime);
             }
 
             _ImGuiLayer->Begin();
@@ -77,9 +77,6 @@ namespace Cubes {
             _ImGuiLayer->End();
 
             _window->OnUpdate();
-
-            OnUpdate(deltaTime);
-
         }
     }
 
