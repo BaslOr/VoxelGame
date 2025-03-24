@@ -1,5 +1,4 @@
 #include "cbpch.h"
-#include <imgui.h>
 #include "ImGUILayer.h"
 
 #include "backends/imgui_impl_opengl3.h"
@@ -59,12 +58,6 @@ namespace Cubes {
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplGlfw_Shutdown();
         ImGui::DestroyContext();
-    }
-
-    void ImGUILayer::OnImGuiRender()
-    {
-        static bool show = true;
-        ImGui::ShowDemoWindow(&show);
     }
 
     void ImGUILayer::Begin()

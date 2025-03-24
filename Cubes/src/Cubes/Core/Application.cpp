@@ -30,34 +30,6 @@ namespace Cubes {
         Renderer::ShutDown();
     }
 
-    void Application::OnEvent(Event& event)
-    {
-        EventDispatcher dispatcher(event);
-        dispatcher.Dispatch<WindowCloseEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowClose));
-        dispatcher.Dispatch<WindowResizeEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowResizeEvent));
-
-        for (auto it = _layerStack.end(); it != _layerStack.begin();) {
-            (*--it)->OnEvent(event);
-            if (event.IsHandled())
-                break;
-        }
-
-        _camera.OnEvent(event);
-    }
-
-    void Application::PushLayer(Layer* layer)
-    {
-        _layerStack.PushLayer(layer);
-        layer->OnAttach();
-    }
-
-    void Application::PushOverlay(Layer* overlay)
-    {
-        _layerStack.PushOverlay(overlay);
-        overlay->OnAttach();
-    }
-
-
     void Application::run()
     {
         while (_isRunning) {
@@ -80,6 +52,32 @@ namespace Cubes {
         }
     }
 
+    void Application::PushLayer(Layer* layer)
+    {
+        _layerStack.PushLayer(layer);
+        layer->OnAttach();
+    }
+
+    void Application::PushOverlay(Layer* overlay)
+    {
+        _layerStack.PushOverlay(overlay);
+        overlay->OnAttach();
+    }
+
+    void Application::OnEvent(Event& event)
+    {
+        EventDispatcher dispatcher(event);
+        dispatcher.Dispatch<WindowCloseEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowClose));
+        dispatcher.Dispatch<WindowResizeEvent>(CB_BIND_EVENT_FUNC(Application::OnWindowResizeEvent));
+
+        for (auto it = _layerStack.end(); it != _layerStack.begin();) {
+            (*--it)->OnEvent(event);
+            if (event.IsHandled())
+                break;
+        }
+
+        _camera.OnEvent(event);
+    }
 
     bool Application::OnWindowClose(WindowCloseEvent& e)
     {

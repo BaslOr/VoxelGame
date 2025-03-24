@@ -3,6 +3,7 @@
 #include "../Core/Events/ApplicationEvent.h"
 #include "../Core/Events/MouseEvent.h"
 #include "../Core/Events/KeyEvent.h"
+#include <imgui.h>
 
 namespace Cubes {
 
@@ -14,7 +15,6 @@ namespace Cubes {
 		
 		void OnAttach() override;
 		void OnDetach() override;
-		void OnImGuiRender() override;
 
 		void Begin();
 		void End();

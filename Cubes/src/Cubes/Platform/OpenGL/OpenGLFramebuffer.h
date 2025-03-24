@@ -8,6 +8,12 @@ namespace Cubes {
         OpenGLFramebuffer(const FramebufferSpecification& spec);
         ~OpenGLFramebuffer();
 
+        inline const FramebufferSpecification& GetSpecification() const override { return _specification; }
+        inline uint32_t GetColorAttachmentID() const override { return _colorAttachmentID; }
+
+        void Bind() const override;
+        void Unbind() const override;
+
         void Recreate();
 
     private:

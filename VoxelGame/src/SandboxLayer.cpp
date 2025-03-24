@@ -50,6 +50,12 @@ void SandboxLayer::OnUpdate(Cubes::TimeStep deltaTime)
 
 void SandboxLayer::OnImGuiRender()
 {
+	ImGui::Begin("Viewport");
+
+	uint32_t textureID = Cubes::Renderer::GetFramebufferColorAttachmentID();
+	ImGui::Image((void*)textureID, ImVec2(1280, 720), ImVec2(0, 1), ImVec2(1, 0));
+
+	ImGui::End();
 }
 
 void SandboxLayer::OnEvent(Cubes::Event& event)

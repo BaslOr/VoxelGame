@@ -13,6 +13,10 @@ namespace Cubes {
     class Framebuffer {
     public:
         virtual const FramebufferSpecification& GetSpecification() const = 0;
+        virtual uint32_t GetColorAttachmentID() const = 0;
+
+        virtual void Bind() const = 0;
+        virtual void Unbind() const = 0;
 
         static Ref<Framebuffer> Create(const FramebufferSpecification& spec);
 

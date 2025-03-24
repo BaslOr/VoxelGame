@@ -5,6 +5,7 @@
 #include "Shader.h"
 #include "Texture.h"
 #include "Model.h"
+#include "Framebuffer.h"
 
 namespace Cubes {
 
@@ -20,6 +21,8 @@ namespace Cubes {
 
         static void OnWindowsResize(uint32_t width, uint32_t height);
         static void EnableWireframeMode(bool enable);
+
+        static uint32_t GetFramebufferColorAttachmentID();
 
         static void BeginScene(PerspectiveCamera& camera);
         static void EndScene();
