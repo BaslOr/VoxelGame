@@ -1,7 +1,5 @@
 # VoxelGame
 Voxel Game
 
-#How to download:
-git Clone url --recrusive
-
-TODO: Update to newer Version of GLFW
+# How to download:
+git clone --recursive https://github.com/BaslOr/VoxelGame.git <Folder>
