@@ -10,6 +10,3 @@
 [submodule "Cubes/vendor/glm"]
 	path = Cubes/vendor/glm
 	url = https://github.com/g-truc/glm.git
-[submodule "Cubes/vendor/tinyobjloader"]
-	path = Cubes/vendor/tinyobjloader
-	url = https://github.com/tinyobjloader/tinyobjloader.git

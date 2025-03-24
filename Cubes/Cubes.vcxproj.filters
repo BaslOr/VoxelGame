@@ -1,294 +1,262 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
+    <Filter Include="Cubes">
+      <UniqueIdentifier>{9740FD0C-0355-25BE-CCD6-C81D38AA21EF}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes">
-      <UniqueIdentifier>{EE4EBAB2-5AB9-6E29-A3F7-1FCF0FA14C7E}</UniqueIdentifier>
+    <Filter Include="Cubes\Core">
+      <UniqueIdentifier>{4F5BF960-3B13-3BAE-A41A-140A90F1D59E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Core">
-      <UniqueIdentifier>{06F8FF97-F2C5-F39D-DB59-64C4C7C6CF02}</UniqueIdentifier>
+    <Filter Include="Cubes\Core\Debug">
+      <UniqueIdentifier>{0565349F-F15D-53F1-1A90-387606E832FD}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Core\Debug">
-      <UniqueIdentifier>{FC6EA106-E8FD-2AD0-911C-3FCB7D8A3B76}</UniqueIdentifier>
+    <Filter Include="Cubes\Core\Error">
+      <UniqueIdentifier>{C8E14D9F-B4DA-6CF1-DD0C-5276C9644CFD}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Core\Error">
-      <UniqueIdentifier>{BFEBBA06-AB7A-44D0-5499-58CB40075576}</UniqueIdentifier>
+    <Filter Include="Cubes\Core\Events">
+      <UniqueIdentifier>{53584B89-BF6E-491F-08E6-D440743B1AA7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Core\Events">
-      <UniqueIdentifier>{2AA159DE-960D-15D9-5F01-AD36CB2C3741}</UniqueIdentifier>
+    <Filter Include="Cubes\Core\Renderer">
+      <UniqueIdentifier>{D5C77D00-4129-5B0E-CA96-A1C036F791CD}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Core\Renderer">
-      <UniqueIdentifier>{6CA241D2-D8D9-8969-E1E3-ED8C4D9AB062}</UniqueIdentifier>
+    <Filter Include="Cubes\Core\Time">
+      <UniqueIdentifier>{4D21D4E5-B9AC-41AA-C2BD-C49E2EC89DAA}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Core\Time">
-      <UniqueIdentifier>{64483C00-D0A9-190E-5917-60C0C57750CD}</UniqueIdentifier>
+    <Filter Include="Cubes\Core\Utility">
+      <UniqueIdentifier>{92F8F67D-7EDC-B7D3-E73C-B226D33FA255}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Core\Utility">
-      <UniqueIdentifier>{495CCE74-3556-F7C6-1EC3-8DD70A5C5D33}</UniqueIdentifier>
+    <Filter Include="Cubes\ImGUI">
+      <UniqueIdentifier>{C1868F80-2D3C-0876-B630-024D22E5FE79}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\ImGUI">
-      <UniqueIdentifier>{58BA6998-C445-D75C-CD56-5A513961335D}</UniqueIdentifier>
+    <Filter Include="Cubes\Platform">
+      <UniqueIdentifier>{CB16CF9B-B7E4-C2A1-A078-33C88CE59E06}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Platform">
-      <UniqueIdentifier>{0237B3F9-EE1A-744F-577B-6EA2437E5ED1}</UniqueIdentifier>
+    <Filter Include="Cubes\Platform\OpenGL">
+      <UniqueIdentifier>{9FCDCA3F-0B3A-863A-D42D-1E984059A8A2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Cubes\Platform\OpenGL">
-      <UniqueIdentifier>{F6A9EF91-626C-231C-AB1C-B2A8171EFCF9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Cubes\Platform\Windows">
-      <UniqueIdentifier>{3CC30028-28D3-ACF8-918C-11177DBB9B91}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Cubes\Vendor">
-      <UniqueIdentifier>{6BF978C3-57F2-9715-8024-7D9A6C7C7721}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Cubes\Vendor\TinyOBJLoader">
-      <UniqueIdentifier>{50FBBF39-3C21-8AA0-2567-0F6C112CAF6C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor">
-      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\stb_image">
-      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\tinyobjloader">
-      <UniqueIdentifier>{386CC32A-24FB-4CF4-CD19-61EFB9875D9A}</UniqueIdentifier>
+    <Filter Include="Cubes\Platform\Windows">
+      <UniqueIdentifier>{055C4091-F155-69E3-DAC2-FFF3C65BCF4F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Cubes.h">
-      <Filter>src</Filter>
-    </ClInclude>
+    <ClInclude Include="src\Cubes.h" />
     <ClInclude Include="src\Cubes\Core\Application.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Core.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Debug\ScopeTimer.h">
-      <Filter>src\Cubes\Core\Debug</Filter>
+      <Filter>Cubes\Core\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Entrypoint.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Error\Error.h">
-      <Filter>src\Cubes\Core\Error</Filter>
+      <Filter>Cubes\Core\Error</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Events\ApplicationEvent.h">
-      <Filter>src\Cubes\Core\Events</Filter>
+      <Filter>Cubes\Core\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Events\Event.h">
-      <Filter>src\Cubes\Core\Events</Filter>
+      <Filter>Cubes\Core\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Events\KeyEvent.h">
-      <Filter>src\Cubes\Core\Events</Filter>
+      <Filter>Cubes\Core\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Events\MouseEvent.h">
-      <Filter>src\Cubes\Core\Events</Filter>
+      <Filter>Cubes\Core\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Input.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\KeyCodes.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Layer.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\LayerStack.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\MouseButtonCodes.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\Buffer.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\Framebuffer.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\MeshFactory.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\Model.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\OrthographicCamera.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\PerspectiveCamera.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\RenderCommand.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\RenderContext.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\Renderer.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\Renderer2D.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\RendererAPI.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\Shader.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\Texture.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Renderer\VertexArray.h">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Time\TimeStep.h">
-      <Filter>src\Cubes\Core\Time</Filter>
+      <Filter>Cubes\Core\Time</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Utility\Log.h">
-      <Filter>src\Cubes\Core\Utility</Filter>
+      <Filter>Cubes\Core\Utility</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Utility\ModelLoader.h">
-      <Filter>src\Cubes\Core\Utility</Filter>
+      <Filter>Cubes\Core\Utility</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\Window.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Core\cbpch.h">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h">
-      <Filter>src\Cubes\ImGUI</Filter>
+      <Filter>Cubes\ImGUI</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLFramebuffer.h">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.h">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.h">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLShader.h">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLTexture2D.h">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.h">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h">
-      <Filter>src\Cubes\Platform\Windows</Filter>
+      <Filter>Cubes\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h">
-      <Filter>src\Cubes\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\stb_image\stb_image.h">
-      <Filter>vendor\stb_image</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\tinyobjloader\tiny_obj_loader.h">
-      <Filter>vendor\tinyobjloader</Filter>
+      <Filter>Cubes\Platform\Windows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Core\Application.cpp">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Events\ApplicationEvent.cpp">
-      <Filter>src\Cubes\Core\Events</Filter>
+      <Filter>Cubes\Core\Events</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Layer.cpp">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\LayerStack.cpp">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\Buffer.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\Framebuffer.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\OrthographicCamera.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\PerspectiveCamera.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\RenderCommand.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\Renderer.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\Renderer2D.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\RendererAPI.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\Shader.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\Texture.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Renderer\VertexArray.cpp">
-      <Filter>src\Cubes\Core\Renderer</Filter>
+      <Filter>Cubes\Core\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Utility\Log.cpp">
-      <Filter>src\Cubes\Core\Utility</Filter>
+      <Filter>Cubes\Core\Utility</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\Utility\ModelLoader.cpp">
-      <Filter>src\Cubes\Core\Utility</Filter>
+      <Filter>Cubes\Core\Utility</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Core\cbpch.cpp">
-      <Filter>src\Cubes\Core</Filter>
+      <Filter>Cubes\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\ImGUI\ImGUILayer.cpp">
-      <Filter>src\Cubes\ImGUI</Filter>
+      <Filter>Cubes\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\ImGUI\ImGuiBuild.cpp">
-      <Filter>src\Cubes\ImGUI</Filter>
+      <Filter>Cubes\ImGUI</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLFramebuffer.cpp">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRenderContext.cpp">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLRendererAPI.cpp">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLShader.cpp">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLTexture2D.cpp">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.cpp">
-      <Filter>src\Cubes\Platform\OpenGL</Filter>
+      <Filter>Cubes\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsInput.cpp">
-      <Filter>src\Cubes\Platform\Windows</Filter>
+      <Filter>Cubes\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\Cubes\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Cubes\Vendor\TinyOBJLoader\tiny_obj_loader.cpp">
-      <Filter>src\Cubes\Vendor\TinyOBJLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\stb_image\stb_image.cpp">
-      <Filter>vendor\stb_image</Filter>
+      <Filter>Cubes\Platform\Windows</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

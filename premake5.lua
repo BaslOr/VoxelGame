@@ -17,11 +17,15 @@ IncludeDir["glad"] = "Cubes/vendor/glad/include"
 IncludeDir["ImGUI"] = "Cubes/vendor/ImGUI"
 IncludeDir["glm"] = "Cubes/vendor/glm"
 IncludeDir["stb_image"] = "Cubes/vendor/stb_image"
-IncludeDir["tinyobjloader"] = "Cubes/vendor/tinyobjloader"
+IncludeDir["tiny_obj_loader"] = "Cubes/vendor/tiny_obj_loader"
 
+group "Dependencies"
 include "Cubes/vendor/GLFW"
 include "Cubes/vendor/glad"
 include "Cubes/vendor/ImGUI"
+include "Cubes/vendor/stb_image"
+include "Cubes/vendor/tiny_obj_loader"
+group ""
 
 project "Cubes"
     location "Cubes"
@@ -42,11 +46,6 @@ project "Cubes"
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.hpp",
         "%{prj.name}/src/**.cpp",
-
-        "%{prj.name}/vendor/stb_image/**.h",
-        "%{prj.name}/vendor/stb_image/**.cpp",
-
-        "%{prj.name}/vendor/tinyobjloader/tiny_obj_loader.h"
     }
 
     includedirs {
@@ -56,14 +55,16 @@ project "Cubes"
         "%{IncludeDir.glad}",
         "%{IncludeDir.glm}",
         "%{IncludeDir.stb_image}",
-        "%{IncludeDir.tinyobjloader}"
+        "%{IncludeDir.tiny_obj_loader}"
     }
 
     links {
         "GLFW",
         "glad",
         "ImGUI",
-        "opengl32.lib"
+        "opengl32.lib",
+        "stb_image",
+        "tiny_obj_loader"
     }
 
     filter "system:windows"
@@ -123,7 +124,7 @@ project "VoxelGame"
         "%{IncludeDir.ImGUI}",
         "Cubes/vendor/GLFW/include",
         "%{IncludeDir.glm}",
-        "Cubes/vendor/tinyobjloader"
+        "Cubes/vendor/tiny_obj_loader"
     }
 
     links {
