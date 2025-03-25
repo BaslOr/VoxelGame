@@ -5,7 +5,7 @@ workspace "Cubes"
         "Dist"
     }
 
-    startproject "Sandbox"
+    startproject "Cubes Editor"
 
     architecture "x64"
 
@@ -163,3 +163,67 @@ project "Sandbox"
         defines "CB_DIST"
         runtime "Release"
         optimize "on"
+
+
+project "Cubes Editor"
+    location "Cubes Editor"
+    kind "ConsoleApp"
+    language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
+    
+    
+    targetdir("bin/" .. outputdir .. "/%{prj.name}")
+    objdir("bin-int/" .. outputdir .. "/%{prj.name}")
+    
+    files {
+        "%{prj.name}/src/**.h",
+        "%{prj.name}/src/**.hpp",
+        "%{prj.name}/src/**.cpp"
+    }
+    
+    includedirs {
+        "Cubes/src",
+        "%{IncludeDir.spdlog}",
+        "%{IncludeDir.ImGUI}",
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.tiny_obj_loader}"
+    }
+
+    links {
+        "Cubes"
+    }
+
+    filter "system:windows"
+        systemversion "latest"
+        characterset "Unicode"
+        buildoptions {
+            "/utf-8"
+        }
+
+        defines {
+            "CB_PLATFORM_WINDOWS"
+        }
+
+    filter "configurations:Debug"
+        defines {
+            "CB_DEBUG",
+            "CB_DEBUG_UTILS"
+        }
+        runtime "Debug"
+        symbols "on"
+
+    filter "configurations:Release"
+        defines {
+            "CB_RELEASE",
+            "CB_DEBUG_UTILS"
+        }
+        runtime "Release"
+        optimize "on"
+
+    filter "configurations:Dist"
+        defines "CB_DIST"
+        runtime "Release"
+        optimize "on"
+
