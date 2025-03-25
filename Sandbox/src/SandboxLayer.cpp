@@ -10,8 +10,8 @@ void SandboxLayer::OnAttach()
 {
 	_camera = Camera(glm::vec3(0.f, 0.f, 3.f), 45.f);
 
-	_texture = Cubes::Texture::Create("../VoxelGame/Assets/Textures/TestIcon.png");
-	_model = Cubes::ModelLoader::LoadModel("../VoxelGame/Assets/3D Models/Dummy.obj", "../VoxelGame/Assets/3D Models/Dummy.png");
+	_texture = Cubes::Texture::Create("../Sandbox/Assets/Textures/TestIcon.png");
+	_model = Cubes::ModelLoader::LoadModel("../Sandbox/Assets/3D Models/Dummy.obj", "../Sandbox/Assets/3D Models/Dummy.png");
 }
 
 void SandboxLayer::OnDetach()

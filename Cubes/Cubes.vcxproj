@@ -179,7 +179,6 @@
     <ClInclude Include="src\Cubes\Core\Utility\Log.h" />
     <ClInclude Include="src\Cubes\Core\Utility\ModelLoader.h" />
     <ClInclude Include="src\Cubes\Core\Window.h" />
-    <ClInclude Include="src\Cubes\Core\cbpch.h" />
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLFramebuffer.h" />
@@ -190,6 +189,7 @@
     <ClInclude Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\cbpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Core\Application.cpp" />
@@ -209,9 +209,6 @@
     <ClCompile Include="src\Cubes\Core\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Cubes\Core\Utility\Log.cpp" />
     <ClCompile Include="src\Cubes\Core\Utility\ModelLoader.cpp" />
-    <ClCompile Include="src\Cubes\Core\cbpch.cpp">
-      <PrecompiledHeader>Create</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="src\Cubes\ImGUI\ImGUILayer.cpp" />
     <ClCompile Include="src\Cubes\ImGUI\ImGuiBuild.cpp" />
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLBuffer.cpp" />
@@ -223,6 +220,9 @@
     <ClCompile Include="src\Cubes\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\cbpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

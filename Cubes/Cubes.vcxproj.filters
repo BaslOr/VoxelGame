@@ -136,9 +136,6 @@
     <ClInclude Include="src\Cubes\Core\Window.h">
       <Filter>Cubes\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cubes\Core\cbpch.h">
-      <Filter>Cubes\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\Cubes\ImGUI\ImGUILayer.h">
       <Filter>Cubes\ImGUI</Filter>
     </ClInclude>
@@ -169,6 +166,7 @@
     <ClInclude Include="src\Cubes\Platform\Windows\WindowsWindow.h">
       <Filter>Cubes\Platform\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\cbpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Core\Application.cpp">
@@ -222,9 +220,6 @@
     <ClCompile Include="src\Cubes\Core\Utility\ModelLoader.cpp">
       <Filter>Cubes\Core\Utility</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cubes\Core\cbpch.cpp">
-      <Filter>Cubes\Core</Filter>
-    </ClCompile>
     <ClCompile Include="src\Cubes\ImGUI\ImGUILayer.cpp">
       <Filter>Cubes\ImGUI</Filter>
     </ClCompile>
@@ -258,5 +253,6 @@
     <ClCompile Include="src\Cubes\Platform\Windows\WindowsWindow.cpp">
       <Filter>Cubes\Platform\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="src\cbpch.cpp" />
   </ItemGroup>
 </Project>
