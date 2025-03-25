@@ -1,11 +1,11 @@
-workspace "VoxelGame"
+workspace "Cubes"
     configurations {
         "Debug",
         "Release",
         "Dist"
     }
 
-    startproject "VoxelGame"
+    startproject "Sandbox"
 
     architecture "x64"
 
@@ -102,8 +102,8 @@ project "Cubes"
         runtime "Release"
         optimize "on"
 
-project "VoxelGame"
-    location "VoxelGame"
+project "Sandbox"
+    location "Sandbox"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++17"

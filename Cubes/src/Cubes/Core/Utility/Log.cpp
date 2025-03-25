@@ -9,7 +9,7 @@ namespace Cubes {
 		_coreLogger = spdlog::stdout_color_mt("Cubes");
 		_coreLogger->set_level(spdlog::level::trace);
 
-		_clientLogger = spdlog::stdout_color_mt("Voxel Game");
+		_clientLogger = spdlog::stdout_color_mt("Client");
 		_clientLogger->set_level(spdlog::level::trace);
 	}
 }
