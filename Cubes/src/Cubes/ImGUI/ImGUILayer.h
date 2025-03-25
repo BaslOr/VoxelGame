@@ -20,6 +20,10 @@ namespace Cubes {
 		void End();
 
 	private:	
+		void StartDockspace();
+		void EndDockspace();
+
+	private:
 		float _time = 0.f;
 	};
 

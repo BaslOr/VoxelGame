@@ -51,12 +51,12 @@ namespace Cubes {
 
 	void EditorLayer::OnImGuiRender()
 	{
-		ImGui::Begin("Viewport");
+        ImGui::Begin("Viewport");
 
-		uint32_t textureID = Cubes::Renderer::GetFramebufferColorAttachmentID();
-		ImGui::Image((void*)textureID, ImVec2(1280, 720), ImVec2(0, 1), ImVec2(1, 0));
+        uint32_t textureID = Cubes::Renderer::GetFramebufferColorAttachmentID();
+        ImGui::Image((void*)textureID, ImVec2(1280, 720), ImVec2(0, 1), ImVec2(1, 0));
 
-		ImGui::End();
+        ImGui::End();
 	}
 
 	void EditorLayer::OnEvent(Cubes::Event& event)

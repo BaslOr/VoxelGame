@@ -34,6 +34,8 @@ namespace Cubes {
         inline static Application& Get() { return *_instance; }
         inline Window& GetWindow() { return *_window; }
 
+        inline void Close() { _isRunning = false; }
+
     private:
         bool OnWindowClose(WindowCloseEvent& e);
         bool OnWindowResizeEvent(WindowResizeEvent& e);
