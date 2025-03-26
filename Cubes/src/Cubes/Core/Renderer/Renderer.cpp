@@ -55,12 +55,17 @@ namespace Cubes {
         RenderCommand::SetViewport(0, 0, width, height);
     }
 
-    uint32_t Cubes::Renderer::GetFramebufferColorAttachmentID()
+    uint32_t Renderer::GetFramebufferColorAttachmentID()
     {
         return rendererData.Framebuffer->GetColorAttachmentID();
     }
 
-    void Cubes::Renderer::EnableWireframeMode(bool enable)
+    void Renderer::RecreateFramebuffer(const FramebufferSpecification& spec)
+    {
+        rendererData.Framebuffer->Invalidate(spec);
+    }
+
+    void Renderer::EnableWireframeMode(bool enable)
     {
         RenderCommand::EnableWireframeMode(enable);
     }

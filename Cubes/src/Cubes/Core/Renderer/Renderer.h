@@ -23,6 +23,7 @@ namespace Cubes {
         static void EnableWireframeMode(bool enable);
 
         static uint32_t GetFramebufferColorAttachmentID();
+        static void RecreateFramebuffer(const FramebufferSpecification& spec);
 
         static void BeginScene(PerspectiveCamera& camera);
         static void EndScene();

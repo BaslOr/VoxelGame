@@ -13,12 +13,14 @@ namespace Cubes {
         void OnAttach() override;
         void OnDetach() override;
 
-        void OnUpdate(Cubes::TimeStep deltaTime) override;
+        void OnUpdate(TimeStep deltaTime) override;
         void OnImGuiRender() override;
-        void OnEvent(Cubes::Event& event) override;
+        void OnEvent(Event& event) override;
 
     private:
         Camera _camera;
+
+        glm::vec2 _viewPortSize;
 
         Ref<Texture> _texture;
         Model _model;

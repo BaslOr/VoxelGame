@@ -14,6 +14,10 @@ namespace Cubes {
         void Bind() const override;
         void Unbind() const override;
 
+        void Invalidate(const FramebufferSpecification& specification) override;
+
+    private:
+        void DeleteRecources();
         void Recreate();
 
     private:
