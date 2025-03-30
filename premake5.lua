@@ -19,6 +19,7 @@ IncludeDir["ImGUI"] = "Cubes/vendor/ImGUI"
 IncludeDir["glm"] = "Cubes/vendor/glm"
 IncludeDir["stb_image"] = "Cubes/vendor/stb_image"
 IncludeDir["tiny_obj_loader"] = "Cubes/vendor/tiny_obj_loader"
+IncludeDir["entt"] = "Cubes/vendor/entt"
 
 group "Dependencies"
 include "Cubes/vendor/GLFW"
@@ -26,6 +27,7 @@ include "Cubes/vendor/glad"
 include "Cubes/vendor/ImGUI"
 include "Cubes/vendor/stb_image"
 include "Cubes/vendor/tiny_obj_loader"
+include "Cubes/vendor/entt"
 group ""
 
 project "Cubes"
@@ -34,7 +36,6 @@ project "Cubes"
     language "C++"
     cppdialect "C++17"
     staticruntime "on" 
-
 
 
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
@@ -56,7 +57,8 @@ project "Cubes"
         "%{IncludeDir.glad}",
         "%{IncludeDir.glm}",
         "%{IncludeDir.stb_image}",
-        "%{IncludeDir.tiny_obj_loader}"
+        "%{IncludeDir.tiny_obj_loader}",
+        "%{IncludeDir.entt}"
     }
 
     links {
@@ -125,7 +127,8 @@ project "Sandbox"
         "%{IncludeDir.ImGUI}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.glm}",
-        "%{IncludeDir.tiny_obj_loader}"
+        "%{IncludeDir.tiny_obj_loader}",
+        "%{IncludeDir.entt}"
     }
 
     links {
@@ -188,7 +191,8 @@ project "Cubes Editor"
         "%{IncludeDir.ImGUI}",
         "%{IncludeDir.GLFW}",
         "%{IncludeDir.glm}",
-        "%{IncludeDir.tiny_obj_loader}"
+        "%{IncludeDir.tiny_obj_loader}",
+        "%{IncludeDir.entt}"
     }
 
     links {

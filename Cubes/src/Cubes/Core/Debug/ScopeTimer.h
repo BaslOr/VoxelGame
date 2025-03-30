@@ -23,7 +23,6 @@ namespace Cubes {
             auto endTimepoint = std::chrono::high_resolution_clock::now();
             double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTimepoint - _startTimepoint).count() * 0.001;
 
-            std::cout << _name << " took " << duration << "ms" << std::endl;
             _stopped = true;
         }
 
