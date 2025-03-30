@@ -1,11 +1,7 @@
 #include "EditorLayer.h"
+#include <Cubes/Core/Debug/ScopeTimer.h>
 
 namespace Cubes {
-
-    EditorLayer::EditorLayer()
-    {
-
-    }
 
     void EditorLayer::OnAttach()
     {
@@ -53,17 +49,19 @@ namespace Cubes {
 
     void EditorLayer::OnImGuiRender()
     {
+        ScopeTimer scopeTimer("OnImGuiRender");
+
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0, 0});
         ImGui::Begin("Viewport");
 
-        ImVec2 currentViewportSize = ImGui::GetWindowSize();
+        ImVec2 currentViewportSize = ImGui::GetContentRegionAvail();
         if (currentViewportSize.x != _viewPortSize.x || currentViewportSize.y != _viewPortSize.y) {
             _viewPortSize.x = currentViewportSize.x;
-            _viewPortSize.y = currentViewportSize.y - 25;
+            _viewPortSize.y = currentViewportSize.y;
             
             FramebufferSpecification spec{};
-            spec.Width = _viewPortSize.x;
-            spec.Height = _viewPortSize.y;
+            spec.Width = static_cast<uint32_t>(_viewPortSize.x);
+            spec.Height = static_cast<uint32_t>(_viewPortSize.y);
             Renderer::RecreateFramebuffer(spec);
         }
 

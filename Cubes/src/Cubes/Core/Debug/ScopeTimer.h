@@ -1,24 +1,36 @@
 #pragma once
 #include <chrono>
+#include <iostream>
 
 namespace Cubes {
 
-	class ScopeTimer {
-	public:
-		ScopeTimer() {
-			_startTime = std::chrono::high_resolution_clock::now();
-		}
+    class ScopeTimer {
+    public:
+        ScopeTimer(const char* name)
+            : _name(name), _stopped(false)
+        {
+            _startTimepoint = std::chrono::high_resolution_clock::now();
+        }
 
-		~ScopeTimer() {
-			std::chrono::time_point<std::chrono::high_resolution_clock> endTime = std::chrono::high_resolution_clock::now();
-			//std::chrono::duration<std::chrono::high_resolution_clock, std::chrono::microseconds> duration = endTime - _startTime;
-		}
+        ~ScopeTimer() {
+            Stop();
+        }
 
+        void Stop() {
+            if (_stopped)
+                return;
 
+            auto endTimepoint = std::chrono::high_resolution_clock::now();
+            double duration = std::chrono::duration_cast<std::chrono::microseconds>(endTimepoint - _startTimepoint).count() * 0.001;
 
-	private:
-		std::chrono::time_point<std::chrono::high_resolution_clock> _startTime;
+            std::cout << _name << " took " << duration << "ms" << std::endl;
+            _stopped = true;
+        }
 
-	};
+    private:
+        std::chrono::high_resolution_clock::time_point _startTimepoint;
+        bool _stopped;
+        const char* _name;
+    };
 
 }

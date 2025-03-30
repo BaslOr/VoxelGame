@@ -7,7 +7,7 @@ namespace Cubes {
 
     class EditorLayer : public Layer {
     public:
-        EditorLayer();
+        EditorLayer() = default;
         ~EditorLayer() = default;
 
         void OnAttach() override;
