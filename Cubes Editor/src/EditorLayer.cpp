@@ -45,6 +45,12 @@ namespace Cubes {
         }
 
         Renderer::EndScene();
+
+
+        //Temp: Entity test
+        Entity& entity = _activeScene->CreateEntity();
+        if (entity.HasComponent<TransformComponent>())
+            CB_CORE_LOG_INFO("Works!");
     }
 
     void EditorLayer::OnImGuiRender()

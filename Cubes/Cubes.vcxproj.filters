@@ -167,6 +167,9 @@
       <Filter>Cubes\Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\cbpch.h" />
+    <ClInclude Include="src\Cubes\Core\Project\Scene.h" />
+    <ClInclude Include="src\Cubes\Core\Project\Components.h" />
+    <ClInclude Include="src\Cubes\Core\Project\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Core\Application.cpp">
@@ -254,5 +257,7 @@
       <Filter>Cubes\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\cbpch.cpp" />
+    <ClCompile Include="src\Cubes\Core\Project\Scene.cpp" />
+    <ClCompile Include="src\Cubes\Core\Project\Entity.cpp" />
   </ItemGroup>
 </Project>

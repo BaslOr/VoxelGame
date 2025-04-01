@@ -18,6 +18,8 @@ namespace Cubes {
         void OnEvent(Event& event) override;
 
     private:
+        Ref<Scene> _activeScene = std::make_shared<Scene>();
+
         Camera _camera;
 
         glm::vec2 _viewPortSize;

@@ -12,6 +12,9 @@
 #include "Cubes/Core/Events/MouseEvent.h"
 #include "Cubes/Core/Input.h"
 #include "Cubes/Core/Time/TimeStep.h"
+#include "Cubes/Core/Project/Scene.h"
+#include "Cubes/Core/Project/Entity.h"
+#include "Cubes/Core/Project/Components.h"
 
 //Rendering
 #include "Cubes/Core/Renderer/Renderer.h"
