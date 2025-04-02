@@ -1,19 +1,12 @@
 #pragma once
 #include "Core.h"
-#include "Utility/Log.h"
 #include "Window.h"
 #include "Events/ApplicationEvent.h"
 #include "LayerStack.h"
-#include "Input.h"
-#include "Renderer/Shader.h"
 #include "Time/Timestep.h"
-
-#include "Renderer/Buffer.h"
-#include "Renderer/VertexArray.h"
-#include "Renderer/PerspectiveCamera.h"
-
+#include "Project/Scene.h"
 #include "../ImGUI/ImGUILayer.h"
-
+#include "Renderer/PerspectiveCamera.h"
 
 
 namespace Cubes {

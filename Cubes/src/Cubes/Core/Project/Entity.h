@@ -33,7 +33,7 @@ namespace Cubes {
         template<typename T>
         T& GetComponent()
         {
-            CB_CORE_ASSERT_FALSE(HasComponent<T>(), "Tried to access a non-exsiting component");
+            CB_CORE_ASSERT_FALSE(!HasComponent<T>(), "Tried to access a non-exsiting component");
 
             return _scene->_registry.get<T>(_entityHandle);
         }

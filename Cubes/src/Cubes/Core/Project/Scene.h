@@ -2,6 +2,8 @@
 #include <entt.hpp>
 #include <glm/glm.hpp>
 
+#include "../Time/TimeStep.h"
+
 
 namespace Cubes {    
 
@@ -12,9 +14,12 @@ namespace Cubes {
         Scene();
         ~Scene();
 
-        void OnUpdate();
+        void Update(TimeStep deltaTime);
 
         Entity CreateEntity(const std::string& name = "");
+
+    private:
+        void RenderScene();
 
     private:
         friend class Entity;

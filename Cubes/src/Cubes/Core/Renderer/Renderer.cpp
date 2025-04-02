@@ -92,11 +92,38 @@ namespace Cubes {
         rendererData.Framebuffer->Unbind();
     }
 
-    void Cubes::Renderer::DrawModel(Model& model, glm::vec3& position, glm::vec3& size, glm::vec4& color)
+    void Renderer::DrawModel(Ref<Model> model, const glm::mat4& transform, const glm::vec4 color)
     {
         Ref<VertexArray> VAO = VertexArray::Create();
-        Ref<VertexBuffer> VBO = VertexBuffer::Create(model.Vertices.data(), sizeof(Vertex) * model.Vertices.size());
-        Ref<IndexBuffer> IBO = IndexBuffer::Create(model.Indices.data(), model.Indices.size());
+        Ref<VertexBuffer> VBO = VertexBuffer::Create(model->Vertices.data(), sizeof(Vertex) * model->Vertices.size());
+        Ref<IndexBuffer> IBO = IndexBuffer::Create(model->Indices.data(), model->Indices.size());
+        {
+            Cubes::BufferLayout layout = {
+               { Cubes::ShaderDataType::Float3, "aPos"},
+               { Cubes::ShaderDataType::Float2, "aTexCoord" }
+            };
+
+            VBO->SetLayout(layout);
+        }
+
+        VAO->AddVertexBuffer(VBO);
+        VAO->SetIndexBuffer(IBO);
+
+        //Bind
+        model->Texture->Bind();
+        auto shader = ShaderLibrary::Get("DefaultShader");
+        shader->SetUniformFloat4("u_Color", color);
+        shader->SetUniformMat4("u_Model", transform);
+        shader->SetUniformInt("u_Sampler", 0);
+
+        RenderCommand::DrawIndexed(VAO);
+    }
+
+    void Cubes::Renderer::DrawModel(Ref<Model> model, glm::vec3& position, glm::vec3& size, glm::vec4& color)
+    {
+        Ref<VertexArray> VAO = VertexArray::Create();
+        Ref<VertexBuffer> VBO = VertexBuffer::Create(model->Vertices.data(), sizeof(Vertex) * model->Vertices.size());
+        Ref<IndexBuffer> IBO = IndexBuffer::Create(model->Indices.data(), model->Indices.size());
         {
             Cubes::BufferLayout layout = {
                { Cubes::ShaderDataType::Float3, "aPos"},
@@ -114,7 +141,7 @@ namespace Cubes {
         modelMatrix = glm::scale(modelMatrix, size);
         
         //Bind
-        model.Texture->Bind();
+        model->Texture->Bind();
         auto shader = ShaderLibrary::Get("DefaultShader");
         shader->SetUniformFloat4("u_Color", color); 
         shader->SetUniformMat4("u_Model", modelMatrix);

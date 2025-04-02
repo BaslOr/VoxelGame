@@ -8,7 +8,7 @@ namespace Cubes {
         _camera = Camera(glm::vec3(0.f, 0.f, 3.f), 45.f);
 
         _texture = Texture::Create("../Sandbox/Assets/Textures/TestIcon.png");
-        _model = ModelLoader::LoadModel("../Sandbox/Assets/3D Models/Dummy.obj", "../Sandbox/Assets/3D Models/Dummy.png");
+        _mesh = std::make_shared<Model>(ModelLoader::LoadModel("../Sandbox/Assets/3D Models/Dummy.obj", "../Sandbox/Assets/3D Models/Dummy.png"));
 
         _viewPortSize = { 1280, 720 };
     }
@@ -25,32 +25,30 @@ namespace Cubes {
             wireframeModeEnable = !wireframeModeEnable;
         }
 
+        //Preparation
+        Entity& sprite = _activeScene->CreateEntity();
+        sprite.AddComponent<SpriteRendererComponent>();
+        auto& spriteComponent = sprite.GetComponent<SpriteRendererComponent>();
+        spriteComponent.Color = glm::vec4(1.f);
+        spriteComponent.Sprite = _texture;
+
+        Entity& mesh = _activeScene->CreateEntity();
+        mesh.AddComponent<MeshRendererComponent>();
+        auto& meshComponent = mesh.GetComponent<MeshRendererComponent>();
+        meshComponent.Color = glm::vec4(1.f);
+        meshComponent.Mesh = _mesh;
+        auto& transformComponent = mesh.GetComponent<TransformComponent>();
+        transformComponent.Transform = glm::translate(glm::mat4(1.f), { -1.f, 0.f, 0.f });
+
         //Update
         _camera.OnUpdate(deltaTime);
 
         //Render
         Renderer::BeginScene(_camera);
-    
-        Renderer::DrawModel(_model, glm::vec3(1.f, 0.f, 0.f), glm::vec3(1.f));
 
-        Renderer2D::DrawTexture(_texture, glm::vec3(0.f, -1.f, 0.f), glm::vec2(1.f));
-
-        for (uint32_t i = 0; i < 20; i++)
-        {
-            for (uint32_t j = 0; j < 20; j++)
-            {
-                glm::vec3 postion(i, -2, j);
-                Cubes::Renderer::DrawCube(postion, glm::vec3(1.f), glm::vec4(0.1, 0.6f, 0.2f, 1.f));
-            }
-        }
+        _activeScene->Update(deltaTime);
 
         Renderer::EndScene();
-
-
-        //Temp: Entity test
-        Entity& entity = _activeScene->CreateEntity();
-        if (entity.HasComponent<TransformComponent>())
-            CB_CORE_LOG_INFO("Works!");
     }
 
     void EditorLayer::OnImGuiRender()

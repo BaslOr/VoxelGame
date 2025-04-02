@@ -1,8 +1,11 @@
 #include "cbpch.h"
 #include "Scene.h"
-
 #include "Entity.h"
 #include "Components.h"
+
+#include "../Renderer/Renderer.h"
+#include "../Renderer/Renderer2D.h"
+#include "entt.hpp"
 
 namespace Cubes {
 
@@ -24,8 +27,33 @@ namespace Cubes {
         return entity;
     }
 
-    void Scene::OnUpdate()
+    void Scene::Update(TimeStep deltaTime)
     {
+        RenderScene();
+    }
+
+    void Scene::RenderScene()
+    {
+        //Indirect Filtering between 2D and 3D rendering calls
+        {
+            auto view = _registry.view<TransformComponent, SpriteRendererComponent>();
+            for (auto [entity, transform, sprite] : view.each())
+            {
+                auto& [transform, sprite] = view.get<TransformComponent, SpriteRendererComponent>(entity);
+                Renderer2D::DrawTexture(sprite.Sprite, transform.Transform, sprite.Color);
+            }
+        }
+        
+        
+        {
+            auto view = _registry.view<TransformComponent, MeshRendererComponent>();
+
+            for (auto [entity, transform, mesh] : view.each()) {
+                auto& [transform, mesh] = view.get<TransformComponent, MeshRendererComponent>(entity);
+
+                Renderer::DrawModel(mesh.Mesh, transform.Transform, mesh.Color);
+            }
+        }
     }
 
 }

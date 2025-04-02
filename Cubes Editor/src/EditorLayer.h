@@ -19,13 +19,12 @@ namespace Cubes {
 
     private:
         Ref<Scene> _activeScene = std::make_shared<Scene>();
-
         Camera _camera;
 
         glm::vec2 _viewPortSize;
 
         Ref<Texture> _texture;
-        Model _model;
+        Ref<Model> _mesh;
     };
 
 }

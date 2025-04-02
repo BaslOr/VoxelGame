@@ -40,3 +40,6 @@ namespace Cubes {
     using Ref = std::shared_ptr<T>;
 
 }
+
+
+#include "Utility/Log.h"
