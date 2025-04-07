@@ -37,7 +37,7 @@ namespace Cubes {
     bool PerspectiveCamera::OnWindowResizeEvent(WindowResizeEvent& event)
     {
         _aspectRatio = (float)event.GetWidth() / (float)event.GetHeight();
-        _projectionMatrix = glm::perspective(_fov, _aspectRatio, 0.1f, 100.f);
+        _projectionMatrix = glm::perspective(glm::radians(_fov), _aspectRatio, 0.1f, 100.f);
         CalculateViewProjectionMatrix();
 
         return false;

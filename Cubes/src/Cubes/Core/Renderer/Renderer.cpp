@@ -8,7 +8,6 @@
 
 namespace Cubes {
 
-
     struct SceneData {
         glm::mat4 ViewProjectionMatrix;
     };
@@ -50,24 +49,41 @@ namespace Cubes {
         Renderer2D::Shutdown();
     }
 
-    void Renderer::OnWindowsResize(uint32_t width, uint32_t height)
-    {
-        RenderCommand::SetViewport(0, 0, width, height);
-    }
-
     uint32_t Renderer::GetFramebufferColorAttachmentID()
     {
         return rendererData.Framebuffer->GetColorAttachmentID();
     }
 
-    void Renderer::RecreateFramebuffer(const FramebufferSpecification& spec)
+    const FramebufferSpecification& Renderer::GetFramebufferSpecification()
     {
-        rendererData.Framebuffer->Invalidate(spec);
+        return rendererData.Framebuffer->GetSpecification();
+    }
+
+    void Renderer::ResizeFramebuffer(uint32_t width, uint32_t height)
+    {
+        RenderCommand::SetViewport(0, 0, width, height);
+        rendererData.Framebuffer->Resize(width, height);
     }
 
     void Renderer::EnableWireframeMode(bool enable)
     {
         RenderCommand::EnableWireframeMode(enable);
+    }
+
+    void Renderer::BeginScene(RenderCamera& camera)
+    {
+        rendererData.Framebuffer->Bind();
+        glm::mat4 viewProjection = camera.Projection * glm::inverse(camera.View);
+
+        Ref<Shader> defaultShader = ShaderLibrary::Get("DefaultShader");
+        sceneData.ViewProjectionMatrix = viewProjection;
+        defaultShader->Bind();
+        defaultShader->SetUniformMat4("u_ViewProjection", viewProjection);
+
+        Renderer2D::BeginScene();
+
+        RenderCommand::SetClearColor(glm::vec4(.15f, .15f, .15f, 1.f));
+        RenderCommand::Clear();
     }
 
     void Renderer::BeginScene(PerspectiveCamera& camera)

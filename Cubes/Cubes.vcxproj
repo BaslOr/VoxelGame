@@ -164,7 +164,9 @@
     <ClInclude Include="src\Cubes\Core\Project\Components.h" />
     <ClInclude Include="src\Cubes\Core\Project\Entity.h" />
     <ClInclude Include="src\Cubes\Core\Project\Scene.h" />
+    <ClInclude Include="src\Cubes\Core\Project\SceneCamera.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Buffer.h" />
+    <ClInclude Include="src\Cubes\Core\Renderer\Camera.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Framebuffer.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\MeshFactory.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Model.h" />
@@ -201,6 +203,7 @@
     <ClCompile Include="src\Cubes\Core\LayerStack.cpp" />
     <ClCompile Include="src\Cubes\Core\Project\Entity.cpp" />
     <ClCompile Include="src\Cubes\Core\Project\Scene.cpp" />
+    <ClCompile Include="src\Cubes\Core\Project\SceneCamera.cpp" />
     <ClCompile Include="src\Cubes\Core\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Cubes\Core\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\Cubes\Core\Renderer\OrthographicCamera.cpp" />

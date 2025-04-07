@@ -93,7 +93,6 @@ namespace Cubes {
         }
 
         _minimized  = false;
-        Renderer::OnWindowsResize(e.GetWidth(), e.GetHeight());
 
         return false;
     }

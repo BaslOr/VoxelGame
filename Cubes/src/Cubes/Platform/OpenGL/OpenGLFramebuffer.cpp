@@ -26,12 +26,18 @@ namespace Cubes {
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
 
-    void OpenGLFramebuffer::Invalidate(const FramebufferSpecification& specification) 
+    void OpenGLFramebuffer::Resize(uint32_t width, uint32_t height)
+    {
+        _specification.Width = width;
+        _specification.Height = height;
+        Recreate();
+    }
+
+    void OpenGLFramebuffer::Invalidate(const FramebufferSpecification& specification)
     {
         FramebufferSpecification spec = specification;
         if (spec.Width != _specification.Width) {
             _specification = spec;
-            DeleteRecources();
             Recreate();
         }
     }
@@ -45,6 +51,8 @@ namespace Cubes {
 
     void OpenGLFramebuffer::Recreate()
     {
+        DeleteRecources();
+
         glGenFramebuffers(1, &_rendererID);
         glBindFramebuffer(GL_FRAMEBUFFER, _rendererID);
 

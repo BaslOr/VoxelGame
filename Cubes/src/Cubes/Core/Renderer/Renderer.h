@@ -15,17 +15,24 @@ namespace Cubes {
 
     class Renderer {
     public:
+        struct RenderCamera { //TODO: Create some kind of RendererCommon file/class
+            glm::mat4 Projection;
+            glm::mat4 View;
+        };
+
+    public:
 
         static void Init();
         static void ShutDown();
 
-        static void OnWindowsResize(uint32_t width, uint32_t height);
         static void EnableWireframeMode(bool enable);
 
         static uint32_t GetFramebufferColorAttachmentID();
-        static void RecreateFramebuffer(const FramebufferSpecification& spec);
+        static const FramebufferSpecification& GetFramebufferSpecification();
+        static void ResizeFramebuffer(uint32_t width, uint32_t height);
 
-        static void BeginScene(PerspectiveCamera& camera);
+        static void BeginScene(RenderCamera& camera);
+        static void BeginScene(PerspectiveCamera& camera); //TODO: Depractecate
         static void EndScene();
 
         static void DrawModel(Ref<Model> model, const glm::mat4& transform, const glm::vec4 color);

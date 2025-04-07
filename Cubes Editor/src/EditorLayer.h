@@ -1,7 +1,7 @@
 #pragma once 
 #include <Cubes.h>
 
-#include "Camera.h"
+#include "CameraController.h"
 
 namespace Cubes {
 
@@ -19,7 +19,6 @@ namespace Cubes {
 
     private:
         Ref<Scene> _activeScene = std::make_shared<Scene>();
-        Camera _camera;
 
         glm::vec2 _viewPortSize;
 

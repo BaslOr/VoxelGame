@@ -1,7 +1,9 @@
 #pragma once
 #include <glm/glm.hpp>
+
 #include "../Renderer/Texture.h"
 #include "../Renderer/Model.h"
+#include "SceneCamera.h"
 #include "../Core.h"
 
 namespace Cubes {
@@ -17,7 +19,7 @@ namespace Cubes {
 
     struct TransformComponent 
     {
-        glm::mat4 Transform{ 1.f };
+        glm::mat4 Transform{ 1.0f };
 
         TransformComponent() = default;
         TransformComponent(const glm::mat4& transform)
@@ -26,7 +28,7 @@ namespace Cubes {
 
     struct SpriteRendererComponent {
         Ref<Texture> Sprite;
-        glm::vec4 Color{ 1.f };
+        glm::vec4 Color{ 1.0f };
 
         SpriteRendererComponent() = default;
         SpriteRendererComponent(Ref<Texture> sprite, glm::vec4& color)
@@ -35,11 +37,18 @@ namespace Cubes {
 
     struct MeshRendererComponent {
         Ref<Model> Mesh;
-        glm::vec4 Color;
+        glm::vec4 Color{ 1.0 };
 
         MeshRendererComponent() = default;
         MeshRendererComponent(Ref<Model> mesh, glm::vec4& color)
             : Mesh(mesh), Color(color) { }
+    };
+
+    struct CameraComponent {
+        SceneCamera Camera;
+        bool Primary = true; //TODO: Should be handled by Scene
+
+        CameraComponent() = default;
     };
 
 }

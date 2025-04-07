@@ -14,6 +14,7 @@ namespace Cubes {
         void Bind() const override;
         void Unbind() const override;
 
+        void Resize(uint32_t width, uint32_t height) override;
         void Invalidate(const FramebufferSpecification& specification) override;
 
     private:

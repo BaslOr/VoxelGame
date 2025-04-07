@@ -137,11 +137,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\EditorLayer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\CubesEditor.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
   </ItemGroup>

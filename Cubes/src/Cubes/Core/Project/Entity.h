@@ -9,6 +9,7 @@ namespace Cubes {
 
     class Entity {
     public:
+        Entity() = default;
         Entity(Scene* scene, entt::entity handle);
 
         template<typename T, typename ...Args>
@@ -45,8 +46,8 @@ namespace Cubes {
         }
 
     private:
-        Scene* _scene;
-        entt::entity _entityHandle;
+        Scene* _scene = nullptr;
+        entt::entity _entityHandle = entt::null;
     };
 
 

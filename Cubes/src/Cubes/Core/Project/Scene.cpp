@@ -27,9 +27,37 @@ namespace Cubes {
         return entity;
     }
 
-    void Scene::Update(TimeStep deltaTime)
+    void Scene::OnViewportResize(uint32_t width, uint32_t height)
     {
-        RenderScene();
+        _viewportWidth = width;
+        _viewportHeight = height;
+
+        auto view = _registry.view<CameraComponent>();
+        for (auto entity : view) 
+        {
+            auto& cameraComponent = view.get<CameraComponent>(entity);
+            cameraComponent.Camera.SetViewportSize(width, height);
+            
+        }
+    }
+
+    void Scene::Update(TimeStep deltaTime)
+    {   
+        Entity cameraEntity;
+        auto view = _registry.view<TransformComponent, CameraComponent>();
+        for (auto [entity, transform, camera] : view.each()) {
+            if (camera.Primary) {
+                cameraEntity = { this, entity};
+                break;
+            }
+        }
+        auto& cameraTransform = cameraEntity.GetComponent<TransformComponent>().Transform;
+        
+
+        //TODO: SceneRenderer
+        Renderer::BeginScene(Renderer::RenderCamera{ cameraEntity.GetComponent<CameraComponent>().Camera.GetProjection(), cameraTransform });
+        RenderScene(); 
+        Renderer::EndScene();
     }
 
     void Scene::RenderScene()
@@ -43,8 +71,6 @@ namespace Cubes {
                 Renderer2D::DrawTexture(sprite.Sprite, transform.Transform, sprite.Color);
             }
         }
-        
-        
         {
             auto view = _registry.view<TransformComponent, MeshRendererComponent>();
 

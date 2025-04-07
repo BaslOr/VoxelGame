@@ -1,5 +1,5 @@
 #include <Cubes.h>
-#include "Camera.h"
+#include "CameraController.h"
 #include "EditorLayer.h"
 
 #include "Cubes/Core/Entrypoint.h"
