@@ -57,7 +57,7 @@ namespace Cubes {
 
     struct MeshRendererComponent 
     {
-        Ref<Model> Mesh; //TODO: Add default Mesh
+        Ref<Model> Mesh; //TODO: Add default Meshf
         glm::vec4 Color{ 1.0 };
 
         MeshRendererComponent() = default;
