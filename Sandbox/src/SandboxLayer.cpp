@@ -21,7 +21,7 @@ void SandboxLayer::OnDetach()
 void SandboxLayer::OnUpdate(Cubes::TimeStep deltaTime)
 {
 	static bool wireframeModeEnable = false;
-	if (Cubes::Input::IsKeyDown(CB_KEY_F)) {
+	if (Cubes::Input::IsKeyPressed(CB_KEY_F)) {
 		Cubes::Renderer::EnableWireframeMode(wireframeModeEnable);
 		wireframeModeEnable = !wireframeModeEnable;
 	}

@@ -7,7 +7,7 @@ namespace Cubes {
 
 	class CB_API Input {
 	public: 
-		inline static bool IsKeyDown(int keycode) { return _instance->IsKeyDownImpl(keycode); }
+		inline static bool IsKeyPressed(int keycode) { return _instance->IsKeyDownImpl(keycode); }
 
 		inline static bool IsMouseButtonDown(int keycode) { return _instance->IsMouseButtonDownImpl(keycode); }
 		inline static float GetMouseX() { return _instance->GetMouseXImpl(); }

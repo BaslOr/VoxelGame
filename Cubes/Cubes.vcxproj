@@ -165,6 +165,7 @@
     <ClInclude Include="src\Cubes\Core\Project\Entity.h" />
     <ClInclude Include="src\Cubes\Core\Project\Scene.h" />
     <ClInclude Include="src\Cubes\Core\Project\SceneCamera.h" />
+    <ClInclude Include="src\Cubes\Core\Project\ScriptableEntity.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Buffer.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Camera.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Framebuffer.h" />

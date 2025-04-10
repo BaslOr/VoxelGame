@@ -2,6 +2,7 @@
 #include <Cubes/Core/Debug/ScopeTimer.h>
 #include <glm/gtc/matrix_transform.hpp>
 
+
 namespace Cubes {
 
     void EditorLayer::OnAttach()
@@ -11,6 +12,62 @@ namespace Cubes {
         _mesh = std::make_shared<Model>(ModelLoader::LoadModel("../Sandbox/Assets/3D Models/Dummy.obj", "../Sandbox/Assets/3D Models/Dummy.png"));
 
         _viewPortSize = { 1280, 720 };
+
+
+        _spriteEntity = _activeScene->CreateEntity();
+        _spriteEntity.AddComponent<SpriteRendererComponent>();
+        auto& spriteComponent = _spriteEntity.GetComponent<SpriteRendererComponent>();
+        spriteComponent.Color = glm::vec4(1.f);
+        spriteComponent.Sprite = _texture;
+
+        _meshEntity = _activeScene->CreateEntity();
+        _meshEntity.AddComponent<MeshRendererComponent>();
+        auto& meshComponent = _meshEntity.GetComponent<MeshRendererComponent>();
+        meshComponent.Color = glm::vec4(1.f);
+        meshComponent.Mesh = _mesh;
+        auto& transformComponent = _meshEntity.GetComponent<TransformComponent>();
+        transformComponent.Transform = glm::translate(glm::mat4(1.f), { -1.f, 0.f, 0.f });
+
+        _cameraEntity = _activeScene->CreateEntity();
+        auto& cameraComponent = _cameraEntity.AddComponent<CameraComponent>();
+        auto& cameraTransform = _cameraEntity.GetComponent<TransformComponent>();
+        cameraTransform.Transform = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, 3.f));
+
+        class CameraController : public ScriptableEntity 
+        {
+        public:
+            void OnCreate()
+            {
+                
+            }
+
+            void OnDestroy()
+            {
+
+            }
+
+            void OnUpdate(TimeStep deltaTime)
+            {
+                auto& transform = GetComponent<TransformComponent>().Transform;
+                
+                if (Input::IsKeyPressed(CB_KEY_W))
+                    transform[3][2] -= _cameraSpeed * deltaTime;
+                if (Input::IsKeyPressed(CB_KEY_S))
+                    transform[3][2] += _cameraSpeed * deltaTime;
+                if (Input::IsKeyPressed(CB_KEY_A))
+                    transform[3][0] -= _cameraSpeed * deltaTime;
+                if (Input::IsKeyPressed(CB_KEY_D))
+                    transform[3][0] += _cameraSpeed * deltaTime;
+                if (Input::IsKeyPressed(CB_KEY_SPACE))
+                    transform[3][1] += _cameraSpeed * deltaTime;
+                if (Input::IsKeyPressed(CB_KEY_LEFT_SHIFT))
+                    transform[3][1] -= _cameraSpeed * deltaTime;
+            }
+
+        private:
+            float _cameraSpeed = 2.5;
+        };
+        _cameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
     }
 
     void EditorLayer::OnDetach()
@@ -20,30 +77,10 @@ namespace Cubes {
     void EditorLayer::OnUpdate(TimeStep deltaTime)
     {
         static bool wireframeModeEnable = false;
-        if (Input::IsKeyDown(CB_KEY_F)) {
+        if (Input::IsKeyPressed(CB_KEY_F)) {
             Renderer::EnableWireframeMode(wireframeModeEnable);
             wireframeModeEnable = !wireframeModeEnable;
         }
-
-        //Preparation
-        Entity sprite = _activeScene->CreateEntity();
-        sprite.AddComponent<SpriteRendererComponent>();
-        auto& spriteComponent = sprite.GetComponent<SpriteRendererComponent>();
-        spriteComponent.Color = glm::vec4(1.f);
-        spriteComponent.Sprite = _texture;
-
-        Entity mesh = _activeScene->CreateEntity();
-        mesh.AddComponent<MeshRendererComponent>();
-        auto& meshComponent = mesh.GetComponent<MeshRendererComponent>();
-        meshComponent.Color = glm::vec4(1.f);
-        meshComponent.Mesh = _mesh;
-        auto& transformComponent = mesh.GetComponent<TransformComponent>();
-        transformComponent.Transform = glm::translate(glm::mat4(1.f), { -1.f, 0.f, 0.f });
-
-        Entity cameraEntity = _activeScene->CreateEntity();
-        auto& cameraComponent = cameraEntity.AddComponent<CameraComponent>();
-        auto& cameraTransform = cameraEntity.GetComponent<TransformComponent>();
-        cameraTransform.Transform = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, 3.f));
 
         //Resize
         if (FramebufferSpecification spec = Renderer::GetFramebufferSpecification();

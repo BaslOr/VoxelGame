@@ -172,6 +172,7 @@
     <ClInclude Include="src\Cubes\Core\Project\Entity.h" />
     <ClInclude Include="src\Cubes\Core\Renderer\Camera.h" />
     <ClInclude Include="src\Cubes\Core\Project\SceneCamera.h" />
+    <ClInclude Include="src\Cubes\Core\Project\ScriptableEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cubes\Core\Application.cpp">

@@ -43,6 +43,24 @@ namespace Cubes {
 
     void Scene::Update(TimeStep deltaTime)
     {   
+        //Update scripts
+        {
+            _registry.view<NativeScriptComponent>().each([=](auto entity, auto& nsc) 
+            {
+                //TODO: Move to Scene::OnScenePlay()
+                if (!nsc.Instance) {
+                    nsc.Instance = nsc.InstantiateScript();
+                    nsc.Instance->_entity = { this, entity };
+
+                    nsc.Instance->OnCreate();
+                }
+
+                nsc.Instance->OnUpdate(deltaTime);
+
+                //TODO: Call Delete funciton on play mode exit
+            });
+        }
+
         Entity cameraEntity;
         auto view = _registry.view<TransformComponent, CameraComponent>();
         for (auto [entity, transform, camera] : view.each()) {

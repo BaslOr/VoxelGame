@@ -1,10 +1,12 @@
 #pragma once
 #include <glm/glm.hpp>
 
+#include "../Core.h"
+
+#include "SceneCamera.h"
+#include "ScriptableEntity.h"
 #include "../Renderer/Texture.h"
 #include "../Renderer/Model.h"
-#include "SceneCamera.h"
-#include "../Core.h"
 
 namespace Cubes {
 
@@ -26,8 +28,26 @@ namespace Cubes {
             : Transform(transform) { }
     };
 
-    struct SpriteRendererComponent {
-        Ref<Texture> Sprite;
+    struct NativeScriptComponent
+    {
+        ScriptableEntity* Instance = nullptr;
+
+
+
+        ScriptableEntity*(*InstantiateScript)();
+        void(*DestroyScript)(NativeScriptComponent*);
+
+        template<typename T>
+        void Bind()
+        {
+            InstantiateScript = []() { return static_cast<ScriptableEntity*>(new T()); };
+            DestroyScript = [](NativeScriptComponent* nsc) { delete (T*)nsc->Instance; nsc->Instance = nullptr; };
+        }
+    };
+
+    struct SpriteRendererComponent
+    {
+        Ref<Texture> Sprite; //TODO: Add default Sprite
         glm::vec4 Color{ 1.0f };
 
         SpriteRendererComponent() = default;
@@ -35,8 +55,9 @@ namespace Cubes {
             : Sprite(sprite), Color(color) { }
     };
 
-    struct MeshRendererComponent {
-        Ref<Model> Mesh;
+    struct MeshRendererComponent 
+    {
+        Ref<Model> Mesh; //TODO: Add default Mesh
         glm::vec4 Color{ 1.0 };
 
         MeshRendererComponent() = default;
@@ -44,7 +65,8 @@ namespace Cubes {
             : Mesh(mesh), Color(color) { }
     };
 
-    struct CameraComponent {
+    struct CameraComponent 
+    {
         SceneCamera Camera;
         bool Primary = true; //TODO: Should be handled by Scene
 

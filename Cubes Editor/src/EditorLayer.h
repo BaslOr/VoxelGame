@@ -1,8 +1,6 @@
 #pragma once 
 #include <Cubes.h>
 
-#include "CameraController.h"
-
 namespace Cubes {
 
     class EditorLayer : public Layer {
@@ -19,6 +17,9 @@ namespace Cubes {
 
     private:
         Ref<Scene> _activeScene = std::make_shared<Scene>();
+        Entity _spriteEntity;
+        Entity _meshEntity;
+        Entity _cameraEntity;
 
         glm::vec2 _viewPortSize;
 
