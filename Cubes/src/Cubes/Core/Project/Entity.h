@@ -45,8 +45,12 @@ namespace Cubes {
             return _scene->_registry.all_of<T>(_entityHandle);
         }
 
+        operator uint32_t() {
+            return (uint32_t)_entityHandle;
+        }
+
     private:
-        Scene* _scene = nullptr;
+        Scene* _scene = nullptr; //TODO: Should be std::weak_ptr or sth
         entt::entity _entityHandle = entt::null;
     };
 

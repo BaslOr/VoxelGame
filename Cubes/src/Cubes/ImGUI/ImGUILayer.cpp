@@ -151,6 +151,8 @@ namespace Cubes {
                 // which we can't undo at the moment without finer window depth/z control.
                 if (ImGui::MenuItem("Exit"))
                     Application::Get().Close();
+                    
+                ImGui::EndMenu();
             }
 
             ImGui::EndMenuBar();

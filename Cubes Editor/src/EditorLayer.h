@@ -1,5 +1,6 @@
 #pragma once 
 #include <Cubes.h>
+#include "Panels/SceneHierarchyPanel.h"
 
 namespace Cubes {
 
@@ -20,6 +21,8 @@ namespace Cubes {
         Entity _spriteEntity;
         Entity _meshEntity;
         Entity _cameraEntity;
+
+        Ref<SceneHierarchyPanel> _sceneHierarchy = std::make_shared<SceneHierarchyPanel>(_activeScene.get());
 
         glm::vec2 _viewPortSize;
 

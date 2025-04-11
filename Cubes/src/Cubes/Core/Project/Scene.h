@@ -8,6 +8,7 @@
 namespace Cubes {    
 
     class Entity;
+    class SceneHierarchyPanel;
 
     class Scene {
     public:
@@ -28,6 +29,7 @@ namespace Cubes {
         uint32_t _viewportWidth = 0, _viewportHeight = 0;
 
         friend class Entity;
+        friend class SceneHierarchyPanel;
     };
 
 }
