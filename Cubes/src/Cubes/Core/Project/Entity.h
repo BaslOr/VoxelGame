@@ -45,8 +45,16 @@ namespace Cubes {
             return _scene->_registry.all_of<T>(_entityHandle);
         }
 
+        bool operator ==(Entity other) {
+            return (_scene == other._scene) && (_entityHandle == other._entityHandle) ? true : false;
+        }
+
+        operator entt::entity() {
+            return _entityHandle;
+        }
+
         operator uint32_t() {
-            return (uint32_t)_entityHandle;
+            return static_cast<uint32_t>(_entityHandle);
         }
 
     private:

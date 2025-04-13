@@ -14,13 +14,13 @@ namespace Cubes {
         _viewPortSize = { 1280, 720 };
 
 
-        _spriteEntity = _activeScene->CreateEntity("Grass Sprite");
+        _spriteEntity = _activeScene->CreateEmptyEntity("Grass Sprite");
         _spriteEntity.AddComponent<SpriteRendererComponent>();
         auto& spriteComponent = _spriteEntity.GetComponent<SpriteRendererComponent>();
         spriteComponent.Color = glm::vec4(1.f);
         spriteComponent.Sprite = _texture;
 
-        _meshEntity = _activeScene->CreateEntity("Player");
+        _meshEntity = _activeScene->CreateEmptyEntity("Player");
         _meshEntity.AddComponent<MeshRendererComponent>();
         auto& meshComponent = _meshEntity.GetComponent<MeshRendererComponent>();
         meshComponent.Color = glm::vec4(1.f);
@@ -28,7 +28,7 @@ namespace Cubes {
         auto& transformComponent = _meshEntity.GetComponent<TransformComponent>();
         transformComponent.Transform = glm::translate(glm::mat4(1.f), { -1.f, 0.f, 0.f });
 
-        _cameraEntity = _activeScene->CreateEntity("Camera");
+        _cameraEntity = _activeScene->CreateEmptyEntity("Camera");
         auto& cameraComponent = _cameraEntity.AddComponent<CameraComponent>();
         auto& cameraTransform = _cameraEntity.GetComponent<TransformComponent>();
         cameraTransform.Transform = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, 3.f));

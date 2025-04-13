@@ -17,7 +17,7 @@ namespace Cubes {
     {
     }
 
-    Entity Scene::CreateEntity(const std::string& name)
+    Entity Scene::CreateEmptyEntity(const std::string& name)
     {
         Entity entity = { this, _registry.create() };
         entity.AddComponent<TransformComponent>();
@@ -25,6 +25,11 @@ namespace Cubes {
         tag.Tag = name.empty() ? "Entity" : name;
 
         return entity;
+    }
+
+    void Scene::DestroyEntity(Entity entity)
+    {
+        _registry.destroy(entity);
     }
 
     void Scene::OnViewportResize(uint32_t width, uint32_t height)

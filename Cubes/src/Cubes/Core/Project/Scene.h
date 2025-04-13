@@ -17,7 +17,8 @@ namespace Cubes {
 
         void Update(TimeStep deltaTime);
 
-        Entity CreateEntity(const std::string& name = "");
+        Entity CreateEmptyEntity(const std::string& name = "");
+        void DestroyEntity(Entity entity);
 
         void OnViewportResize(uint32_t width, uint32_t height);
 
