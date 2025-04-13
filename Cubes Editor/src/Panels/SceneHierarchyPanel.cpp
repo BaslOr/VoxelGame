@@ -57,8 +57,12 @@ namespace Cubes {
             ImGui::TreePop();
         }
 
-        if (entityDeleted)
+        if (entityDeleted) {
             _context->DestroyEntity(entity);
+            if (_selectedEntity == entity) {
+                _selectedEntity = {};
+            }
+        }
     }
 
 }
