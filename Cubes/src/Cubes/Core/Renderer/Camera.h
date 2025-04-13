@@ -11,6 +11,7 @@ namespace Cubes {
         virtual ~Camera() = default;
 
         virtual void SetPerspective(float fov, float nearClip, float farClip) = 0;
+        virtual void SetOrthographic(float size, float nearClip, float farClip) = 0;
 
         virtual void SetViewportSize(uint32_t width, uint32_t height) = 0;
 

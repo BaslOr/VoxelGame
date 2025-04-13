@@ -27,7 +27,7 @@ namespace Cubes {
         return entity;
     }
 
-    void Scene::DestroyEntity(Entity entity)
+    void Scene::RemoveEntity(Entity entity)
     {
         _registry.destroy(entity);
     }

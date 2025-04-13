@@ -57,6 +57,10 @@ namespace Cubes {
             return static_cast<uint32_t>(_entityHandle);
         }
 
+        operator bool() {
+            return _scene != nullptr && _entityHandle != entt::null;
+        }
+
     private:
         Scene* _scene = nullptr; //TODO: Should be std::weak_ptr or sth
         entt::entity _entityHandle = entt::null;

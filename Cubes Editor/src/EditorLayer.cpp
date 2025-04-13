@@ -118,9 +118,7 @@ namespace Cubes {
 
         ImGui::End();
 
-        ImGui::Begin("Scene Hierachy");
         _sceneHierarchy->OnImGuiRender();
-        ImGui::End();
     }
 
     void EditorLayer::OnEvent(Cubes::Event& event)
