@@ -168,6 +168,32 @@ namespace Cubes {
                 ImGui::TreePop();
             }
         }
+
+        if (_selectedEntity.HasComponent<SpriteRendererComponent>()) {
+            ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow;
+            bool opened = ImGui::TreeNodeEx("Sprite Renderer", flags);
+
+            if (opened) {
+                //TODO: Add query for material
+                auto& spriteRendererComponent = _selectedEntity.GetComponent<SpriteRendererComponent>();
+                ImGui::ColorEdit4("Color", glm::value_ptr(spriteRendererComponent.Color));
+
+                ImGui::TreePop();
+            }
+        }
+
+        if (_selectedEntity.HasComponent<MeshRendererComponent>()) {
+            ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow;
+            bool opened = ImGui::TreeNodeEx("Mesh Renderer", flags);
+
+            if (opened) {
+                //TODO: Add query for material
+                auto& meshRendererComponent = _selectedEntity.GetComponent<MeshRendererComponent>();
+                ImGui::ColorEdit4("Color", glm::value_ptr(meshRendererComponent.Color));
+
+                ImGui::TreePop();
+            }
+        }
     }
 
 }

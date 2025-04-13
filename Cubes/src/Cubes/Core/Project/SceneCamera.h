@@ -47,8 +47,8 @@ namespace Cubes {
         float _perspectiveFOV = 45.0f;
         float _perspectiveNear = 0.1f, _perspectiveFar = 1000.f;
 
-        float _orthographicSize = 1.0f;
-        float _orthographicNear = 0.1f, _orthographicFar = 1.f;
+        float _orthographicSize = 10.0f;
+        float _orthographicNear = 0.1f, _orthographicFar = 10.f;
 
     };
 
