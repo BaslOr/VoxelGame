@@ -74,11 +74,12 @@ namespace Cubes {
                 break;
             }
         }
-        auto& cameraTransform = cameraEntity.GetComponent<TransformComponent>().Transform;
-        
+        auto& cameraTransform = cameraEntity.GetComponent<TransformComponent>();
+        auto& camera = cameraEntity.GetComponent<CameraComponent>().Camera;
+        Renderer::RenderCamera renderCamera{ camera.GetProjection(), cameraTransform.GetTransform() };
 
         //TODO: SceneRenderer
-        Renderer::BeginScene(Renderer::RenderCamera{ cameraEntity.GetComponent<CameraComponent>().Camera.GetProjection(), cameraTransform });
+        Renderer::BeginScene(renderCamera);
         RenderScene(); 
         Renderer::EndScene();
     }
@@ -91,7 +92,7 @@ namespace Cubes {
             for (auto [entity, transform, sprite] : view.each())
             {
                 auto& [transform, sprite] = view.get<TransformComponent, SpriteRendererComponent>(entity);
-                Renderer2D::DrawTexture(sprite.Sprite, transform.Transform, sprite.Color);
+                Renderer2D::DrawTexture(sprite.Sprite, transform.GetTransform(), sprite.Color);
             }
         }
         {
@@ -100,7 +101,7 @@ namespace Cubes {
             for (auto [entity, transform, mesh] : view.each()) {
                 auto& [transform, mesh] = view.get<TransformComponent, MeshRendererComponent>(entity);
 
-                Renderer::DrawModel(mesh.Mesh, transform.Transform, mesh.Color);
+                Renderer::DrawModel(mesh.Mesh, transform.GetTransform(), mesh.Color);
             }
         }
     }

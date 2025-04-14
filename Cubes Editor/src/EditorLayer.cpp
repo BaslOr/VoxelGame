@@ -26,19 +26,20 @@ namespace Cubes {
         meshComponent.Color = glm::vec4(1.f);
         meshComponent.Mesh = _mesh;
         auto& transformComponent = _meshEntity.GetComponent<TransformComponent>();
-        transformComponent.Transform = glm::translate(glm::mat4(1.f), { -1.f, 0.f, 0.f });
+        transformComponent.Position = { -1.f, 0.f, 0.f };
 
         _cameraEntity = _activeScene->CreateEmptyEntity("Camera");
         auto& cameraComponent = _cameraEntity.AddComponent<CameraComponent>();
         auto& cameraTransform = _cameraEntity.GetComponent<TransformComponent>();
-        cameraTransform.Transform = glm::translate(glm::mat4(1.f), glm::vec3(0.f, 0.f, 3.f));
+        cameraTransform.Position = { 0.f, 0.f, 3.f };
 
         class CameraController : public ScriptableEntity 
         {
         public:
             void OnCreate()
             {
-                
+                auto& position = GetComponent<TransformComponent>().Position;
+                position.x = 0;
             }
 
             void OnDestroy()
@@ -48,20 +49,20 @@ namespace Cubes {
 
             void OnUpdate(TimeStep deltaTime)
             {
-                auto& transform = GetComponent<TransformComponent>().Transform;
+                auto& position = GetComponent<TransformComponent>().Position;
                 
                 if (Input::IsKeyPressed(CB_KEY_W))
-                    transform[3][2] -= _cameraSpeed * deltaTime;
+                    position.z -= _cameraSpeed * deltaTime;
                 if (Input::IsKeyPressed(CB_KEY_S))
-                    transform[3][2] += _cameraSpeed * deltaTime;
+                    position.z += _cameraSpeed * deltaTime;
                 if (Input::IsKeyPressed(CB_KEY_A))
-                    transform[3][0] -= _cameraSpeed * deltaTime;
+                    position.x -= _cameraSpeed * deltaTime;
                 if (Input::IsKeyPressed(CB_KEY_D))
-                    transform[3][0] += _cameraSpeed * deltaTime;
+                    position.x += _cameraSpeed * deltaTime;
                 if (Input::IsKeyPressed(CB_KEY_SPACE))
-                    transform[3][1] += _cameraSpeed * deltaTime;
+                    position.y += _cameraSpeed * deltaTime;
                 if (Input::IsKeyPressed(CB_KEY_LEFT_SHIFT))
-                    transform[3][1] -= _cameraSpeed * deltaTime;
+                    position.y -= _cameraSpeed * deltaTime;
             }
 
         private:
