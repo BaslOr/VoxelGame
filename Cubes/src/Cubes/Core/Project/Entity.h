@@ -17,18 +17,20 @@ namespace Cubes {
         {
             CB_CORE_ASSERT_FALSE(HasComponent<T>(), "Tried to add an allready existing component");
 
-            return _scene->_registry.emplace<T>(_entityHandle, std::forward<Args>(args)...);
+            T& component = _scene->_registry.emplace<T>(_entityHandle, std::forward<Args>(args)...);
+            _scene->OnComponentAdded<T>(*this, component);
+            return component;
         }
 
         template<typename T>
         void RemoveComponent() 
         {
-            if (HasComponent<T>()) {
+            if (!HasComponent<T>()) {
                 CB_CORE_LOG_WARN("Tried to remove not existing component");
                 return;
             }
 
-            return _scene->_registry.remove<T>(_entityHandle);
+            _scene->_registry.remove<T>(_entityHandle);
         }
 
         template<typename T>

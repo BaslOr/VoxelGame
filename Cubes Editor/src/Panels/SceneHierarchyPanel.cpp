@@ -19,7 +19,7 @@ namespace Cubes {
             Entity entity(_context, nativeEntity);
 
             DrawEntityNode(entity);
-        });
+            });
 
         if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
             _selectedEntity = {};
@@ -37,6 +37,30 @@ namespace Cubes {
         ImGui::Begin("Inspector");
 
         DrawComponents();
+
+        if (_selectedEntity) {
+            if (ImGui::Button("Add Component"))
+                ImGui::OpenPopup("AddComponent");
+
+            if (ImGui::BeginPopup("AddComponent")) {
+                if (ImGui::MenuItem("Camera")) {
+                    _selectedEntity.AddComponent<CameraComponent>();
+                    ImGui::CloseCurrentPopup();
+                }
+
+                if (ImGui::MenuItem("SpriteRenderer")) {
+                    _selectedEntity.AddComponent<SpriteRendererComponent>();
+                    ImGui::CloseCurrentPopup();
+                }
+
+                if (ImGui::MenuItem("MeshRenderer")) {
+                    _selectedEntity.AddComponent<MeshRendererComponent>();
+                    ImGui::CloseCurrentPopup();
+                }
+
+                ImGui::EndPopup();
+            }
+        }
 
         ImGui::End();
     }
@@ -138,6 +162,7 @@ namespace Cubes {
         if (!_selectedEntity)
             return;
 
+        const ImGuiTreeNodeFlags treenNodeFlags = ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow;
 
         if (_selectedEntity.HasComponent<TagComponent>()) {
             auto& entityTag = _selectedEntity.GetComponent<TagComponent>().Tag;
@@ -167,8 +192,7 @@ namespace Cubes {
         }
 
         if (_selectedEntity.HasComponent<CameraComponent>()) {
-            ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow;
-            bool opened = ImGui::TreeNodeEx("Camera", flags);
+            bool opened = ImGui::TreeNodeEx("Camera", treenNodeFlags);
 
             if (opened) {
                 auto& cameraComponent = _selectedEntity.GetComponent<CameraComponent>();
@@ -231,21 +255,35 @@ namespace Cubes {
         }
 
         if (_selectedEntity.HasComponent<SpriteRendererComponent>()) {
-            ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow;
-            bool opened = ImGui::TreeNodeEx("Sprite Renderer", flags);
+            bool opened = ImGui::TreeNodeEx("Sprite Renderer", treenNodeFlags);
+
+            ImGui::SameLine();
+            if (ImGui::Button("+")) {
+                ImGui::OpenPopup("ComponentSettings");
+            }
+
+            bool removeComponent = false;
+            if (ImGui::BeginPopup("ComponentSettings")) {
+                if (ImGui::MenuItem("Remove Component"))
+                    removeComponent = true;
+
+                ImGui::EndPopup();
+            }
 
             if (opened) {
                 //TODO: Add query for material
                 auto& spriteRendererComponent = _selectedEntity.GetComponent<SpriteRendererComponent>();
                 ImGui::ColorEdit4("Color", glm::value_ptr(spriteRendererComponent.Color));
-
+                
                 ImGui::TreePop();
             }
+
+            if (removeComponent)
+                _selectedEntity.RemoveComponent<TransformComponent>();
         }
 
         if (_selectedEntity.HasComponent<MeshRendererComponent>()) {
-            ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_OpenOnArrow;
-            bool opened = ImGui::TreeNodeEx("Mesh Renderer", flags);
+            bool opened = ImGui::TreeNodeEx("Mesh Renderer", treenNodeFlags);
 
             if (opened) {
                 //TODO: Add query for material

@@ -11,6 +11,7 @@ namespace Cubes {
 
     Scene::Scene()
     {
+        
     }
 
     Scene::~Scene()
@@ -104,6 +105,42 @@ namespace Cubes {
                 Renderer::DrawModel(mesh.Mesh, transform.GetTransform(), mesh.Color);
             }
         }
+    }
+
+    template<typename T>
+    void Scene::OnComponentAdded(Entity entity, T& component) 
+    {
+        CB_CORE_LOG_ERROR("Component of typename {0} is not supported to handle an OnComponentAdded callback");
+    }
+
+    template<>
+    void Scene::OnComponentAdded<TagComponent>(Entity entity, TagComponent& component) {
+
+    }
+
+    template<>
+    void Scene::OnComponentAdded<TransformComponent>(Entity entity, TransformComponent& component) {
+
+    }
+
+    template<>
+    void Scene::OnComponentAdded<SpriteRendererComponent>(Entity entity, SpriteRendererComponent& component) {
+
+    }
+
+    template<>
+    void Scene::OnComponentAdded<MeshRendererComponent>(Entity entity, MeshRendererComponent& component) {
+
+    }
+
+    template<>
+    void Scene::OnComponentAdded<CameraComponent>(Entity entity, CameraComponent& component) {
+        component.Camera.SetViewportSize(_viewportWidth, _viewportHeight);
+    }
+
+    template<>
+    void Scene::OnComponentAdded<NativeScriptComponent>(Entity entity, NativeScriptComponent& component) {
+
     }
 
 }

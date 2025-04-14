@@ -25,9 +25,12 @@ namespace Cubes {
     private:
         void RenderScene();
 
+        template<typename T>
+        void OnComponentAdded(Entity entity, T& component);
+
     private:
         entt::registry _registry;
-        uint32_t _viewportWidth = 0, _viewportHeight = 0;
+        uint32_t _viewportWidth = 100, _viewportHeight = 100;
 
         friend class Entity;
         friend class SceneHierarchyPanel;
