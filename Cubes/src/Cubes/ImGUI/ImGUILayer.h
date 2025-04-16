@@ -19,12 +19,19 @@ namespace Cubes {
 		void Begin();
 		void End();
 
+		inline void SetImGuiFontScale(float scale);
+		inline float GetImGuiFontScale() const { return _fontScale; }
+
+		void SetDarkThemeColors();
+
 	private:	
 		void StartDockspace();
 		void EndDockspace();
 
 	private:
 		float _time = 0.f;
+
+		float _fontScale = 1.5;
 	};
 
 }

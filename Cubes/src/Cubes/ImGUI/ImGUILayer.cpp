@@ -31,11 +31,13 @@ namespace Cubes {
         io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
         //io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoTaskBarIcons;
         //io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
-        io.FontGlobalScale = 1.5f;
+
+        io.FontDefault = io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Regular.ttf", 18);
+        io.Fonts->AddFontFromFileTTF("Assets/Fonts/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Bold.ttf", 18); //TODO: Add font lib
+        io.FontGlobalScale = 1.32f;
 
         // Setup Dear ImGui style
         ImGui::StyleColorsDark();
-        //ImGui::StyleColorsClassic();
 
         // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
         ImGuiStyle& style = ImGui::GetStyle();
@@ -90,6 +92,23 @@ namespace Cubes {
         }
     }
 
+    inline void ImGUILayer::SetImGuiFontScale(float scale)
+    {
+        _fontScale = scale;
+        ImGuiIO& io = ImGui::GetIO();
+        io.FontGlobalScale = _fontScale;
+    }
+
+    void ImGUILayer::SetDarkThemeColors()
+    {
+        auto& colors = ImGui::GetStyle().Colors; 
+        //TODO: Set Colors ImGuiCol_Header ImGuiCol_HeaderHovered ImGuiCol_HeaderActive
+        //ImGuiCol_Button, ImGuiCol_ButtonHovered, ImGuiCol_Active
+        //ImGuiCol_FrameBg, ImGuiCol_FrameBgHovered, ImGuiCol_FrameBgHovered
+        //ImGuiCol_Tag, ImGuiCol_TabHovered, ImGuiCol_TabActive, ImGuiCol_TabUnfocused, ImGuiCol_TabUnfocusedActive
+        //ImGuiCol_TitleBg, ImGuiCol_TitleBgActive, ImGuiCol_TitleBgCollapsed
+    }
+
     void ImGUILayer::StartDockspace()
     {
         static bool opt_fullscreen = true;
@@ -137,11 +156,17 @@ namespace Cubes {
 
         // Submit the DockSpace
         ImGuiIO& io = ImGui::GetIO();
+        ImGuiStyle& style = ImGui::GetStyle();
+        float minWindowSizeX = style.WindowMinSize.x;
+        style.WindowMinSize.x = 300.0f;
         if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
         {
             ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
             ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
         }
+
+        style.WindowMinSize.x = minWindowSizeX;
+
 
         if (ImGui::BeginMenuBar())
         {

@@ -59,7 +59,7 @@ namespace Cubes {
 
     struct SpriteRendererComponent
     {
-        Ref<Texture> Sprite; //TODO: Add default Sprite
+        Ref<Texture> Sprite = Texture::Create("../Cubes/resources/textures/DefaultTexture.png");
         glm::vec4 Color{ 1.0f };
 
         SpriteRendererComponent() = default;

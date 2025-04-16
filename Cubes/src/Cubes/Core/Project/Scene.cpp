@@ -75,6 +75,10 @@ namespace Cubes {
                 break;
             }
         }
+
+        if (!cameraEntity)
+            return;
+
         auto& cameraTransform = cameraEntity.GetComponent<TransformComponent>();
         auto& camera = cameraEntity.GetComponent<CameraComponent>().Camera;
         Renderer::RenderCamera renderCamera{ camera.GetProjection(), cameraTransform.GetTransform() };

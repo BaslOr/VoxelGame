@@ -15,6 +15,7 @@ namespace Cubes {
     private:
         void DrawEntityNode(Entity entity);
         void DrawComponents();
+        void DrawAddComponentButton();
 
     private:
         Scene* _context = nullptr; //TODO: Should be a Cubes::weak_ptr or sth 
