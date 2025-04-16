@@ -1,6 +1,8 @@
 #pragma once 
 #include <Cubes.h>
-#include "Panels/SceneHierarchyPanel.h"
+#include "Panels/General/SceneHierarchyPanel.h"
+#include "Panels/General/ViewportPanel.h"
+#include "Panels/PanelManager.h"
 
 namespace Cubes {
 
@@ -16,18 +18,26 @@ namespace Cubes {
         void OnImGuiRender() override;
         void OnEvent(Event& event) override;
 
+        void OpenPanel(Panel* panel);
+        void ClosePanel(Panel* panel);
+
+    private:
+        void RenderPanels();
+        void UpdatePanels();
+
     private:
         Ref<Scene> _activeScene = std::make_shared<Scene>();
-        Entity _spriteEntity;
-        Entity _meshEntity;
-        Entity _cameraEntity;
 
-        Ref<SceneHierarchyPanel> _sceneHierarchy = std::make_shared<SceneHierarchyPanel>(_activeScene.get());
-
-        glm::vec2 _viewPortSize;
+        PanelManager _panelManager;
+        ViewportPanel* _viewportPanel;
+        InspectorPanel* _inspectorPanel;
+        SceneHierarchyPanel* _sceneHierarchyPanel;
 
         Ref<Texture> _texture;
         Ref<Model> _mesh;
+        Entity _spriteEntity;
+        Entity _meshEntity;
+        Entity _cameraEntity;
     };
 
 }

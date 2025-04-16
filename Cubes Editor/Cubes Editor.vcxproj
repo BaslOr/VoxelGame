@@ -138,17 +138,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\EditorLayer.h" />
-    <ClInclude Include="src\Panels\SceneHierarchyPanel.h" />
+    <ClInclude Include="src\Panels\General\InspectorPanel.h" />
+    <ClInclude Include="src\Panels\Panel.h" />
+    <ClInclude Include="src\Panels\General\SceneHierarchyPanel.h" />
+    <ClInclude Include="src\Panels\General\ViewportPanel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CubesEditor.cpp" />
     <ClCompile Include="src\EditorLayer.cpp" />
-    <ClCompile Include="src\Panels\SceneHierarchyPanel.cpp" />
+    <ClCompile Include="src\Panels\General\InspectorPanel.cpp" />
+    <ClCompile Include="src\Panels\PanelManager.cpp" />
+    <ClCompile Include="src\Panels\General\SceneHierarchyPanel.cpp" />
+    <ClCompile Include="src\Panels\General\ViewportPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cubes\Cubes.vcxproj">
       <Project>{9740FD0C-0355-25BE-CCD6-C81D38AA21EF}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Panels\PanelManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

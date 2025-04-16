@@ -9,6 +9,7 @@ namespace Cubes {
 	{
 	public:
 		CubesEditor()
+			: Application("Cubes Editor")
 		{
 			PushLayer(new EditorLayer());
 		}

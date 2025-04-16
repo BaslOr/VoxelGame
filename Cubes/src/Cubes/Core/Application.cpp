@@ -9,14 +9,18 @@ namespace Cubes {
     Application* Application::_instance = nullptr;
 
 
-    Application::Application()
+    Application::Application(const std::string& name)
     {
         if (_instance != nullptr)
             CB_CORE_LOG_ERROR("Application already exists");
         _instance = this;
 
         InitLogger();
-        _window = std::unique_ptr<Window>(Window::Create());
+        WindowProps windowProps{};
+        windowProps.Width = 1920;
+        windowProps.Height = 1080;
+        windowProps.Title = name;
+        _window = std::unique_ptr<Window>(Window::Create(windowProps));
         _window->SetEventCallback(CB_BIND_EVENT_FUNC(Application::OnEvent));
         Renderer::Init();
 

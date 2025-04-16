@@ -7,31 +7,31 @@
 
 namespace Cubes {
 
-	class CB_API ImGUILayer : public Layer
-	{
-	public:
-		ImGUILayer();
-		~ImGUILayer();
-		
-		void OnAttach() override;
-		void OnDetach() override;
+    class CB_API ImGUILayer : public Layer
+    {
+    public:
+        ImGUILayer();
+        ~ImGUILayer();
+        
+        void OnAttach() override;
+        void OnDetach() override;
 
-		void Begin();
-		void End();
+        void Begin();
+        void End();
 
-		inline void SetImGuiFontScale(float scale);
-		inline float GetImGuiFontScale() const { return _fontScale; }
+        inline void SetImGuiFontScale(float scale);
+        inline float GetImGuiFontScale() const { return _fontScale; }
 
-		void SetDarkThemeColors();
+        void SetDarkThemeColors();
 
-	private:	
-		void StartDockspace();
-		void EndDockspace();
+    private:	
+        void StartDockspace();
+        void EndDockspace();
 
-	private:
-		float _time = 0.f;
+    private:
+        float _time = 0.f;
 
-		float _fontScale = 1.5;
-	};
+        float _fontScale = 1.5;
+    };
 
 }

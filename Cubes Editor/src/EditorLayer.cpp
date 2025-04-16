@@ -11,9 +11,6 @@ namespace Cubes {
         _texture = Texture::Create("../Sandbox/Assets/Textures/TestIcon.png");
         _mesh = std::make_shared<Model>(ModelLoader::LoadModel("../Sandbox/Assets/3D Models/Dummy.obj", "../Sandbox/Assets/3D Models/Dummy.png"));
 
-        _viewPortSize = { 1280, 720 };
-
-
         _spriteEntity = _activeScene->CreateEmptyEntity("Grass Sprite");
         _spriteEntity.AddComponent<SpriteRendererComponent>();
         auto& spriteComponent = _spriteEntity.GetComponent<SpriteRendererComponent>();
@@ -69,6 +66,14 @@ namespace Cubes {
             float _cameraSpeed = 2.5;
         };
         _cameraEntity.AddComponent<NativeScriptComponent>().Bind<CameraController>();
+
+        //Open Default Panels
+        _inspectorPanel = new InspectorPanel();
+        _sceneHierarchyPanel = new SceneHierarchyPanel(_activeScene.get(), _inspectorPanel);
+        _viewportPanel = new ViewportPanel(_activeScene.get());
+        OpenPanel(_viewportPanel);
+        OpenPanel(_inspectorPanel);
+        OpenPanel(_sceneHierarchyPanel);
     }
 
     void EditorLayer::OnDetach()
@@ -83,17 +88,8 @@ namespace Cubes {
             wireframeModeEnable = !wireframeModeEnable;
         }
 
-        //Resize
-        if (FramebufferSpecification spec = Renderer::GetFramebufferSpecification();
-            _viewPortSize.x > 0.0f && _viewPortSize.y > 0.0f && 
-            (spec.Width != _viewPortSize.x || spec.Height != _viewPortSize.y)) {
-
-            Renderer::ResizeFramebuffer(_viewPortSize.x, _viewPortSize.y);
-
-            _activeScene->OnViewportResize((uint32_t)_viewPortSize.x, (uint32_t)_viewPortSize.y);
-        }
-
         //Update
+        UpdatePanels();
         _activeScene->Update(deltaTime);
     }
 
@@ -101,29 +97,41 @@ namespace Cubes {
     {
         ScopeTimer scopeTimer("OnImGuiRender");
 
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, {0, 0});
-        ImGui::Begin("Viewport");
-
-        ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
-        _viewPortSize = { viewportPanelSize.x, viewportPanelSize.y };
-
-        uint32_t textureID = Cubes::Renderer::GetFramebufferColorAttachmentID();
-        ImGui::Image((void*)textureID, { _viewPortSize.x, _viewPortSize.y }, ImVec2(0, 1), ImVec2(1, 0));
-
-        ImGui::End();
-        ImGui::PopStyleVar();
-
-        ImGui::Begin("Stats");
-
-        ImGui::Text("Some kind of statistics: ");
-
-        ImGui::End();
-
-        _sceneHierarchy->OnImGuiRender();
+        RenderPanels();
     }
 
     void EditorLayer::OnEvent(Cubes::Event& event)
     {
+    }
+
+    void EditorLayer::OpenPanel(Panel* panel)
+    {
+        _panelManager.OpenPanel(panel);
+        panel->OnAttach();
+    }
+
+    void EditorLayer::ClosePanel(Panel* panel)
+    {
+        panel->OnDetach();
+        _panelManager.ClosePanel(panel);
+    }
+
+    void EditorLayer::RenderPanels()
+    {
+        for (auto* panel : _panelManager) {
+            panel->PushStyleVars();
+            ImGui::Begin(panel->GetName().c_str());
+            panel->OnImGuiRender();
+            ImGui::End();
+            panel->PopStyleVars();
+        }
+    }
+
+    void EditorLayer::UpdatePanels()
+    {
+        for (auto* panel : _panelManager) {
+            panel->OnUpdate();
+        }
     }
 
 }

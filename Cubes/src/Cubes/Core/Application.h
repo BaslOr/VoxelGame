@@ -14,7 +14,7 @@ namespace Cubes {
 
     class CB_API Application {
     public:
-        Application();
+        Application(const std::string& name = "Cubes Program");
         virtual ~Application();
         
         void run();
@@ -37,7 +37,7 @@ namespace Cubes {
 
     private:
 
-        std::unique_ptr<Window> _window;
+        Scope<Window> _window;
         ImGUILayer* _ImGuiLayer;
         LayerStack _layerStack;
 
