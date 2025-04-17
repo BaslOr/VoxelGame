@@ -37,7 +37,7 @@ namespace Cubes {
         io.FontGlobalScale = 1.32f;
 
         // Setup Dear ImGui style
-        ImGui::StyleColorsDark();
+        //ImGui::StyleColorsDark();
 
         // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
         ImGuiStyle& style = ImGui::GetStyle();
@@ -60,6 +60,11 @@ namespace Cubes {
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplGlfw_Shutdown();
         ImGui::DestroyContext();
+    }
+
+    void ImGUILayer::OnImGuiRender()
+    {
+        SetDarkThemeColors();
     }
 
     void ImGUILayer::Begin()
@@ -99,14 +104,67 @@ namespace Cubes {
         io.FontGlobalScale = _fontScale;
     }
 
-    void ImGUILayer::SetDarkThemeColors()
+    void ImGUILayer::SetDarkThemeColors(bool drawColorPicker)
     {
-        auto& colors = ImGui::GetStyle().Colors; 
-        //TODO: Set Colors ImGuiCol_Header ImGuiCol_HeaderHovered ImGuiCol_HeaderActive
-        //ImGuiCol_Button, ImGuiCol_ButtonHovered, ImGuiCol_Active
-        //ImGuiCol_FrameBg, ImGuiCol_FrameBgHovered, ImGuiCol_FrameBgHovered
-        //ImGuiCol_Tag, ImGuiCol_TabHovered, ImGuiCol_TabActive, ImGuiCol_TabUnfocused, ImGuiCol_TabUnfocusedActive
-        //ImGuiCol_TitleBg, ImGuiCol_TitleBgActive, ImGuiCol_TitleBgCollapsed
+        auto& colors = ImGui::GetStyle().Colors;
+
+        if (drawColorPicker) {
+
+            ImGui::Begin("Color Picker");
+
+            ImGui::Text("Header");
+            ImGui::ColorEdit4("Header", &_headerColor.x);
+            ImGui::ColorEdit4("Header Hovered", &_headerHoveredColor.x);
+            ImGui::ColorEdit4("Header Active", &_headerActiveColor.x);
+
+            ImGui::Separator();
+            ImGui::Text("Button");
+            ImGui::ColorEdit4("Button", &_buttonColor.x);
+            ImGui::ColorEdit4("Button Hovered", &_buttonHoveredColor.x);
+            ImGui::ColorEdit4("Button Active", &_activeColor.x);
+
+            ImGui::Separator();
+            ImGui::Text("Frame Background");
+            ImGui::ColorEdit4("FrameBg", &_frameBackgroundColor.x);
+            ImGui::ColorEdit4("FrameBg Hovered", &_frameBackgroundHovered.x);
+
+            ImGui::Separator();
+            ImGui::Text("Tab");
+            ImGui::ColorEdit4("Tab", &_tagColor.x);
+            ImGui::ColorEdit4("Tab Hovered", &_tabHoveredColor.x);
+            ImGui::ColorEdit4("Tab Active", &_tabActiveColor.x);
+            ImGui::ColorEdit4("Tab Unfocused", &_tabUnfocusedColor.x);
+            ImGui::ColorEdit4("Tab Unfocused Active", &_tabUnfocusedActiveColor.x);
+
+            ImGui::Separator();
+            ImGui::Text("Title Background");
+            ImGui::ColorEdit4("TitleBg", &_titleBackground.x);
+            ImGui::ColorEdit4("TitleBg Active", &_titleBackgroundActive.x);
+            ImGui::ColorEdit4("TitleBg Collapsed", &_titleBackgroundCollapsed.x);
+
+            ImGui::End();
+        }
+
+        colors[ImGuiCol_Header] = _headerColor;
+        colors[ImGuiCol_HeaderHovered] = _headerHoveredColor;
+        colors[ImGuiCol_HeaderActive] = _headerActiveColor;
+
+        colors[ImGuiCol_Button] = _buttonColor;
+        colors[ImGuiCol_ButtonHovered] = _buttonHoveredColor;
+        colors[ImGuiCol_ButtonActive] = _activeColor;
+
+        colors[ImGuiCol_FrameBg] = _frameBackgroundColor;
+        colors[ImGuiCol_FrameBgHovered] = _frameBackgroundHovered;
+
+        colors[ImGuiCol_Tab] = _tagColor;
+        colors[ImGuiCol_TabHovered] = _tabHoveredColor;
+        colors[ImGuiCol_TabActive] = _tabActiveColor;
+        colors[ImGuiCol_TabUnfocused] = _tabUnfocusedColor;
+        colors[ImGuiCol_TabUnfocusedActive] = _tabUnfocusedActiveColor;
+
+        colors[ImGuiCol_TitleBg] = _titleBackground;
+        colors[ImGuiCol_TitleBgActive] = _titleBackgroundActive;
+        colors[ImGuiCol_TitleBgCollapsed] = _titleBackgroundCollapsed;
     }
 
     void ImGUILayer::StartDockspace()
