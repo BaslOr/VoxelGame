@@ -27,7 +27,7 @@ namespace Cubes {
         case RendererAPI::API::None:
             throw NoAPISelectedError();
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLFramebuffer>(spec);
+            return CreateRef<OpenGLFramebuffer>(spec);
         case RendererAPI::API::Vulkan:
             throw APINotSupportedError("Vulkan");
         }

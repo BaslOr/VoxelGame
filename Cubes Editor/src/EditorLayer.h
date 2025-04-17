@@ -26,7 +26,7 @@ namespace Cubes {
         void UpdatePanels();
 
     private:
-        Ref<Scene> _activeScene = std::make_shared<Scene>();
+        Ref<Scene> _activeScene = CreateRef<Scene>();
 
         PanelManager _panelManager;
         ViewportPanel* _viewportPanel;

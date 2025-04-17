@@ -9,7 +9,7 @@ namespace Cubes {
     {
 
         _texture = Texture::Create("../Sandbox/Assets/Textures/TestIcon.png");
-        _mesh = std::make_shared<Model>(ModelLoader::LoadModel("../Sandbox/Assets/3D Models/Dummy.obj", "../Sandbox/Assets/3D Models/Dummy.png"));
+        _mesh = CreateRef<Model>(ModelLoader::LoadModel("../Sandbox/Assets/3D Models/Dummy.obj", "../Sandbox/Assets/3D Models/Dummy.png"));
 
         _spriteEntity = _activeScene->CreateEmptyEntity("Grass Sprite");
         _spriteEntity.AddComponent<SpriteRendererComponent>();

@@ -38,7 +38,7 @@ namespace Cubes {
         case RendererAPI::API::None:
             throw NoAPISelectedError();
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLShader>(filePath);
+            return CreateRef<OpenGLShader>(filePath);
         case RendererAPI::API::Vulkan:
             throw APINotSupportedError("Vulkan");
         }
@@ -52,7 +52,7 @@ namespace Cubes {
         case RendererAPI::API::None:
             throw NoAPISelectedError();
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLShader>(name, vertexCode, fragmentCode);
+            return CreateRef<OpenGLShader>(name, vertexCode, fragmentCode);
         case RendererAPI::API::Vulkan:
             throw APINotSupportedError("Vulkan");
         }

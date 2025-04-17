@@ -28,7 +28,7 @@ namespace Cubes {
         case RendererAPI::API::None:
             throw NoAPISelectedError();
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLVertexArray>();
+            return CreateRef<OpenGLVertexArray>();
         case RendererAPI::API::Vulkan:
             throw APINotSupportedError("Vulkan");
         }

@@ -26,7 +26,7 @@ namespace Cubes {
         case RendererAPI::API::None:
             throw NoAPISelectedError();
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLTexture2D>(texturePath);
+            return CreateRef<OpenGLTexture2D>(texturePath);
         case RendererAPI::API::Vulkan:
             throw APINotSupportedError("Vulkan");
         }

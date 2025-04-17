@@ -27,7 +27,7 @@ namespace Cubes {
             throw NoAPISelectedError();
             break;
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLVertexBuffer>(data, size);
+            return CreateRef<OpenGLVertexBuffer>(data, size);
             break;
         case RendererAPI::API::Vulkan:
             throw APINotSupportedError("Vulkan");
@@ -61,7 +61,7 @@ namespace Cubes {
             throw NoAPISelectedError();
             break;
         case RendererAPI::API::OpenGL:
-            return std::make_shared<OpenGLIndexBuffer>(data, count);
+            return CreateRef<OpenGLIndexBuffer>(data, count);
             break;
         case RendererAPI::API::Vulkan:
             throw APINotSupportedError("Vulkan");
